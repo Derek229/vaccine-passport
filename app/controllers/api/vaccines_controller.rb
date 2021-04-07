@@ -1,6 +1,6 @@
 class Api::VaccinesController < ApplicationController
   
-  before_action :authenticate_user!, only: [:create,:update, :destroy]
+  before_action :authenticate_user!, only: [:create,:update, :delete]
   before_action :set_vaccine, only: [:show,:update, :delete]
   
   def index
@@ -8,9 +8,8 @@ class Api::VaccinesController < ApplicationController
     render json: vaccines
   end
 
-  def show
-    @vaccine = Vaccine.find(params[:id])
-    render json: {vaccine: vaccine}
+  def show  
+    render json: {vaccine: @vaccine}
   end
 
   def create
