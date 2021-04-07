@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_04_07_214945) do
+=======
+ActiveRecord::Schema.define(version: 2021_04_07_214901) do
+>>>>>>> 7743a61ca8afd2e58d6770257af9119be46d9c3c
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +68,9 @@ ActiveRecord::Schema.define(version: 2021_04_07_214945) do
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "vaccine_id", null: false
     t.index ["user_id"], name: "index_vaccination_wallets_on_user_id"
+    t.index ["vaccine_id"], name: "index_vaccination_wallets_on_vaccine_id"
   end
 
   create_table "vaccines", force: :cascade do |t|
@@ -83,6 +89,7 @@ ActiveRecord::Schema.define(version: 2021_04_07_214945) do
 
   add_foreign_key "required_vaccines", "users"
   add_foreign_key "vaccination_wallets", "users"
+  add_foreign_key "vaccination_wallets", "vaccines"
   add_foreign_key "vaccines", "required_vaccines"
   add_foreign_key "vaccines", "users"
 end
