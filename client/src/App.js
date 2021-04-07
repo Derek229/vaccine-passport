@@ -10,6 +10,8 @@ import Register from './components/Register';
 import Login from './components/Login';
 import FetchUser from './components/FetcherUser';
 import ProtectedRoute from './components/ProtectedRoutes';
+import Wallet from './pages/user/Wallet';
+import UserDashboard from './pages/user/UserDashboard';
 
 function App() {
 
@@ -24,6 +26,8 @@ function App() {
         <Route exact path='/componentDemo' component={ComponentDemo} />
         <Route exact path='/login' component={Login}/>
         <Route exact path='/register' component={Register} />
+        <Route exact path='/users/self/wallet' component={Wallet} />
+        <Route exact path='/users/self' component={UserDashboard} />
         < Route component={NoMatch} />
               </Switch>
       </Container>

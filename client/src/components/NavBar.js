@@ -13,6 +13,13 @@ const Navbar1 = (props) => {
     if (user) {
       return (
         <Menu.Menu position="right">
+          <Link to='/users/self'>
+            <Menu.Item
+              name='My Profile'
+              id='users'
+              active={pathname === '/users/self'}
+            />
+          </Link>
           <Menu.Item name="logout" onClick={() => handleLogout(history)} />
         </Menu.Menu>
       );
@@ -43,9 +50,13 @@ const Navbar1 = (props) => {
         <Link to="/about">
           <Menu.Item name="about" id="about" active={pathname === "/about"} />
         </Link>
-        <Link to="/componentDemo">
-          <Menu.Item name="componentDemo" id="componentDemo" active={pathname === "/componentDemo"} />
-        </Link>
+        <Link to='/users/self/wallet'>
+            <Menu.Item
+              name='My Wallet'
+              id='users'
+              active={pathname === '/users/self/wallet'}
+            />
+          </Link>
         {rightNavItems()}
       </Menu>
     </div>
