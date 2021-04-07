@@ -24,22 +24,22 @@ password:'123456'
 )
 end
 
-#this is verifier seed
+#this is issuer seed
 
-verifier1=User.create(first_name:'beth', last_name:'johnson', email: 'verifier1@test.com', role:'verifier', password:'123456')
-verifier2=User.create(first_name:'james', last_name:'bond', email: 'verifier2@test.com', role:'verifier', password:'123456')
-verifier3=User.create(first_name:'tedd', last_name:'lang', email: 'verifier3@test.com', role:'verifier', password:'123456')
-verifier4=User.create(first_name:'john', last_name:'doe', email: 'verifier4@test.com', role:'verifier', password:'123456')
-verifier5=User.create(first_name:'jane', last_name:'doe', email: 'verifier5@test.com', role:'verifier', password:'123456')
-
-
+issuer1=User.create(name:'walmart', email: 'issuer1@test.com', role:'issuer', password:'123456')
+issuer2=User.create(name:'duane read', email:'issuer2@test.com', role:'issuer', password:'123456')
+issuer3=User.create(name:'walgreens', email: 'issuer3@test.com', role:'issuer', password:'123456')
+issuer4=User.create(name:'intermountain-healthcare', email: 'issuer4@test.com', role:'issuer', password:'123456')
+issuer5=User.create(name:'u of u health', email: 'issuer5@test.com', role:'issuer', password:'123456')
 
 
-#country seed 
+
+
+#country seed verifier
 5.times do
   User.create(
-    country_origin: Faker::Address.country,
-    role:'issuer'
+    name: Faker::Address.country,
+    role:'verifier'
   )
 end
 

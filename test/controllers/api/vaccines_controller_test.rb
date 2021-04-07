@@ -1,6 +1,6 @@
 require "test_helper"
 
-class WalletTest < ActiveSupport::TestCase
+class Api::VaccinesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

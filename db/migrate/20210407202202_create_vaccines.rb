@@ -1,8 +1,8 @@
-class CreateSubmissions < ActiveRecord::Migration[6.1]
+class CreateVaccines < ActiveRecord::Migration[6.1]
   def change
-    create_table :submissions do |t|
-      t.string :vac_name
-      t.string :origin
+    create_table :vaccines do |t|
+      t.string :name
+      t.string :manufacturer
       t.string :image
       t.string :verified
       t.date :date
