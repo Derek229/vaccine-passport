@@ -1,5 +1,6 @@
 class Api::VaccinesController < ApplicationController
   
+
   before_action :authenticate_user!, only: [:create,:update, :delete]
   before_action :set_vaccine, only: [:show,:update, :delete]
   
