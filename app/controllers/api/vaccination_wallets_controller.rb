@@ -8,7 +8,7 @@ class Api::VaccinationWalletsController < ApplicationController
   end
 
   def show 
-    render json: {vaccination_wallet: @vacccination_wallet, user: @vacccination_wallet.get_user_with_vaccine}
+    render json: {vaccination_wallet: @vacccination_wallet}
   end
 
   def create 
