@@ -17,7 +17,7 @@ const Wallet = (props) => {
 
   const getSubmissions = async () => {
     //get user's submissions
-    let res = await axios.get(`/api/users/${user.id}/submissions`)
+    let res = await axios.get(`/api/users/${user.id}/vaccines`)
 
     //TODO: setSubmissions => res.data.submissions (check what data is in res)
   }

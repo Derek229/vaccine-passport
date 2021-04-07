@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     get '/api_test', to:'static#api_test'
 
     resources :users do
-      resources :submissions
-      resources :wallets
+      resources :vaccine
+      resources :
+      resources :required_vaccine
     end
     
   end
