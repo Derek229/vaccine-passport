@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
-  has_many :submissions
-  has_one :wallet
+  has_many :vaccines
+  has_one :vaccination_wallet
 end
