@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_221850) do
+ActiveRecord::Schema.define(version: 2021_04_07_203140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "required_vaccines", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_required_vaccines_on_user_id"
+  end
 
   create_table "submissions", force: :cascade do |t|
     t.string "vac_name"
@@ -63,6 +70,29 @@ ActiveRecord::Schema.define(version: 2021_04_06_221850) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  create_table "vaccination_wallets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "image"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_vaccination_wallets_on_user_id"
+  end
+
+  create_table "vaccines", force: :cascade do |t|
+    t.string "name"
+    t.string "manufacturer"
+    t.string "image"
+    t.string "verified"
+    t.date "date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "required_vaccine_id", null: false
+    t.index ["required_vaccine_id"], name: "index_vaccines_on_required_vaccine_id"
+    t.index ["user_id"], name: "index_vaccines_on_user_id"
+  end
+
   create_table "wallets", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -70,6 +100,10 @@ ActiveRecord::Schema.define(version: 2021_04_06_221850) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
+  add_foreign_key "required_vaccines", "users"
   add_foreign_key "submissions", "users"
+  add_foreign_key "vaccination_wallets", "users"
+  add_foreign_key "vaccines", "required_vaccines"
+  add_foreign_key "vaccines", "users"
   add_foreign_key "wallets", "users"
 end

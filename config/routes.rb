@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     resources :users do
       resources :vaccine
-      resources :
+      resources :vaccination_wallet
       resources :required_vaccine
     end
     
