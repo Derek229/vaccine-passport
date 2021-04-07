@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
     resources :users do
       resources :submissions
+      resources :wallets
     end
-    resources :wallets
+    
   end
 end
