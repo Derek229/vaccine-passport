@@ -57,6 +57,20 @@ const Navbar1 = (props) => {
               active={pathname === '/users/self/wallet'}
             />
           </Link>
+          <Link to='/users/issuer/vaccines'>
+            <Menu.Item
+              name='Issuers CRUD Page'
+              id='users'
+              active={pathname === '/users/issuer/vaccines'}
+            />
+          </Link>
+          <Link to='/users/verifier/pending'>
+            <Menu.Item
+              name='Verifier Pending Submissions Page'
+              id='users'
+              active={pathname === '/users/verifier/pending'}
+            />
+          </Link>
         {rightNavItems()}
       </Menu>
     </div>

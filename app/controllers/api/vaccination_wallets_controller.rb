@@ -1,10 +1,10 @@
 class Api::VaccinationWalletsController < ApplicationController
-  before_action :authenticate_user!, only [:show, update]
-  before_action :set_vaccination_wallet, only: [:update, :show, :delete]
+  before_action :authenticate_user!, only [:show, :update]
+  before_action :set_vaccination_wallet, only: [:update, :show, :destroy]
   
   def index 
-    vacccination_wallet = Vaccination_wallet.all
-    render json: vacccination_wallet
+    vaccination_wallet = Vaccination_wallet.all
+    render json: vaccination_wallet
   end
 
   def show 
@@ -12,16 +12,16 @@ class Api::VaccinationWalletsController < ApplicationController
   end
 
   def create 
-    @vacccination_wallet = Vacccination_wallet.new(vaccination_wallet_params)
-    if @vaccination_wallet.save
-      render json: @vaccination_wallet
+    vaccination_wallet = Vaccination_wallet.new(vaccination_wallet_params)
+    if vaccination_wallet.save
+      render json: vaccination_wallet
     else
-      render json: {error: @vaccination_wallet}, status: 422
+      render json: {error: vaccination_wallet}, status: 422
     end
   end
   
-  def destoy 
-    @vaccination_wallet.destoy
+  def destroy 
+    @vaccination_wallet.destroy
   end
 
 
@@ -30,7 +30,7 @@ private
 
 
 def set_vaccination_wallet
-  @vacccination_wallet = Vaccination_wallet.find(params[:id])
+  @vaccination_wallet = Vaccination_wallet.find(params[:id])
 end
 
 def vaccination_wallet_params
