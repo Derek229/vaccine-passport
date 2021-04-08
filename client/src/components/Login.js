@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Form, Segment, Header, Button } from 'semantic-ui-react'
 import { AuthContext } from '../providers/AuthProvider'
+
 
 const  Login=(props) =>{
   const [email, setEmail] = useState('')
@@ -47,11 +49,16 @@ const  Login=(props) =>{
         <Button loading={authLoading} primary type="submit">
           Submit
         </Button>
+        <Link to='/register'>
+        <Button color='green'>Sign up here</Button></Link>
       </Segment>
-    </Form>
+  </Form>
   </Segment>
+
 );
 };
+
+
 
 export default Login
 
