@@ -7,31 +7,43 @@ import {useHistory} from 'react-router-dom'
 
 const Wallet = (props) => {
   //get user info from props for axios call in getSubmission fn.
-  const {user} = props
+  const {userId} = props
 
   const history = useHistory
   
-  const [submissions, setSubmissions] = useState([])
+  const [myVaccines, setMyVaccines] = useState([])
 
   //TODO: add useEffect to get user's wallet info on mount
 
-  const getSubmissions = async () => {
+  useEffect(()=> {
+    getVaccines()
+  }, [])
+
+  const getVaccines = async () => {
     //get user's submissions
-    let res = await axios.get(`/api/users/${user.id}/vaccines`)
+    //update 1 in url below so it uses userId from props instead
+    //wait for backend update and change url so that it grabs all vaccines associated with specific user
+    let res = await axios.get(`/api/users/1/vaccines`)
+
+    setMyVaccines(res.data)
+
 
     //TODO: setSubmissions => res.data.submissions (check what data is in res)
   }
 
   const renderWallet = () => {
     //TODO: create card for all user's submissions (return submissions.map(submission => {}))
-    return(
-      <>
-        <Card>
-            <h2>Submission name here</h2>
-            <h4>submission details here</h4>
-        </Card>
-      </>
-    )
+    return myVaccines.map( vaccine => {
+      return(
+        <>
+          <Card>
+              <h2>Name: {vaccine.name}</h2>
+              <h3>MFG: {vaccine.manufacturer}</h3>
+              <h4>Verified?: {vaccine.verified}</h4>
+          </Card>
+        </>
+      )
+    })
   }
 
 

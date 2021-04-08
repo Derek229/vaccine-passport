@@ -1,10 +1,10 @@
 class Api::RequiredVaccinesController < ApplicationController
   before_action :set_required_vaccines, only: [:create,  :update, :destoy]
-  before_action :set_required_vaccines, only: [show, :destoy, :update]
+  before_action :set_required_vaccines, only: [:show, :destoy, :update]
   
 
 def index
-    required_vaccine = Required_Vaccines.all
+    required_vaccines = Required_Vaccines.all
     render json: required_vaccines
   end
 

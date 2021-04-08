@@ -5,7 +5,7 @@ class Api::VaccinesController < ApplicationController
   before_action :set_vaccine, only: [:show,:update, :delete]
   
   def index
-    vaccine = Vaccine.all
+    vaccines = Vaccine.all
     render json: vaccines
   end
 
@@ -40,7 +40,7 @@ class Api::VaccinesController < ApplicationController
 private 
 
 def set_vaccine
-  @vaccine = Vaccine.find(parms[:id])
+  @vaccine = Vaccine.find(params[:id])
 end
 
   def vaccine_params 
