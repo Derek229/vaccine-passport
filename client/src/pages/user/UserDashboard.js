@@ -11,6 +11,11 @@ const UserDashboard = (props) => {
   const history = useHistory
   
   const [user, setUser] = useState([])
+  const [vaccines, setVaccines] = useState([])
+
+  useEffect(()=>{
+    getVaccines()
+  },[])
   
   
   const getUserData = async () => {
@@ -20,18 +25,42 @@ const UserDashboard = (props) => {
     //setUser(res.data) --check to make sure this is right w/ console.log() once backend is setup
   }
 
+  const getVaccines = async () => {
+    //TODO: change 1 in URL below to string interpolate userID once users controller is setup
+    let res = await axios.get(`/api/users/1/vaccines`)
+    setVaccines(res.data)
+
+  }
+
   const renderUser = () => {
     //generate user profile information (maybe use a card?)
     return(
       <>
       <div>
         <Card>
-        <h1>user name here</h1>
-        <h2>user info below:</h2>
+        <h1>user's name here</h1>
+        <h2>user's info below:</h2>
         </Card>
       </div>
       </>
     )
+  }
+
+  const renderVaccines = () => {
+    //generate list of vaccine choices
+    return vaccines.map( vaccine => {
+      return(
+        <>
+        <div>
+          <Card>
+          <h1>Vaccine Name: {vaccine.name}</h1>
+          <h2>Manufacturer: {vaccine.manufacturer}</h2>
+          {/* <h3>verified status: {vaccine.verified}</h3> */}
+          </Card>
+        </div>
+        </>
+      )
+    })
   }
 
   return (
@@ -39,6 +68,8 @@ const UserDashboard = (props) => {
     <div>
       <h1>user dash here</h1>
       {renderUser()}
+      <h2>Available Vaccines: </h2>
+      {renderVaccines()}
     </div>
     </>
   )
