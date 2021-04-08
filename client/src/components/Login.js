@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Form, Segment, Header, Button } from 'semantic-ui-react'
 import { AuthContext } from '../providers/AuthProvider'
 
+
 const  Login=(props) =>{
   const [email, setEmail] = useState('')
   const [password, setPassword]= useState('')
@@ -48,10 +49,13 @@ const  Login=(props) =>{
           Submit
         </Button>
       </Segment>
-    </Form>
+  </Form>
   </Segment>
+
 );
 };
+
+
 
 export default Login
 
