@@ -1,4 +1,5 @@
 import React, { useContext, useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import { Button, Form, Header, Segment } from 'semantic-ui-react';
 import { AuthContext } from '../providers/AuthProvider'
 import { useFormInput } from './useFormInput';
@@ -43,6 +44,7 @@ const Register = ( {history} ) => {
           </Button>
         </Segment>
       </Form>
+      <Link to='/'>return to home page</Link>
     </Segment>
   );
 };
