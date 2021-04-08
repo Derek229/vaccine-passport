@@ -26,7 +26,7 @@ const Navbar1 = (props) => {
     } else {
       return (
       <div></div>
-      );
+      )
     }
   };
 
