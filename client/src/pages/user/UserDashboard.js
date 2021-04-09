@@ -1,12 +1,14 @@
 import axios from 'axios'
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import Card from '../../components/Card'
 import {Link, useHistory} from 'react-router-dom'
+import {AuthContext, Authcontext} from '../../providers/AuthProvider'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
 const UserDashboard = (props) => {
-  const {userId} = props
+  
+  const auth = useContext(AuthContext)
 
   const history = useHistory
   
@@ -15,12 +17,14 @@ const UserDashboard = (props) => {
 
   useEffect(()=>{
     getVaccines()
+    getUserData()
   },[])
   
   
   const getUserData = async () => {
     //get user info
-    let res = await axios.get(`/api/users/${userId}`)
+    let res = await axios.get(`/api/users/${auth.user.id}`)
+    setUser(res.data)
 
     //setUser(res.data) --check to make sure this is right w/ console.log() once backend is setup
   }
@@ -38,8 +42,8 @@ const UserDashboard = (props) => {
       <>
       <div>
         <Card>
-        <h1>user's name here</h1>
-        <h2>user's info below:</h2>
+        <h1>Name: {user.first_name} {user.last_name}</h1>
+        <h2>user's info below: {user.email}</h2>
         </Card>
       </div>
       </>
