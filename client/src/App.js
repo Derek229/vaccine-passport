@@ -12,11 +12,9 @@ import FetchUser from './components/FetcherUser';
 import ProtectedRoute from './components/ProtectedRoutes';
 import Wallet from './pages/user/Wallet';
 import UserDashboard from './pages/user/UserDashboard';
-import VaccinesCRUD from './pages/issuer/VaccinesCRUD';
+import Vaccines from './pages/issuer/Vaccines';
 import verifierSubmissions from './pages/verifier/verifierSubmissions';
-import IssuerLogin from './pages/issuer/IssuerLogin';
-import VerifierLogin from './pages/verifier/VerifierLogin';
-// TODO these need to become protected at some point
+
 function App() {
 
   return (
@@ -31,10 +29,8 @@ function App() {
         <Route exact path='/register' component={Register} />
         <Route exact path='/users/self/wallet' component={Wallet} />
         <Route exact path='/users/self' component={UserDashboard} />
-        <Route exact path='/users/issuer/vaccines' component={VaccinesCRUD} />
+        <Route exact path='/users/issuer/vaccines' component={Vaccines} />
         <Route exact path='/users/verifier/pending' component={verifierSubmissions} />
-        <Route exact path='/issuerLogin' component={IssuerLogin}/>
-        <Route exact path='/verifierLogin' component={VerifierLogin}/>
         < Route component={NoMatch} />
               </Switch>
       </Container>

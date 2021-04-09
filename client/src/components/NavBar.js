@@ -26,7 +26,7 @@ const Navbar1 = (props) => {
     } else {
       return (
       <div></div>
-      )
+      )}
   };
 
   return (
@@ -65,4 +65,4 @@ const Navbar1 = (props) => {
   );
 };
 
-export default Navbar1;
+export default Navbar1
