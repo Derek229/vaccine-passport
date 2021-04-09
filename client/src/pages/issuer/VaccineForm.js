@@ -3,8 +3,12 @@ import Button from '../../components/Button'
 import axios from 'axios'
 import {Form} from 'semantic-ui-react'
 import {AuthContext} from '../../providers/AuthProvider'
+import {useHistory} from 'react-router-dom'
 
-const VaccineForm = ({vaccineProp}) => {
+const VaccineForm = (props) => {
+  const {vaccineProp, setOpen, addVaccine} = props
+
+  const history = useHistory()
   const auth = useContext(AuthContext);
   const [name, setName] = useState('')
   const [manufacturer, setManufacturer] = useState('')
@@ -16,6 +20,7 @@ const VaccineForm = ({vaccineProp}) => {
       verified: vaccineProp.verified,
       date: vaccineProp.date,
 			user_id: auth.user.id,
+      required_vaccine_id: vaccineProp.required_vaccine_id,
     }  :
     {
 
@@ -25,12 +30,17 @@ const VaccineForm = ({vaccineProp}) => {
       verified: '',
       date: '',
       user_id: auth.user.id,
+      //this defaults to required_vaccine_id: 1, will need to change later 
+      required_vaccine_id: 1
     }
   )
 
   const createVaccine = async () => {
     try{
-      axios.post(`/api/users/${auth.user.id}/vaccines`, vaccineState)
+      let res = await axios.post(`/api/users/${auth.user.id}/vaccines`, vaccineState)
+      setOpen(false)
+      addVaccine(res.data)
+
     }catch(err){
       alert(err)
     }
@@ -38,7 +48,8 @@ const VaccineForm = ({vaccineProp}) => {
 
   const editVaccine = async () => {
     try{
-      axios.put(`/api/users/${auth.user.id}/vaccines/${vaccineState.id}`, vaccineState)
+      axios.put(`/api/users/${auth.user.id}/vaccines/${vaccineProp.id}`, vaccineState)
+      setOpen(false)
     }catch(err){
       alert(err)
     }
@@ -49,8 +60,9 @@ const VaccineForm = ({vaccineProp}) => {
 	
     if (vaccineProp){
       editVaccine()
-    }
+    }else{
 			createVaccine()
+    }
     
   }
 
@@ -67,7 +79,7 @@ const VaccineForm = ({vaccineProp}) => {
           name="name"
           value={vaccineState.name}
           onChange={handleChange}
-          placeholder='Enter Name'
+          placeholder={vaccineProp ? vaccineState.name : 'Name'}
         />
       </Form.Field>
       <Form.Field>

@@ -1,48 +1,44 @@
 import axios from 'axios'
-import React, { useState, useEffect, Fragment } from 'react'
-import Card from '../../components/Card'
-import { Header, Modal, Button } from 'semantic-ui-react'
-import Form from '../../components/Form'
+import React, { useState, useEffect, useContext } from 'react'
+import { Modal, Button } from 'semantic-ui-react'
 import VaccineForm from '../issuer/VaccineForm'
+import Vaccine from '../issuer/Vaccine'
+import { AuthContext } from '../../providers/AuthProvider'
 
 const Vaccines = () => {
 
   const [vaccines, setVaccines] = useState([])
   const [open, setOpen] = useState(false)
+  const auth = useContext(AuthContext)
 
+  //call getVaccines on mount
   useEffect(()=>{
     getVaccines()
-  },[])
+  },[]) 
 
+  //get vaccines associated with user (issuer) based on user ID
   const getVaccines = async () => {
-    //update :id of 1 in url to be variable for user accessing page
-    let res = await axios.get(`/api/users/1/vaccines`) 
+    let res = await axios.get(`/api/users/${auth.user.id}/vaccines`) 
     setVaccines(res.data)
   }
 
-  const renderVaccines = () => {
-    //generate list of vaccines
-    return vaccines.map( vaccine => {
-      return(
-        <>
-        <div>
-          <Card>
-          <h1>Vaccine Name: {vaccine.name}</h1>
-          <h2>Manufacturer: {vaccine.manufacturer}</h2>
-          {/* <h3>verified status: {vaccine.verified}</h3> */}
-          </Card>
-        </div>
-        </>
-      )
-    })
+  //generate list of vaccines
+  const renderVaccines = () => {  
+    //map through array and pass each vaccine to vaccine.js to render card
+    return vaccines.map( vaccine => <Vaccine key={vaccine.id} vaccine={vaccine} userId={auth.user.id} setVaccines={setVaccines} vaccines={vaccines}/>)
   }
 
+  //when new vaccine is added to db, this fn adds the new vacc to the array rendered in the page
+  //eliminates need to remount
+  const addVaccine = (vaccine) => {
+    setVaccines([vaccine,...vaccines])
+  }
 
-
-  return (
-    <>
-    <h1>page for issuer to see all vaccines, add, edit, and delete listings</h1>
-    <div>
+  //modal specific for adding new vaccine
+  const addFormModal = (addOrEdit, vaccine) => {
+    return(
+      <>
+      <div>
 		  <Button onClick={()=> setOpen(true)}>Add a New Vaccine</Button>
 			<Modal
         onClose={() => setOpen(false)}
@@ -52,7 +48,8 @@ const Vaccines = () => {
         <Modal.Header>Add a New Vaccine</Modal.Header>
         <Modal.Content>
           <Modal.Description>
-            <VaccineForm/>
+            {/* pass setOpen so modal will close on submit, pass addVaccine to add new vaccine to array */}
+            <VaccineForm setOpen={setOpen} addVaccine={addVaccine}/>
           </Modal.Description>
           </Modal.Content>
         <Modal.Actions>
@@ -61,9 +58,18 @@ const Vaccines = () => {
           </Button>
         </Modal.Actions>
       </Modal>
-    </div>
+      </div>
+      </>
+      )
+  }
+
+
+
+  return (
+    <>
+    <h1>page for issuer to see all vaccines, add, edit, and delete listings</h1>
+    {addFormModal()}
     <div>
-      
       {renderVaccines()}
     </div>
     </>
