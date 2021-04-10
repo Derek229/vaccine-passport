@@ -29,10 +29,10 @@ function App() {
         <Route exact path='/register' component={Register} />
         <Route exact path='/users/self/wallet' component={Wallet} />
         <Route exact path='/users/self' component={UserDashboard} />
-        <Route exact path='/users/issuer/vaccines' component={Vaccines} />
+        <ProtectedRoute exact path='/users/issuer/vaccines' component={Vaccines} />
         <Route exact path='/users/verifier/pending' component={verifierSubmissions} />
         < Route component={NoMatch} />
-              </Switch>
+      </Switch>
       </Container>
     </FetchUser>
    </>
