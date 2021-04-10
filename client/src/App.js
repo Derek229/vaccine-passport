@@ -21,18 +21,18 @@ function App() {
     <>
     <NavBar />
     <FetchUser>
-      <Container>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/about' component={About} />
-          <Route exact path='/componentDemo' component={ComponentDemo} />
-          <Route exact path='/register' component={Register} />
-          <Route exact path='/users/self/wallet' component={Wallet} />
-          <Route exact path='/users/self' component={UserDashboard} />
-          <Route exact path='/users/issuer/vaccines' component={Vaccines} />
-          <Route exact path='/users/verifier/pending' component={verifierSubmissions} />
-          < Route component={NoMatch} />
-        </Switch>
+    <Container>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/componentDemo' component={ComponentDemo} />
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/users/self/wallet' component={Wallet} />
+        <Route exact path='/users/self' component={UserDashboard} />
+        <Route exact path='/users/issuer/vaccines' component={Vaccines} />
+        <Route exact path='/users/verifier/pending' component={verifierSubmissions} />
+        < Route component={NoMatch} />
+              </Switch>
       </Container>
     </FetchUser>
    </>

@@ -39,31 +39,6 @@ const Vaccines = () => {
 
   //modal specific for adding new vaccine
   const addFormModal = () => {
-    // return(
-    //   <>
-    //   <div>
-		//   <Button onClick={()=> setOpen(true)}>Add a New Vaccine</Button>
-		// 	<Modal
-    //     onClose={() => setOpen(false)}
-    //     onOpen={() => setOpen(true)}
-    //     open={open}
-    //   >
-    //     <Modal.Header>Add a New Vaccine</Modal.Header>
-    //     <Modal.Content>
-    //       <Modal.Description>
-    //         {/* pass setOpen so modal will close on submit, pass addVaccine to add new vaccine to array */}
-    //         <VaccineForm setOpen={setOpen} addVaccine={addVaccine}/>
-    //       </Modal.Description>
-    //       </Modal.Content>
-    //     <Modal.Actions>
-    //       <Button color='black' onClick={() => setOpen(false)}>
-    //         Close Form
-    //       </Button>
-    //     </Modal.Actions>
-    //   </Modal>
-    //   </div>
-    //   </>
-    //   )
     return (
       <>
         <Button variant="primary" onClick={handleShow}>
