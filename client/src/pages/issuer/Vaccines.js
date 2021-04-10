@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect, useContext } from 'react'
-import { Modal, Button } from 'semantic-ui-react'
+import {Button, Container, Modal} from 'react-bootstrap'
 import VaccineForm from '../issuer/VaccineForm'
 import Vaccine from '../issuer/Vaccine'
 import { AuthContext } from '../../providers/AuthProvider'
@@ -8,8 +8,11 @@ import { AuthContext } from '../../providers/AuthProvider'
 const Vaccines = () => {
 
   const [vaccines, setVaccines] = useState([])
-  const [open, setOpen] = useState(false)
   const auth = useContext(AuthContext)
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   //call getVaccines on mount
   useEffect(()=>{
@@ -35,43 +38,69 @@ const Vaccines = () => {
   }
 
   //modal specific for adding new vaccine
-  const addFormModal = (addOrEdit, vaccine) => {
-    return(
+  const addFormModal = () => {
+    // return(
+    //   <>
+    //   <div>
+		//   <Button onClick={()=> setOpen(true)}>Add a New Vaccine</Button>
+		// 	<Modal
+    //     onClose={() => setOpen(false)}
+    //     onOpen={() => setOpen(true)}
+    //     open={open}
+    //   >
+    //     <Modal.Header>Add a New Vaccine</Modal.Header>
+    //     <Modal.Content>
+    //       <Modal.Description>
+    //         {/* pass setOpen so modal will close on submit, pass addVaccine to add new vaccine to array */}
+    //         <VaccineForm setOpen={setOpen} addVaccine={addVaccine}/>
+    //       </Modal.Description>
+    //       </Modal.Content>
+    //     <Modal.Actions>
+    //       <Button color='black' onClick={() => setOpen(false)}>
+    //         Close Form
+    //       </Button>
+    //     </Modal.Actions>
+    //   </Modal>
+    //   </div>
+    //   </>
+    //   )
+    return (
       <>
-      <div>
-		  <Button onClick={()=> setOpen(true)}>Add a New Vaccine</Button>
-			<Modal
-        onClose={() => setOpen(false)}
-        onOpen={() => setOpen(true)}
-        open={open}
-      >
-        <Modal.Header>Add a New Vaccine</Modal.Header>
-        <Modal.Content>
-          <Modal.Description>
-            {/* pass setOpen so modal will close on submit, pass addVaccine to add new vaccine to array */}
-            <VaccineForm setOpen={setOpen} addVaccine={addVaccine}/>
-          </Modal.Description>
-          </Modal.Content>
-        <Modal.Actions>
-          <Button color='black' onClick={() => setOpen(false)}>
-            Close Form
-          </Button>
-        </Modal.Actions>
-      </Modal>
-      </div>
+        <Button variant="primary" onClick={handleShow}>
+          Add New Vaccine
+        </Button>
+  
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add new Vaccine</Modal.Title>
+          </Modal.Header>
+          <Modal.Body><VaccineForm handleClose={handleClose} addVaccine={addVaccine}/></Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </>
-      )
+    );
   }
 
 
 
   return (
     <>
-    <h1>page for issuer to see all vaccines, add, edit, and delete listings</h1>
-    {addFormModal()}
-    <div>
-      {renderVaccines()}
-    </div>
+    <Container>
+      <h1>page for issuer to see all vaccines, add, edit, and delete listings</h1>
+      <div>
+        {addFormModal()}
+      </div>
+    </Container>
+    <br />
+    <Container>
+      <div>
+        {renderVaccines()}
+      </div>
+    </Container>
     </>
   )
 }

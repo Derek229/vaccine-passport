@@ -6,7 +6,7 @@ import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
 
 const VaccineForm = (props) => {
-  const {vaccineProp, setOpen, addVaccine} = props
+  const {vaccineProp, handleClose, addVaccine} = props
 
   const history = useHistory()
   const auth = useContext(AuthContext);
@@ -38,7 +38,7 @@ const VaccineForm = (props) => {
   const createVaccine = async () => {
     try{
       let res = await axios.post(`/api/users/${auth.user.id}/vaccines`, vaccineState)
-      setOpen(false)
+      handleClose()
       addVaccine(res.data)
 
     }catch(err){
@@ -49,7 +49,7 @@ const VaccineForm = (props) => {
   const editVaccine = async () => {
     try{
       axios.put(`/api/users/${auth.user.id}/vaccines/${vaccineProp.id}`, vaccineState)
-      setOpen(false)
+      handleClose()
     }catch(err){
       alert(err)
     }
