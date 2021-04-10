@@ -1,7 +1,7 @@
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import {Container} from 'semantic-ui-react'
+import {Container} from 'react-bootstrap'
 import NavBar from './components/NavBar';
 import About from './pages/About';
 import ComponentDemo from './pages/ComponentDemo';
@@ -21,20 +21,20 @@ function App() {
     <>
     <NavBar />
     <FetchUser>
-    <Container>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/about' component={About} />
-        <Route exact path='/componentDemo' component={ComponentDemo} />
-        <Route exact path='/register' component={Register} />
-        <Route exact path='/users/self/wallet' component={Wallet} />
-        <Route exact path='/users/self' component={UserDashboard} />
-        <Route exact path='/users/issuer/vaccines' component={Vaccines} />
-        <Route exact path='/users/verifier/pending' component={verifierSubmissions} />
-        < Route component={NoMatch} />
-              </Switch>
+      <Container>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/componentDemo' component={ComponentDemo} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/users/self/wallet' component={Wallet} />
+          <Route exact path='/users/self' component={UserDashboard} />
+          <Route exact path='/users/issuer/vaccines' component={Vaccines} />
+          <Route exact path='/users/verifier/pending' component={verifierSubmissions} />
+          < Route component={NoMatch} />
+        </Switch>
       </Container>
-      </FetchUser>
+    </FetchUser>
    </>
   );
 }

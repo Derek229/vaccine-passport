@@ -25,7 +25,15 @@ const Navbar1 = (props) => {
       );
     } else {
       return (
-      <div></div>
+        <Menu.Menu position="right">
+        <Link to='/'>
+          <Menu.Item
+            name='Login'
+            id='users'
+            active={pathname === '/'}
+          />
+        </Link>
+      </Menu.Menu>
       )}
   };
 

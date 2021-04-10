@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect, useContext} from 'react'
 import Card from '../../components/Card'
 import {Link, useHistory} from 'react-router-dom'
-import {AuthContext, Authcontext} from '../../providers/AuthProvider'
+import {AuthContext} from '../../providers/AuthProvider'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
