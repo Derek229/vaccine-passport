@@ -35,11 +35,11 @@ issuer3=User.create(name:'walgreens', email: 'issuer3@test.com', role:'issuer', 
 issuer4=User.create(name:'intermountain-healthcare', email: 'issuer4@test.com', role:'issuer', password:'123456')
 issuer5=User.create(name:'u of u health', email: 'issuer5@test.com', role:'issuer', password:'123456')
 
-required_vaccine1=RequiredVaccine.create(user_id: rand(1..5))
-required_vaccine2=RequiredVaccine.create(user_id: rand(1..5))
-required_vaccine3=RequiredVaccine.create(user_id: rand(1..5))
-required_vaccine4=RequiredVaccine.create(user_id: rand(1..5))
-required_vaccine5=RequiredVaccine.create(user_id: rand(1..5))
+required_vaccine1=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1..5))
+required_vaccine2=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1..5))
+required_vaccine3=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1..5))
+required_vaccine4=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1..5))
+required_vaccine5=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1..5))
 
 vaccine1=Vaccine.create(name:'covid', manufacturer:'BioNTech', image:'', effectiveness: 81, user_id: rand(1..5), required_vaccine_id: rand(1..5))
 vaccine1=Vaccine.create(name:'covid', manufacturer:'Moderna', image:'',effectiveness: 94 , user_id: rand(1..5), required_vaccine_id: rand(1..5))

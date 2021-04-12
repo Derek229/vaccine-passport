@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 2021_04_12_213229) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "vaccine_id"
     t.index ["user_id"], name: "index_required_vaccines_on_user_id"
+    t.index ["vaccine_id"], name: "index_required_vaccines_on_vaccine_id"
   end
 
   create_table "users", force: :cascade do |t|

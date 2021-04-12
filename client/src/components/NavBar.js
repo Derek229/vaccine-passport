@@ -1,51 +1,71 @@
+import React from 'react'
+import { AuthConsumer, } from "../providers/AuthProvider";
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
 
-import React, { useContext } from "react";
-import { Menu } from "semantic-ui-react";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import { AuthContext } from "../providers/AuthProvider";
-
-const Navbar1 = (props) => {
-  let history = useHistory();
-  let { pathname } = useLocation();
-  const { user, handleLogout } = useContext(AuthContext);
-
-  const rightNavItems = () => {
+class Navbar1 extends React.Component {
+  
+  rightNavItems = () => {
+    const { auth: { user, handleLogout, }, location, } = this.props;
+    
     if (user) {
       return (
-        <Menu.Menu position="right">
-          <Link to='/users/self'>
-            <Menu.Item
-              name='My Profile'
-              id='users'
-              active={pathname === '/users/self'}
-            />
-          </Link>
-          <Menu.Item name="logout" onClick={() => handleLogout(history)} />
-        </Menu.Menu>
-      );
+        <>
+          <Nav.Link href="/users/self">
+            My Profile
+          </Nav.Link>
+          <Nav.Link>
+          <Nav.Item onClick={() => handleLogout(this.props.history)}>
+            Logout
+          </Nav.Item>
+          </Nav.Link>
+        </>
+      )
     } else {
       return (
-      <div></div>
-      )}
-  };
+        <>
+        <Nav.Link href="/">
+          Login
+        </Nav.Link>
+        <Nav.Link href="/">
+          Register
+        </Nav.Link>
+        </>
+      )
+    }
+  }
 
-  return (
-    <div>
-      <Menu pointing secondary>
-        <Link to="/">
-          <Menu.Item name="home" id="home" active={pathname === "/"} />
-        </Link>
-        <Link to="/about">
-          <Menu.Item name="about" id="about" active={pathname === "/about"} />
-        </Link>
-        <Link to='/users/self/wallet'>
-            <Menu.Item
-              name='My Wallet'
-              id='users'
-              active={pathname === '/users/self/wallet'}
-            />
-          </Link>
-          <Link to='/users/issuer/vaccines'>
+  
+  
+  render() {
+    return (
+      <div>
+        <Navbar bg="primary" expand="lg" variant="dark">
+          <Navbar.Brand href="/">COVIDIA</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav activeKey={this.props.location.pathname} className="mr-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/users/self/wallet">Wallet</Nav.Link>
+              <NavDropdown title="Menu">
+                <NavDropdown.Item href="/users/issuer/vaccines">Issuers Vaccines</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/users/verifier/pending">Verifier Vaccines</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          <Nav activeKey={this.props.location.pathname} className="justify-content-end" style={{ width: "100%" }}>
+            {this.rightNavItems()}
+          </Nav>
+          </Navbar.Collapse>
+          </Navbar>
+      </div>
+    )
+  }
+}
+
+
+{/* <Link to='/users/issuer/vaccines'>
             <Menu.Item
               name='Issuers CRUD Page'
               id='users'
@@ -58,11 +78,19 @@ const Navbar1 = (props) => {
               id='users'
               active={pathname === '/users/verifier/pending'}
             />
-          </Link>
-        {rightNavItems()}
-      </Menu>
-    </div>
-  );
-};
+          </Link> */}
+    
 
-export default Navbar1
+export class ConnectedNavbar extends React.Component {
+  render() {
+    return (
+      <AuthConsumer> 
+        { auth => 
+          <Navbar1 { ...this.props } auth={auth} />
+        }
+      </AuthConsumer>
+    )
+  }
+}
+
+export default withRouter(ConnectedNavbar);
