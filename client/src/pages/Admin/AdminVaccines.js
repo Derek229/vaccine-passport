@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React, { useState, useEffect, useContext } from 'react'
 import {Button, Container, Modal} from 'react-bootstrap'
-import VaccineForm from '../issuer/VaccineForm'
-import Vaccine from '../issuer/Vaccine'
+import VaccineForm from './VaccineForm'
+import Vaccine from './AdminVaccine'
 import { AuthContext } from '../../providers/AuthProvider'
 
 const Vaccines = () => {

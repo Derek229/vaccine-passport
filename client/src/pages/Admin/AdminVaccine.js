@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {Modal, Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap'
-import VaccineForm from '../issuer/VaccineForm'
+import VaccineForm from './VaccineForm'
 import axios from 'axios'
 
 const Vaccine = (props) => {
