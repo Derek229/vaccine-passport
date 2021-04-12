@@ -41,10 +41,13 @@ required_vaccine3=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1
 required_vaccine4=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1..5))
 required_vaccine5=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1..5))
 
-vaccine1=Vaccine.create(name:'Pfizer', manufacturer:'BioNTech', image:'', verified:'false', user_id: rand(1..5), required_vaccine_id: rand(1..5))
-vaccine2=Vaccine.create(name:'Moderna', manufacturer:'Moderna', image:'', verified:'false', user_id: rand(1..5), required_vaccine_id: rand(1..5))
-vaccine3=Vaccine.create(name:'Janssen', manufacturer:'Johnson & Johnson', image:'', verified:'false',user_id: rand(1..5), required_vaccine_id: rand(1..5))
-vaccine4=Vaccine.create(name:'Johnston', manufacturer:'The Black Market', image:'', verified:'false',user_id: rand(1..5), required_vaccine_id: rand(1..5))
+admin1=User.create(name:'Admin', email: 'admin@test.com', role:'admin', password:'123456')
+
+vaccine1=Vaccine.create(name:'covid', manufacturer:'BioNTech', image:'', effectiveness: 81, user_id: rand(1..5), required_vaccine_id: rand(1..5))
+vaccine1=Vaccine.create(name:'covid', manufacturer:'Moderna', image:'',effectiveness: 94 , user_id: rand(1..5), required_vaccine_id: rand(1..5))
+vaccine2=Vaccine.create(name:'yellow fever', manufacturer:' YF-Vax', image:'', effectiveness: 90, user_id: rand(1..5), required_vaccine_id: rand(1..5))
+vaccine3=Vaccine.create(name:'Rabbies', manufacturer:'IMOVAX', image:'',  effectiveness: 95,user_id: rand(1..5), required_vaccine_id: rand(1..5))
+vaccine4=Vaccine.create(name:'Hepatitis', manufacturer:'	GlaxoSmithKline', image:'',effectiveness: 90 ,user_id: rand(1..5), required_vaccine_id: rand(1..5))
 
 
 
