@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import {AuthContext} from '../../providers/AuthProvider'
 import axios from 'axios'
 import AdminVaccines from '../Admin/AdminVaccines'
+import { Typeahead } from 'react-bootstrap-typeahead';
 import {Container, Card, Button, ListGroup, ListGroupItem, Form} from 'react-bootstrap'
 
 //this page will show issuers option to assign existing vaccine to user through user's wallet
@@ -26,19 +27,6 @@ const IssuerVaccines = () => {
   const userList = () => {
     return(
       <>
-      <Form>
-        <Form.Group controlId="Form.ControlInput1">
-          <Form.Label>Select User</Form.Label>
-          <Form.Control type="text" placeholder="User" />
-          <ListGroup>
-            <ListGroup.Item>User Name 1</ListGroup.Item>
-            <ListGroup.Item variant="primary">User Name 2</ListGroup.Item>
-            <ListGroup.Item action variant="secondary">
-              User Name 3
-            </ListGroup.Item>
-          </ListGroup>
-        </Form.Group>
-      </Form>
       </>
     )
   }
@@ -47,6 +35,39 @@ const IssuerVaccines = () => {
     let res = await axios.get(`/api/users/${auth.user.id}/vaccines`) 
     setVaccines(res.data)
   }
+
+	const BasicExample = () => {
+		const [singleSelections, setSingleSelections] = useState([]);
+		const [multiSelections, setMultiSelections] = useState([]);
+
+		return (
+			<>
+				<Form.Group>
+					<Form.Label>Select a User</Form.Label>
+					<Typeahead
+						id="basic-typeahead-single"
+						labelKey="name"
+						onChange={setSingleSelections}
+						// options={options}
+						placeholder="Select a User"
+						selected={singleSelections}
+					/>
+				</Form.Group>
+				<Form.Group style={{ marginTop: '20px' }}>
+					<Form.Label>Select One or Multiple Completed Vaccinations</Form.Label>
+					<Typeahead
+						id="basic-typeahead-multiple"
+						labelKey="name"
+						multiple
+						onChange={setMultiSelections}
+						// options={options}
+						placeholder="Select Completed Vaccinations"
+						selected={multiSelections}
+					/>
+				</Form.Group>
+			</>
+		)
+	}
 	
   
   if(auth.user.role === 'admin'){

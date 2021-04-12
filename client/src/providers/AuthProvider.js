@@ -43,7 +43,7 @@ const handleLogin = async (user, history) => {
     resetProvider()
     let res = await axios.post('/api/auth/sign_in', user)
     setUser(res.data.data)
-    // history.push('/')
+    // history.push('/users/issuer/vaccines')
   } catch(err) {
     setAuthErrors(err.response.data.errors)
   }finally{
@@ -56,7 +56,7 @@ const handleLogout = async (history) => {
     setAuthErrors ([]) 
     let res = await axios.delete('/api/auth/sign_out')
     setUser(null)
-    history.push('/')
+    // history.push('/')
   } catch (err) {
     setAuthErrors(err.response.data)
   } finally {
