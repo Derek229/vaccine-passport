@@ -14,15 +14,6 @@ const IssuerVaccines = () => {
   const [userSelections, setUserSelections] = useState([]);
   const [vaccSelections, setVaccSelections] = useState([]);
 
-  // const [options, setOptions] = useState([
-  //   { name: 'Alabama', population: 4780127, capital: 'Montgomery', region: 'South' },
-  //   { name: 'Alaska', population: 710249, capital: 'Juneau', region: 'West' },
-  //   { name: 'Arizona', population: 6392307, capital: 'Phoenix', region: 'West' },
-  //   { name: 'Arkansas', population: 2915958, capital: 'Little Rock', region: 'South' },
-  //   { name: 'California', population: 37254503, capital: 'Sacramento', region: 'West' },
-  //   { name: 'Colorado', population: 5029324, capital: 'Denver', region: 'West' },
-  // ])
-
   const auth = useContext(AuthContext)
 
   useEffect(()=>{
