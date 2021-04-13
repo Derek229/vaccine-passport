@@ -42,8 +42,9 @@ const IssuerVaccines = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     //handle submission of vaccine sent to user wallet
-    //axios.post(`/api/vaccination_wallets`, vaccine_id, user_id)
-    console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
+    let res = await axios.post(`/api/users/${auth.user.id}/vaccination_wallets`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id})
+    console.log(res)
+    // console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
   }
 
   const normalizeUserData = (arrayIn) => {
