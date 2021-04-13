@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {CardGroup, Card, ListGroup, ListGroupItem, Container, Row, Col, Button} from 'react-bootstrap'
+import {CardGroup, Card, ListGroup, ListGroupItem, Container, Row, Col, Button, Modal} from 'react-bootstrap'
 import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
+import UserVaccine from './UserVaccine'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
@@ -13,10 +14,10 @@ const UserDashboard = (props) => {
   const history = useHistory()
   
   const [user, setUser] = useState([])
-  const [vaccines, setVaccines] = useState([])
+  const [wallet, setWallet] = useState([])
 
   useEffect(()=>{
-    getVaccines()
+    getWallet()
     getUserData()
   },[])
   
@@ -29,10 +30,10 @@ const UserDashboard = (props) => {
     //setUser(res.data) --check to make sure this is right w/ console.log() once backend is setup
   }
 
-  const getVaccines = async () => {
+  const getWallet = async () => {
     //TODO: change 1 in URL below to string interpolate userID once users controller is setup
-    let res = await axios.get(`/api/users/1/vaccines`)
-    setVaccines(res.data)
+    let res = await axios.get(`/api/users/${auth.user.id}/vaccination_wallets`)
+    setWallet(res.data)
 
   }
 
@@ -44,7 +45,7 @@ const UserDashboard = (props) => {
          <Card.Body>
            <Card.Title><h4>{user.first_name} {user.last_name}</h4></Card.Title>
            <Card.Text>
-            User Details:
+            User Details (ID): {user.id}
            </Card.Text>
          </Card.Body>
          <ListGroup className="list-group-flush">
@@ -60,21 +61,9 @@ const UserDashboard = (props) => {
 
   const renderVaccines = () => {
     //generate list of vaccine choices
-    return vaccines.map( vaccine => {
+    return wallet.map( vaccine => {
       return(
-        <div key={vaccine.id}>
-        <Card >
-          <Card.Body>
-            <Card.Title><h4>Vaccine Name: {vaccine.name}</h4></Card.Title>
-            <Card.Text>
-              Manufacturer: {vaccine.manufacturer}
-            </Card.Text>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroupItem>verified status: {vaccine.verified}</ListGroupItem>
-          </ListGroup>
-        </Card>
-        </div>
+        <UserVaccine vaccine_id={vaccine.vaccine_id} vaccine_name={vaccine.vaccine_name} manufacturer={vaccine.manufacturer}/>
       )
     })
   }
@@ -82,12 +71,16 @@ const UserDashboard = (props) => {
   return (
     <>
     <div>
+      <Container>
       <h1>User Dashboard</h1>
       {renderUser()}
-      <h2>Available Vaccines: </h2>
+      </Container>
+      <Container>
+      <h2>My Vaccines: </h2>
       <CardGroup >
         {renderVaccines()}
       </CardGroup>
+      </Container>
     </div>
     </>
   )

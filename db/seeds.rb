@@ -44,11 +44,16 @@ required_vaccine5=RequiredVaccine.create(user_id: rand(1..5), vaccine_id: rand(1
 admin1=User.create(name:'Admin', email: 'admin@test.com', role:'admin', password:'123456')
 
 vaccine1=Vaccine.create(name:'covid', manufacturer:'BioNTech', image:'', effectiveness: 81, user_id: rand(1..5), required_vaccine_id: rand(1..5))
-vaccine1=Vaccine.create(name:'covid', manufacturer:'Moderna', image:'',effectiveness: 94 , user_id: rand(1..5), required_vaccine_id: rand(1..5))
-vaccine2=Vaccine.create(name:'yellow fever', manufacturer:' YF-Vax', image:'', effectiveness: 90, user_id: rand(1..5), required_vaccine_id: rand(1..5))
-vaccine3=Vaccine.create(name:'Rabbies', manufacturer:'IMOVAX', image:'',  effectiveness: 95,user_id: rand(1..5), required_vaccine_id: rand(1..5))
-vaccine4=Vaccine.create(name:'Hepatitis', manufacturer:'	GlaxoSmithKline', image:'',effectiveness: 90 ,user_id: rand(1..5), required_vaccine_id: rand(1..5))
+vaccine2=Vaccine.create(name:'covid', manufacturer:'Moderna', image:'',effectiveness: 94 , user_id: rand(1..5), required_vaccine_id: rand(1..5))
+vaccine3=Vaccine.create(name:'yellow fever', manufacturer:' YF-Vax', image:'', effectiveness: 90, user_id: rand(1..5), required_vaccine_id: rand(1..5))
+vaccine4=Vaccine.create(name:'Rabbies', manufacturer:'IMOVAX', image:'',  effectiveness: 95,user_id: rand(1..5), required_vaccine_id: rand(1..5))
+vaccine5=Vaccine.create(name:'Hepatitis', manufacturer:'	GlaxoSmithKline', image:'',effectiveness: 90 ,user_id: rand(1..5), required_vaccine_id: rand(1..5))
 
+wallet1=VaccinationWallet.create(user_id: 1, vaccine_id: vaccine1.id)
+wallet2=VaccinationWallet.create(user_id: 2, vaccine_id: vaccine2.id)
+wallet3=VaccinationWallet.create(user_id: 3, vaccine_id: vaccine3.id)
+wallet4=VaccinationWallet.create(user_id: 4, vaccine_id: vaccine4.id)
+wallet5=VaccinationWallet.create(user_id: 5, vaccine_id: vaccine5.id)
 
 
 

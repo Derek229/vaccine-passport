@@ -3,12 +3,13 @@ class Api::VaccinationWalletsController < ApplicationController
   before_action :set_vaccination_wallet, only: [:update, :show, :destroy]
   
   def index 
-    vaccination_wallet = VaccinationWallet.all
+    user = User.find(params[:user_id])
+    vaccination_wallet = VaccinationWallet.user_wallet(user)
     render json: vaccination_wallet
   end
 
   def show 
-    render json: {vaccination_wallet: @vacccination_wallet}
+    render json: {vaccination_wallet: @vaccination_wallet}
   end
 
   def create 
