@@ -55,7 +55,7 @@ const IssuerVaccines = () => {
     //normalize user data to display in typeahead
     const tempArray = []
     arrayIn.map(obj => {
-      let name = `${obj.name}`
+      let name = `${obj.name}, mfg: ${obj.manufacturer}`
       let vaccineId = obj.id
       let labelKey = obj.id
 
