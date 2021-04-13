@@ -51,8 +51,8 @@ const Wallet = () => {
   return (
     <>
     <div>
-      <h1>user wallet here</h1>
-      {renderWallet()}
+      <h1>user wallet QR Code here</h1>
+      {/* {renderWallet()} */}
     </div>
     </>
   )
