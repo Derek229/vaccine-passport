@@ -14,44 +14,15 @@ const VerifierSubmissions = () => {
   //create useEffect to render submissions on component mount
   const [unverifSubmissions, setUnverifSubmissions] = useState([])
 
-  useEffect(() => {
-    getSubmissions()
-  },[])
-
-  const getSubmissions = async () => {
-    //update :id of 1 in url to be variable for user accessing page
-    let res = await axios.get(`/api/users/1/vaccines`) 
-    setUnverifSubmissions(res.data)
-  }
-
-  const renderSubmissions = () => {
-    //generate list of vaccines
-    return unverifSubmissions.map( submission => {
-      return(
-        <div key={submission.id}>
-          <Card style={{ width: '100%' }} >
-            <Card.Body>
-              <Card.Title><h3>Submitted by, user id: {submission.user_id}</h3></Card.Title>
-              <Card.Text>
-              verified status: {submission.verified}
-              </Card.Text>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroupItem>Vacc name: {submission.name}</ListGroupItem>
-              <ListGroupItem>Manufacturer: {submission.manufacturer}</ListGroupItem>
-            </ListGroup>
-          </Card>
-        </div>
-      )
-    })
-  }
+  // useEffect(() => {
+  //   getSubmissions()
+  // },[])
 
 
   return (
     <>
     <div>
-      <h1>render submission for verifier to verify</h1>
-      {renderSubmissions()}
+      <h1>configure page for verifier to scan QR and pull up user's vaccines</h1>
     </div>
     </>
   )

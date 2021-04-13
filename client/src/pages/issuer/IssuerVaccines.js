@@ -11,8 +11,15 @@ import {Container, Card, Button, ListGroup, ListGroupItem, Form} from 'react-boo
 const IssuerVaccines = () => {
   const [users, setUsers] = useState ([])
   const [vaccines, setVaccines] = useState([])
-  const [userSelections, setUserSelections] = useState([]);
-  const [vaccSelections, setVaccSelections] = useState([]);
+  const [userSelection, setUserSelection] = useState([]);
+  const [vaccSelection, setVaccSelection] = useState([]);
+  const [wallet, setWallet] = useState({
+    user_id: 0,
+    vaccine_id: 0,
+  })
+
+  const [user_id, setUserId] = useState('')
+  const [vaccine_id, setVaccId] = useState('vaccine_id')
 
   const auth = useContext(AuthContext)
 
@@ -32,9 +39,11 @@ const IssuerVaccines = () => {
     setVaccines(res2.data)
     console.log('vaccines: ', res2.data)
   }
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     //handle submission of vaccine sent to user wallet
     //axios.post(`/api/vaccination_wallets`, vaccine_id, user_id)
+    console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
   }
 
   const normalizeUserData = (arrayIn) => {
@@ -42,10 +51,10 @@ const IssuerVaccines = () => {
     const tempArray = []
     arrayIn.map(obj => {
       let name = `${obj.first_name} ${obj.last_name}, ID: ${obj.id}`
-      let userId = obj.id
-      let labelKey = obj.id
+      let user_id = obj.id
+      let labelKey = 'user_id'
 
-      tempArray.push({name: name, userId: userId, labelKey: labelKey})
+      tempArray.push({name: name, user_id: user_id, labelKey: labelKey})
 
     })
     return tempArray
@@ -57,29 +66,36 @@ const IssuerVaccines = () => {
     arrayIn.map(obj => {
       let name = `${obj.name}, mfg: ${obj.manufacturer}`
       let vaccineId = obj.id
-      let labelKey = obj.id
+      let labelKey = vaccine_id
 
-      tempArray.push({vaccine: name, vaccineId: vaccineId, labelKey: labelKey})
+      tempArray.push({vaccine: name, vaccine_id: vaccineId, labelKey: labelKey})
 
     })
     return tempArray
   }
 
-	const issueVaccForm = () => {
+  const handleUserChange = (choice) => {
+    setWallet({...wallet, [choice.labelKey]: choice.userId})
+  }
+
+	const issuerVaccForm = () => {
     let userOptions = normalizeUserData(users)
     let vaccOptions = normalizeVaccData(vaccines)
 		return (
 			<>
-      <Form>
+      <Form onSubmit={handleSubmit}>
 				<Form.Group>
 					<Form.Label>Select a User</Form.Label>
 					<Typeahead
 						id="users"
 						labelKey="name"
-						onChange={setUserSelections}
-						options={userOptions}
+						onChange={setUserSelection}
 						placeholder="Select a User"
-						selected={userSelections}
+            // onChange={
+            //   handleUserChange(userSelection)
+            // }
+            selected={userSelection}
+            options={userOptions}
 					/>
 				</Form.Group>
         <Form.Group>
@@ -87,14 +103,18 @@ const IssuerVaccines = () => {
 					<Typeahead
 						id="vaccines"
 						labelKey="vaccine"
-						onChange={setVaccSelections}
+						onChange={setVaccSelection}
 						options={vaccOptions}
 						placeholder="Select a Vaccine"
-						selected={vaccSelections}
+						defaultSelected={vaccSelection}
+            // onChange={(selected) => {
+            //   setWallet({...wallet, [wallet.vaccine_id]: selected.vaccineId})
+            //   console.log(wallet)
+            // }}
 					/>
 				</Form.Group>
         <Form.Group>
-          <Button onClick={handleSubmit}>Submit Request</Button>
+          <Button type="submit">Submit Request</Button>
         </Form.Group>
       </Form>
 			</>
@@ -111,7 +131,7 @@ const IssuerVaccines = () => {
       <>
       <h1>issuer vaccines (add vacc to user wallet) here</h1>
       <Container>
-        {issueVaccForm()}
+        {issuerVaccForm()}
       </Container>
         
 

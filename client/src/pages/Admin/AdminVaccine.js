@@ -37,7 +37,7 @@ const Vaccine = (props) => {
   //called when delete is clicked, deletes item from DB and filters items rendered on page
   const deleteVaccine = async () => {
     let res = await axios.delete(`/api/users/${userId}/vaccines/${vaccine.id}`)
-    const filteredVaccines = vaccines.filter(x=>x.id != vaccine.id)
+    const filteredVaccines = vaccines.filter(x=>x.id !== vaccine.id)
     setVaccines(filteredVaccines)
   }
 
