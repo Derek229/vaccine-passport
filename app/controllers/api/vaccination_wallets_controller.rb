@@ -1,9 +1,9 @@
 class Api::VaccinationWalletsController < ApplicationController
-  before_action :authenticate_user!, only [:show, :update]
+  before_action :authenticate_user!, only: [:show, :update]
   before_action :set_vaccination_wallet, only: [:update, :show, :destroy]
   
   def index 
-    vaccination_wallet = Vaccination_wallet.all
+    vaccination_wallet = VaccinationWallet.all
     render json: vaccination_wallet
   end
 
@@ -12,11 +12,11 @@ class Api::VaccinationWalletsController < ApplicationController
   end
 
   def create 
-    vaccination_wallet = Vaccination_wallet.new(vaccination_wallet_params)
-    if vaccination_wallet.save
-      render json: vaccination_wallet
+    wallet = VaccinationWallet.new(vaccination_wallet_params)
+    if wallet.save
+      render json: wallet
     else
-      render json: {error: vaccination_wallet}, status: 422
+      render json: {error: wallet}, status: 422
     end
   end
   
@@ -34,7 +34,8 @@ def set_vaccination_wallet
 end
 
 def vaccination_wallet_params
-  params.premit(:user_id, :image, :date)
+  params.require(:vaccination_wallet).permit(:user_id, :vaccine_id)
+end
 
 
 

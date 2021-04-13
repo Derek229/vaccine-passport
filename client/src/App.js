@@ -14,6 +14,7 @@ import Wallet from './pages/user/Wallet';
 import UserDashboard from './pages/user/UserDashboard';
 import verifierSubmissions from './pages/verifier/verifierSubmissions';
 import IssuerVaccines from './pages/issuer/IssuerVaccines';
+import AdminVaccines from './pages/Admin/AdminVaccines'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route exact path='/users/self' component={UserDashboard} />
         <ProtectedRoute exact path='/users/issuer/vaccines' component={IssuerVaccines} />
         <Route exact path='/users/verifier/pending' component={verifierSubmissions} />
+        <Route exact path='/admin' component={AdminVaccines} />
         < Route component={NoMatch} />
       </Switch>
       </Container>

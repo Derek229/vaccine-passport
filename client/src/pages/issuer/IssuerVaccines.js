@@ -11,6 +11,15 @@ import {Container, Card, Button, ListGroup, ListGroupItem, Form} from 'react-boo
 const IssuerVaccines = () => {
   const [users, setUsers] = useState ([])
   const [vaccines, setVaccines] = useState([])
+  const [userSelection, setUserSelection] = useState([]);
+  const [vaccSelection, setVaccSelection] = useState([]);
+  const [wallet, setWallet] = useState({
+    user_id: 0,
+    vaccine_id: 0,
+  })
+
+  const [user_id, setUserId] = useState('')
+  const [vaccine_id, setVaccId] = useState('vaccine_id')
 
   const auth = useContext(AuthContext)
 
@@ -20,51 +29,95 @@ const IssuerVaccines = () => {
   },[]) 
 
 	const getUsers = async() => {
-		let res = await axios.get(`/api/users/`)
-		setUsers(res.data)
+		let res1 = await axios.get(`/api/users/`)
+		setUsers(res1.data)
+    console.log('users: ', res1.data)
 	}
 
-  const userList = () => {
-    return(
-      <>
-      </>
-    )
-  }
-
   const getVaccines = async () => {
-    let res = await axios.get(`/api/users/${auth.user.id}/vaccines`) 
-    setVaccines(res.data)
+    let res2 = await axios.get(`/api/users/${auth.user.id}/vaccines`) 
+    setVaccines(res2.data)
+    console.log('vaccines: ', res2.data)
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    //handle submission of vaccine sent to user wallet
+    let res = await axios.post(`/api/users/${auth.user.id}/vaccination_wallets`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id})
+    console.log(res)
+    // console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
   }
 
-	const BasicExample = () => {
-		const [singleSelections, setSingleSelections] = useState([]);
-		const [multiSelections, setMultiSelections] = useState([]);
+  const normalizeUserData = (arrayIn) => {
+    //normalize user data to display in typeahead
+    const tempArray = []
+    arrayIn.map(obj => {
+      let name = `${obj.first_name} ${obj.last_name}, ID: ${obj.id}`
+      let user_id = obj.id
+      let labelKey = 'user_id'
 
+      tempArray.push({name: name, user_id: user_id, labelKey: labelKey})
+
+    })
+    return tempArray
+  }
+
+  const normalizeVaccData = (arrayIn) => {
+    //normalize user data to display in typeahead
+    const tempArray = []
+    arrayIn.map(obj => {
+      let name = `${obj.name}, mfg: ${obj.manufacturer}`
+      let vaccineId = obj.id
+      let labelKey = vaccine_id
+
+      tempArray.push({vaccine: name, vaccine_id: vaccineId, labelKey: labelKey})
+
+    })
+    return tempArray
+  }
+
+  const handleUserChange = (choice) => {
+    setWallet({...wallet, [choice.labelKey]: choice.userId})
+  }
+
+	const issuerVaccForm = () => {
+    let userOptions = normalizeUserData(users)
+    let vaccOptions = normalizeVaccData(vaccines)
 		return (
 			<>
+      <Form onSubmit={handleSubmit}>
 				<Form.Group>
 					<Form.Label>Select a User</Form.Label>
 					<Typeahead
-						id="basic-typeahead-single"
+						id="users"
 						labelKey="name"
-						onChange={setSingleSelections}
-						// options={options}
+						onChange={setUserSelection}
 						placeholder="Select a User"
-						selected={singleSelections}
+            // onChange={
+            //   handleUserChange(userSelection)
+            // }
+            selected={userSelection}
+            options={userOptions}
 					/>
 				</Form.Group>
-				<Form.Group style={{ marginTop: '20px' }}>
-					<Form.Label>Select One or Multiple Completed Vaccinations</Form.Label>
+        <Form.Group>
+					<Form.Label>Select a Vaccine</Form.Label>
 					<Typeahead
-						id="basic-typeahead-multiple"
-						labelKey="name"
-						multiple
-						onChange={setMultiSelections}
-						// options={options}
-						placeholder="Select Completed Vaccinations"
-						selected={multiSelections}
+						id="vaccines"
+						labelKey="vaccine"
+						onChange={setVaccSelection}
+						options={vaccOptions}
+						placeholder="Select a Vaccine"
+						defaultSelected={vaccSelection}
+            // onChange={(selected) => {
+            //   setWallet({...wallet, [wallet.vaccine_id]: selected.vaccineId})
+            //   console.log(wallet)
+            // }}
 					/>
 				</Form.Group>
+        <Form.Group>
+          <Button type="submit">Submit Request</Button>
+        </Form.Group>
+      </Form>
 			</>
 		)
 	}
@@ -76,15 +129,14 @@ const IssuerVaccines = () => {
     )
   }else{
     return (
-    <div>
-      <h1>issuer vaccines (Create user wallet) here</h1>
+      <>
+      <h1>issuer vaccines (add vacc to user wallet) here</h1>
       <Container>
-        <h3>render form or select here to choose user</h3>
-        <h3>render select here to choose vaccine</h3>
-        <h4>confirmation button</h4>
-        {userList()}
+        {issuerVaccForm()}
       </Container>
-    </div>
+        
+
+    </>
     )
     }
 }

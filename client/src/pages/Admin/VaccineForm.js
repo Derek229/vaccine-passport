@@ -67,6 +67,7 @@ const VaccineForm = (props) => {
   }
 
   const handleChange = (e) => {
+    console.log(e)
     setVaccineState({...vaccineState, [e.target.name]: e.target.value})
   }
 

@@ -63,22 +63,6 @@ class Navbar1 extends React.Component {
     )
   }
 }
-
-
-{/* <Link to='/users/issuer/vaccines'>
-            <Menu.Item
-              name='Issuers CRUD Page'
-              id='users'
-              active={pathname === '/users/issuer/vaccines'}
-            />
-          </Link>
-          <Link to='/users/verifier/pending'>
-            <Menu.Item
-              name='Verifier Pending Submissions Page'
-              id='users'
-              active={pathname === '/users/verifier/pending'}
-            />
-          </Link> */}
     
 
 export class ConnectedNavbar extends React.Component {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BORDER_RADIUS, FONT_SIZES, INV_TEXT_COLOR, MARGIN, PADDING, PRIMARY_COLOR } from '../styles'
+import { BORDER_RADIUS, FONT_SIZES, INV_TEXT_COLOR, PADDING, PRIMARY_COLOR } from '../styles'
 
 const Button = styled.button`
   background: ${props => props.primary ? PRIMARY_COLOR : INV_TEXT_COLOR};

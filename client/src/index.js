@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "semantic-ui-css/semantic.min.css"
 import "bootswatch/dist/flatly/bootstrap.min.css";
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 import {BrowserRouter} from 'react-router-dom'
 import AuthProvider from './providers/AuthProvider';
 import { initMiddleware, } from 'devise-axios'
