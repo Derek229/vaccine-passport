@@ -9,6 +9,7 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import {BrowserRouter} from 'react-router-dom'
 import AuthProvider from './providers/AuthProvider';
 import { initMiddleware, } from 'devise-axios'
+import "filepond/dist/filepond.min.css";
 
 initMiddleware()
 
