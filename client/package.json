@@ -10,6 +10,7 @@
     "bootstrap": "^4.6.0",
     "bootswatch": "^4.6.0",
     "devise-axios": "^1.0.24",
+    "filepond": "^4.27.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
     "react-bootstrap-typeahead": "^5.1.4",
