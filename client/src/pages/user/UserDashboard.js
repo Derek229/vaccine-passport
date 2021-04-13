@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {CardGroup, Card, ListGroup, ListGroupItem, Container, Row, Col, Button} from 'react-bootstrap'
+import {CardGroup, Card, ListGroup, ListGroupItem, Container, Row, Col, Button, Modal} from 'react-bootstrap'
 import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
+import UserVaccine from './UserVaccine'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
@@ -62,16 +63,7 @@ const UserDashboard = (props) => {
     //generate list of vaccine choices
     return wallet.map( vaccine => {
       return(
-        <div key={vaccine.vaccine_id}>
-          <Card >
-            <Card.Body>
-              <Card.Title><h3>Vaccination: {vaccine.vaccine_name}</h3></Card.Title>
-              <Card.Text>
-                MFG: {vaccine.manufacturer}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
+        <UserVaccine vaccine_id={vaccine.vaccine_id} vaccine_name={vaccine.vaccine_name} manufacturer={vaccine.manufacturer}/>
       )
     })
   }
