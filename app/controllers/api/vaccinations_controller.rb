@@ -17,6 +17,24 @@ class Api::VaccinationsController < ApplicationController
     render json: vaccination
   end
 
+
+  def all_vaccines
+    render json: Vaccine.all
+  end
+
+  def  required_vaccines
+    render json: RequiredVaccine.all_required_vaccines
+  end
+
+  def user_required_vaccine
+    render json: RequiredVaccine.user_required_vaccine(params[:id])
+  end 
+
+  def verify_user
+
+    render json: User.verify_vaccine(params[:user_id], params[:verifer_id])
+  end
+
   def show 
     vaccination = Vaccination.user_vaccinations(params[:user_id])
     render json: vaccination

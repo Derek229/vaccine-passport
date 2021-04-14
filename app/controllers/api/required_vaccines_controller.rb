@@ -4,7 +4,7 @@ class Api::RequiredVaccinesController < ApplicationController
   
 
 def index
-    required_vaccines = Required_Vaccines.all
+    required_vaccines = RequiredVaccine.all
     render json: required_vaccines
   end
 
@@ -40,7 +40,7 @@ def index
 
   private
     def set_required_vaccines
-      @required_vaccines = Required_vaccines.find(params[:id])
+      @required_vaccines = RequiredVaccine.find(params[:id])
     end
 
     def required_vaccine_params 

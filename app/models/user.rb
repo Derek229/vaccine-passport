@@ -8,13 +8,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
   has_many :vaccines
-  has_one :vaccination_wallet
 
 
-  def self.verify_vaccine(holder_id, verifer_id)
-    holder_vaccines = Vaccination.user_vaccinations_id(holder_id)
+
+  def self.verify_vaccine(user_id, verifer_id)
+    user_vaccines = Vaccination.user_vaccinations(user_id)
     verifers_vaccines = RequiredVaccine.user_required_vaccine_ids(verifer_id)
-    hasAllVaccines= (verifers_vaccines - holder_vaccines).length === 0
-    {holder_vaccines:holder_vaccines, verifers_vaccines:verifers_vaccines, hasAllVaccines: hasAllVaccines}
+    hasAllVaccines= (verifers_vaccines - user_vaccines).length === 0
+    {user_vaccines:user_vaccines, verifers_vaccines:verifers_vaccines, hasAllVaccines: hasAllVaccines}
   end
 end
