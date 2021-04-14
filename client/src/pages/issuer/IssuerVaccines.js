@@ -7,6 +7,8 @@ import {Container, Card, Button, ListGroup, ListGroupItem, Form} from 'react-boo
 
 //this page will show issuers option to assign existing vaccine to user through user's wallet
 
+//TODO: only show vaccines that the user does not have in select list
+
 
 const IssuerVaccines = () => {
   const [users, setUsers] = useState ([])
@@ -39,10 +41,11 @@ const IssuerVaccines = () => {
     setVaccines(res2.data)
     console.log('vaccines: ', res2.data)
   }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     //handle submission of vaccine sent to user wallet
-    let res = await axios.post(`/api/users/${auth.user.id}/vaccination_wallets`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id})
+    let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id})
     console.log(res)
     alert(`vaccine: ${vaccSelection[0].vaccine} sent to user: ${userSelection[0].name}`)
     // console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
@@ -56,7 +59,10 @@ const IssuerVaccines = () => {
       let user_id = obj.id
       let labelKey = 'user_id'
 
-      tempArray.push({name: name, user_id: user_id, labelKey: labelKey})
+      //excludes issuers and admin from list of selectable people
+      if(obj.role == "user"){
+        tempArray.push({name: name, user_id: user_id, labelKey: labelKey})
+      }
 
     })
     return tempArray

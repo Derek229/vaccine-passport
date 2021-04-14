@@ -41,6 +41,9 @@ const UserVaccine = (props) => {
           <Card.Text>
             MFG: {manufacturer}
           </Card.Text>
+          <Card.Text>
+            id: {vaccine_id}
+          </Card.Text>
         </Card.Body>
         <Card.Body>
           {pictureUploadModal()}
