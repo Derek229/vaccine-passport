@@ -32,7 +32,7 @@ const UserDashboard = (props) => {
 
   const getWallet = async () => {
     //TODO: change 1 in URL below to string interpolate userID once users controller is setup
-    let res = await axios.get(`/api/users/${auth.user.id}/vaccination_wallets`)
+    let res = await axios.get(`/api/vaccinations/${auth.user.id}`)
     setWallet(res.data)
 
   }
