@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import {Card, Modal, Form, Button} from 'react-bootstrap'
+import UploadVaccImage from './UploadVaccImage'
 
 const UserVaccine = (props) => {
 
-  const {vaccine_id, vaccine_name, manufacturer} = props
+  const {vaccination, vaccine_id, vaccine_name, manufacturer, vaccination_id} = props
 
   //modal vars
   const [show, setShow] = useState(false);
@@ -22,7 +23,7 @@ const UserVaccine = (props) => {
             <Modal.Header closeButton>
               <Modal.Title>Upload Vaccine Image Here</Modal.Title>
             </Modal.Header>
-            <Modal.Body>FILEPOND here</Modal.Body>
+            <Modal.Body><UploadVaccImage vaccination={vaccination} vaccination_id={vaccination_id}/></Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
                 Close

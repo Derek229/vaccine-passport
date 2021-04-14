@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get 'vaccinations', to: "vaccinations#all_vaccinations"
     get 'vaccinations/:user_id', to: "vaccinations#user_vaccinations"
 
+    # put 'users/:user_id/vaccinations/:vaccination_id', to: "vaccinations#vaccination_image_upload"
+
     resources :users do
       resources :vaccines
       resources :vaccinations

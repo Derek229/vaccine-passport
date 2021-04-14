@@ -35,6 +35,44 @@ class Api::VaccinationsController < ApplicationController
     @vaccination.destroy
   end
 
+  def update
+    file = params[:image]
+  
+    if file
+      begin
+            
+        # ext = File.extname(file.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true, resource_type: :auto)
+        vaccination = @vaccination.update(image:cloud_image['secure_url'])
+        # render json: { yo: "worked", file: file, cloud_image: cloud_image }
+      rescue => e
+        render json: { errors: e }, status: 422
+        return
+      end
+    end
+    render json: vaccination
+  end
+	# /api/users/:user_id/vaccinations/:id
+
+
+  #   def vaccination_image_upload
+  #   file = params[:file]
+  
+  #   if file
+  #     begin
+  #       # ext = File.extname(file.tempfile)
+  #       cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true, resource_type: :auto)
+  #       vaccination = @vaccination.update(image:cloud_image['secure_url'])
+  #       # render json: { yo: "worked", file: file, cloud_image: cloud_image }
+  #     rescue => e
+  #       render json: { errors: e }, status: 422
+  #       return
+  #     end
+  #   end
+  # end
+
+
+
 
 
 private
@@ -45,8 +83,10 @@ def set_vaccination
 end
 
 def vaccination_params
-  params.require(:vaccination).permit(:user_id, :vaccine_id)
+  params.require(:vaccination).permit(:user_id, :vaccine_id, :image)
 end
+
+
 
 
 

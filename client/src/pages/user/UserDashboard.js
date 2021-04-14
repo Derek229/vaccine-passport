@@ -14,7 +14,7 @@ const UserDashboard = (props) => {
   const history = useHistory()
   
   const [user, setUser] = useState([])
-  const [wallet, setWallet] = useState([])
+  const [vaccinations, setVaccinations] = useState([])
 
   useEffect(()=>{
     getWallet()
@@ -33,7 +33,7 @@ const UserDashboard = (props) => {
   const getWallet = async () => {
     //TODO: change 1 in URL below to string interpolate userID once users controller is setup
     let res = await axios.get(`/api/vaccinations/${auth.user.id}`)
-    setWallet(res.data)
+    setVaccinations(res.data)
 
   }
 
@@ -61,9 +61,9 @@ const UserDashboard = (props) => {
 
   const renderVaccines = () => {
     //generate list of vaccine choices
-    return wallet.map( vaccine => {
+    return vaccinations.map( vaccination => {
       return(
-        <UserVaccine vaccine_id={vaccine.vaccine_id} vaccine_name={vaccine.vaccine_name} manufacturer={vaccine.manufacturer}/>
+        <UserVaccine key={vaccination.id} vaccination={vaccination} vaccination_id={vaccination.id} vaccine_id={vaccination.vaccine_id} vaccine_name={vaccination.vaccine_name} manufacturer={vaccination.manufacturer}/>
       )
     })
   }
