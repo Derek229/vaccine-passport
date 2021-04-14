@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   namespace :api do 
     get '/api_test', to:'static#api_test'
 
+    get 'vaccinations', to: "vaccinations#all_vaccinations"
+    get 'vaccinations/:user_id', to: "vaccinations#user_vaccinations"
+
     resources :users do
       resources :vaccines
-      resources :vaccination_wallets
+      resources :vaccinations
       resources :required_vaccines
     end
     
