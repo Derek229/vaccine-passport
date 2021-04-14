@@ -66,9 +66,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_213229) do
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "vaccine_id", null: false
     t.index ["user_id"], name: "index_vaccination_wallets_on_user_id"
-    t.index ["vaccine_id"], name: "index_vaccination_wallets_on_vaccine_id"
   end
 
   create_table "vaccines", force: :cascade do |t|
@@ -80,15 +78,11 @@ ActiveRecord::Schema.define(version: 2021_04_12_213229) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "required_vaccine_id", null: false
     t.integer "effectiveness"
-    t.index ["required_vaccine_id"], name: "index_vaccines_on_required_vaccine_id"
     t.index ["user_id"], name: "index_vaccines_on_user_id"
   end
 
   add_foreign_key "required_vaccines", "users"
   add_foreign_key "vaccination_wallets", "users"
-  add_foreign_key "vaccination_wallets", "vaccines"
-  add_foreign_key "vaccines", "required_vaccines"
   add_foreign_key "vaccines", "users"
 end

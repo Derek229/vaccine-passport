@@ -1,5 +1,5 @@
 class DropColumn < ActiveRecord::Migration[6.1]
   def change
-    remove_column :required_vaccines, :vaccines_id
+    remove_column :vaccines, :required_vaccine_id
   end
 end
