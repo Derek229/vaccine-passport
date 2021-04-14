@@ -32,6 +32,8 @@ sizzler = User.create(name:'sizzler', email: 'sizzler@test.com', role:'issuer', 
 #many users
 user1 = User.create(
 name: "user1",
+first_name: "user1",
+last_name: "name",
 email: "user1@test.com",
 role: 'user',
 country_origin: Faker::Address.country,
@@ -42,6 +44,8 @@ age: rand(18..80)
 
 user2 = User.create(
   name: "user2",
+  first_name: "user2",
+  last_name: "name",
   email: "user2@test.com",
   role: 'user',
   country_origin: Faker::Address.country,
@@ -52,6 +56,8 @@ user2 = User.create(
 
 user3 = User.create(
   name: "user3",
+  first_name: "user3",
+  last_name: "name",
   email: "user3@test.com",
   role: 'user',
   country_origin: Faker::Address.country,
