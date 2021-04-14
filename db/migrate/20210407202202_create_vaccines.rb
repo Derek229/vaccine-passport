@@ -3,8 +3,7 @@ class CreateVaccines < ActiveRecord::Migration[6.1]
     create_table :vaccines do |t|
       t.string :name
       t.string :manufacturer
-      t.string :image
-      t.string :verified
+      t.integer :effecitivness
       t.date :date
       t.belongs_to :user, null: false, foreign_key: true
 
