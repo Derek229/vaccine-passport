@@ -7,7 +7,17 @@ class Api::VaccinationsController < ApplicationController
     render json: vaccinations
   end
 
+  def index 
+    vaccinations = Vaccination.all_vaccinations
+    render json: vaccinations
+  end
+
   def user_vaccinations 
+    vaccination = Vaccination.user_vaccinations(params[:user_id])
+    render json: vaccination
+  end
+
+  def show 
     vaccination = Vaccination.user_vaccinations(params[:user_id])
     render json: vaccination
   end
