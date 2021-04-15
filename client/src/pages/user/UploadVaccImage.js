@@ -20,8 +20,9 @@ function UploadVaccImage(props) {
       setFiles(fileItems);
 
       // appending 'file' with image info to pass can retieve in params
-      let data = new FormData();
-      data.append("image", vaccination.image);
+      let data = new FormData()
+        // files[0].file  this will come in as params file
+       data.append('file', fileItems[0].file)
       let res = await axios.put(`/api/users/${auth.user.id}/vaccinations/${vaccination_id}`, data);
       console.log(res.data);
     } catch (err) {

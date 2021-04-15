@@ -35,22 +35,29 @@ class Api::VaccinationsController < ApplicationController
     @vaccination.destroy
   end
 
+  def add_image
+
+  end
+
   def update
-    file = params[:image]
+    file = params[:file]
   
     if file
       begin
             
         # ext = File.extname(file.tempfile)
-        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true, resource_type: :auto)
+        cloud_image = Cloudinary::Uploader.upload(file, secure: true, resource_type: :auto)
         vaccination = @vaccination.update(image:cloud_image['secure_url'])
+        if vaccination.save
+          render json: vaccination
+        end
         # render json: { yo: "worked", file: file, cloud_image: cloud_image }
       rescue => e
+        puts "file: #{file}, cloud_image: #{cloud_image}"
         render json: { errors: e }, status: 422
         return
       end
     end
-    render json: vaccination
   end
 	# /api/users/:user_id/vaccinations/:id
 
