@@ -1,10 +1,15 @@
 import React, { useState, useContext } from 'react'
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import "filepond/dist/filepond.min.css";
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 import { FilePond, File, registerPlugin } from "react-filepond";
-import { Button, Image } from "react-bootstrap";
+import { Button, Image , Form} from "react-bootstrap";
 import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
+
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
 function UploadVaccImage(props) {
 
@@ -16,6 +21,7 @@ function UploadVaccImage(props) {
 
 
   const handleUpdate = async (fileItems) => {
+    console.log('handleUpdate for image called')
     try {
       setFiles(fileItems);
 

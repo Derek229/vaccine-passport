@@ -25,6 +25,9 @@ const UserVaccine = (props) => {
             </Modal.Header>
             <Modal.Body><UploadVaccImage vaccination={vaccination} vaccination_id={vaccination_id}/></Modal.Body>
             <Modal.Footer>
+            <Button variant="primary" onClick={handleClose}>
+                Submit
+              </Button>
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>

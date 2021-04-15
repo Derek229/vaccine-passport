@@ -47,9 +47,9 @@ class Api::VaccinationsController < ApplicationController
             
         # ext = File.extname(file.tempfile)
         cloud_image = Cloudinary::Uploader.upload(file, secure: true, resource_type: :auto)
-        vaccination = @vaccination.update(image:cloud_image['secure_url'])
-        if vaccination.save
-          render json: vaccination
+        @vaccination.image = cloud_image['secure_url']
+        if @vaccination.save
+          render json: @vaccination
         end
         # render json: { yo: "worked", file: file, cloud_image: cloud_image }
       rescue => e
