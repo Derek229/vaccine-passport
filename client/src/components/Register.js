@@ -11,9 +11,9 @@ const Register = ( {history} ) => {
   useEffect(() =>{
     setAuthErrors([]);
   },[]);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if(password.value === passwordConfirmation.value)
+    if(password.value === passwordConfirmation.value){
       handleRegister({
         email: email.value,
         password: password.value,
@@ -21,7 +21,7 @@ const Register = ( {history} ) => {
       },
       history
       );
-      else alert("Passwords Don't Match!!!");
+    }else alert("Passwords Don't Match");
   };
   return (
     <Segment basic>
