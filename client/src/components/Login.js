@@ -18,8 +18,8 @@ const  Login=(props) =>{
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    handleLogin({email, password}, props.history)
-    history.push("/users/self")
+    handleLogin({email, password}, history)
+
 
   }
   if (authLoading) {

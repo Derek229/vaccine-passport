@@ -38,12 +38,13 @@ const handleRegister = async (user, history) => {
   }
 }
 
-const handleLogin = async (user) => {
+const handleLogin = async (user, history) => {
   
   try {
     resetProvider()
     let res = await axios.post('/api/auth/sign_in', user)
     setUser(res.data.data)
+    history.push("/users/self")
   } catch(err) {
     console.log('login error: ', err)
     setAuthErrors(err.response.data.errors)
