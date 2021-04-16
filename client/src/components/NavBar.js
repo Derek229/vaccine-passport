@@ -63,7 +63,7 @@ class Navbar1 extends React.Component {
               <NavDropdown title="Menu">
                 <NavDropdown.Item href="/users/issuer/vaccines">Issuers Vaccines</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="/users/verifier/pending">Verifier Vaccines</NavDropdown.Item>
+                <NavDropdown.Item href="/users/verifier/required">Verifier Vaccines</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           <Nav activeKey={this.props.location.pathname} className="justify-content-end" style={{ width: "100%" }}>
