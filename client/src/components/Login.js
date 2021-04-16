@@ -2,20 +2,25 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap';
 import { AuthContext } from '../providers/AuthProvider'
+import {useHistory} from 'react-router-dom'
 
 
 const  Login=(props) =>{
   const [email, setEmail] = useState('')
   const [password, setPassword]= useState('')
   const { handleLogin, authLoading, authErrors, setAuthErrors } = useContext(AuthContext)
+  
+  const history = useHistory()
 
   useEffect (()=> {
     setAuthErrors([])
   }, [])
 
-  const handleSubmit =(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    handleLogin({email, password}, props.history)
+    handleLogin({email, password}, history)
+
+
   }
   if (authLoading) {
     return <p>Loading</p>
@@ -47,7 +52,7 @@ const  Login=(props) =>{
           onChange={(e) => setPassword(e.target.value)}
         /> 
       </Form.Group>
-        <Button primary type='submit'>Submit</Button>
+        <Button variant="primary" type='submit'>Submit</Button>
     </Form>
     </>
 

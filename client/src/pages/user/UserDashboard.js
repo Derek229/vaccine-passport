@@ -4,6 +4,7 @@ import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
 import UserVaccine from './UserVaccine'
+import EditUserDetails from './EditUserDetails'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
@@ -17,8 +18,13 @@ const UserDashboard = (props) => {
   const [vaccinations, setVaccinations] = useState([])
 
   useEffect(()=>{
-    getWallet()
+    if(auth?.user){
+    getVaccinations()
     getUserData()
+    }else{
+      history.push('/')
+    }
+  
   },[])
   
   
@@ -30,10 +36,12 @@ const UserDashboard = (props) => {
     //setUser(res.data) --check to make sure this is right w/ console.log() once backend is setup
   }
 
-  const getWallet = async () => {
+  const getVaccinations = async () => {
     //TODO: change 1 in URL below to string interpolate userID once users controller is setup
+
     let res = await axios.get(`/api/vaccinations/${auth.user.id}`)
     setVaccinations(res.data)
+    console.log('vaccinations: ', res.data)
 
   }
 
@@ -52,7 +60,7 @@ const UserDashboard = (props) => {
            <ListGroupItem>Email: {user.email}</ListGroupItem>
          </ListGroup>
          <Card.Body>
-           <Card.Link href="#"><Button className="btn btn-info">Edit User Details</Button></Card.Link>
+           <EditUserDetails user={user} setUser={setUser}/>
          </Card.Body>
        </Card>
       </>
@@ -68,7 +76,7 @@ const UserDashboard = (props) => {
     })
   }
 
-  return (
+    return (
     <>
     <div>
       <Container>
@@ -83,7 +91,7 @@ const UserDashboard = (props) => {
       </Container>
     </div>
     </>
-  )
+    )
 }
 
 export default UserDashboard
