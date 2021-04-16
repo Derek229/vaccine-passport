@@ -1,4 +1,4 @@
 class RequiredVaccine < ApplicationRecord
   belongs_to :user
-  has_many :vaccines
+  belongs_to :vaccines
 end
