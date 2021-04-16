@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
-// import { Button, Form, Header, Segment } from 'semantic-ui-react';
 import {Form, Button} from 'react-bootstrap'
 import { AuthContext } from '../providers/AuthProvider'
 import { useFormInput } from './useFormInput';
