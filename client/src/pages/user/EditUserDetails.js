@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Modal, Button, Form} from 'react-bootstrap'
 import axios from 'axios'
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 
 const EditUserDetails = (props) => {
 

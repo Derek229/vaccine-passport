@@ -1,15 +1,15 @@
-import axios from 'axios'
-import React, { useState, useEffect} from 'react'
-import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
-import {useHistory} from 'react-router-dom'
+// import axios from 'axios'
+import React from 'react'
+// import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
+// import {useHistory} from 'react-router-dom'
 
 //TODO: show user's vaccines provided by issuer
 
 const Wallet = () => {
 
-  const history = useHistory
+  // const history = useHistory
   
-  const [myVaccines, setMyVaccines] = useState([])
+  // const [myVaccines, setMyVaccines] = useState([])
 
   // useEffect(()=> {
   //   getVaccines()

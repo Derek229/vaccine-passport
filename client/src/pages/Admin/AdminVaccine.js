@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {Modal, Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap'
 import VaccineForm from './VaccineForm'
 import axios from 'axios'
@@ -36,7 +36,7 @@ const Vaccine = (props) => {
 
   //called when delete is clicked, deletes item from DB and filters items rendered on page
   const deleteVaccine = async () => {
-    let res = await axios.delete(`/api/users/${userId}/vaccines/${vaccine.id}`)
+  	await axios.delete(`/api/users/${userId}/vaccines/${vaccine.id}`)
     const filteredVaccines = vaccines.filter(x=>x.id !== vaccine.id)
     setVaccines(filteredVaccines)
   }
