@@ -16,7 +16,7 @@ class Vaccination < ApplicationRecord
 # INNER JOIN users on vaccinations.user_id = users.id
 # INNER JOIN vaccines on vaccinations.vaccine_id = vaccines.id
 # WHERE users.id = 1
-    select('vaccinations.id , vaccinations.user_id as vaccination_user_id, users.id as user_id, first_name, last_name, vaccines.id as vaccine_id, vaccines.name as vaccine_name, vaccines.date as date, manufacturer')
+    select('vaccinations.id , vaccinations.user_id as vaccination_user_id, users.id as user_id, first_name, last_name, vaccines.id as vaccine_id, vaccines.name as vaccine_name, vaccines.date as date, manufacturer, vaccinations.image')
     .from('vaccinations')
     .joins('inner join users on vaccinations.user_id = users.id 
     inner join vaccines on vaccinations.vaccine_id = vaccines.id')

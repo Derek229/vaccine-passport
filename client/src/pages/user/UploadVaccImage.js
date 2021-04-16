@@ -1,56 +1,57 @@
-import React, { useState, useEffect } from 'react'
-import * as FilePond from 'filepond'
-import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
-import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import React, { useState, useContext } from 'react'
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-import { Button, Image } from "react-bootstrap";
+import "filepond/dist/filepond.min.css";
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+import { FilePond, File, registerPlugin } from "react-filepond";
+import { Button, Image , Form} from "react-bootstrap";
 import axios from 'axios'
+import {AuthContext} from '../../providers/AuthProvider'
 
-const UploadVaccImage = () => {
-  const [files, setFiles] = useState([])
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
-const handleClick = async ()=>{
-  console.log(files)
-//   files[0].file; file is the thing I want to send to backend
-try {
-   let data = new FormData()
-    // files[0].file  this will come in as params file
-   data.append('file', files[0].file)
-//    data.append('x', 'x here')
-   let res  = await axios.post('/api/users/${user.id}/vaccination_wallets', data)
-   console.log(res.data)
-} catch(err) {
-  console.log(err)
-  console.log(err.response.data)
-  alert('error occurred')
-}
-}
+function UploadVaccImage(props) {
 
-return (
-  <div className="App">
-    <FilePond
-      files={files}
-      allowReorder={true}
-      // allowMultiple={true}
-      allowMultiple={true}
-      onupdatefiles={setFiles}
-      labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-    />
+  const {vaccination_id, vaccination} = props
 
-    <Button onClick={handleClick}>add</Button>
-    {uzers.length >= 1 && <Image src={uzers[0].image} />}
-  </div>
-);
+  const auth = useContext(AuthContext)
+  const [files, setFiles] = useState([]);
 
 
-const UploadVaccImage = () => {
+
+  const handleUpdate = async (fileItems) => {
+    console.log('handleUpdate for image called')
+    try {
+      setFiles(fileItems);
+
+      // appending 'file' with image info to pass can retieve in params
+      let data = new FormData()
+        // files[0].file  this will come in as params file
+       data.append('file', fileItems[0].file)
+      let res = await axios.put(`/api/users/${auth.user.id}/vaccinations/${vaccination_id}`, data);
+      console.log(res.data);
+    } catch (err) {
+      console.log(err.response);
+      alert("error in upload");
+    }
+  };
+  
   return (
     <div>
-
+      <FilePond
+        files={files}
+        onupdatefiles={handleUpdate}
+        // onupdatefiles={setFiles}
+        allowMultiple={false}
+        // maxFiles={3}
+        // server="/api/basicUpload"
+        name="image"
+        labelIdle='Drag  Drop your files or <span class="filepond--label-action">Browse</span>'
+      />
     </div>
-  )
+  );
 }
 
-}
 
 export default UploadVaccImage

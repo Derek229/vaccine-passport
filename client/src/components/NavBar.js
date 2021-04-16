@@ -11,9 +11,21 @@ class Navbar1 extends React.Component {
     if (user) {
       return (
         <>
+        {user?.first_name &&
+          <Nav.Link href="/users/self">
+            {user.first_name} {user.last_name}
+          </Nav.Link>
+        }
+        {(user?.name && !user?.first_name) &&
+          <Nav.Link href="/users/self">
+            {user.name}
+          </Nav.Link>
+        }
+        {(!user?.name && !user?.first_name) &&
           <Nav.Link href="/users/self">
             My Profile
           </Nav.Link>
+        }
           <Nav.Link>
           <Nav.Item onClick={() => handleLogout(this.props.history)}>
             Logout
@@ -27,7 +39,7 @@ class Navbar1 extends React.Component {
         <Nav.Link href="/">
           Login
         </Nav.Link>
-        <Nav.Link href="/">
+        <Nav.Link href="/Register">
           Register
         </Nav.Link>
         </>

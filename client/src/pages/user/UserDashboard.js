@@ -4,6 +4,7 @@ import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
 import UserVaccine from './UserVaccine'
+import EditUserDetails from './EditUserDetails'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
@@ -14,11 +15,16 @@ const UserDashboard = (props) => {
   const history = useHistory()
   
   const [user, setUser] = useState([])
-  const [wallet, setWallet] = useState([])
+  const [vaccinations, setVaccinations] = useState([])
 
   useEffect(()=>{
-    getWallet()
+    if(auth?.user){
+    getVaccinations()
     getUserData()
+    }else{
+      history.push('/')
+    }
+  
   },[])
   
   
@@ -30,10 +36,12 @@ const UserDashboard = (props) => {
     //setUser(res.data) --check to make sure this is right w/ console.log() once backend is setup
   }
 
-  const getWallet = async () => {
+  const getVaccinations = async () => {
     //TODO: change 1 in URL below to string interpolate userID once users controller is setup
+
     let res = await axios.get(`/api/vaccinations/${auth.user.id}`)
-    setWallet(res.data)
+    setVaccinations(res.data)
+    console.log('vaccinations: ', res.data)
 
   }
 
@@ -52,7 +60,7 @@ const UserDashboard = (props) => {
            <ListGroupItem>Email: {user.email}</ListGroupItem>
          </ListGroup>
          <Card.Body>
-           <Card.Link href="#"><Button className="btn btn-info">Edit User Details</Button></Card.Link>
+           <EditUserDetails user={user} setUser={setUser}/>
          </Card.Body>
        </Card>
       </>
@@ -61,14 +69,14 @@ const UserDashboard = (props) => {
 
   const renderVaccines = () => {
     //generate list of vaccine choices
-    return wallet.map( vaccine => {
+    return vaccinations.map( vaccination => {
       return(
-        <UserVaccine vaccine_id={vaccine.vaccine_id} vaccine_name={vaccine.vaccine_name} manufacturer={vaccine.manufacturer}/>
+        <UserVaccine key={vaccination.id} vaccination={vaccination} vaccination_id={vaccination.id} vaccine_id={vaccination.vaccine_id} vaccine_name={vaccination.vaccine_name} manufacturer={vaccination.manufacturer}/>
       )
     })
   }
 
-  return (
+    return (
     <>
     <div>
       <Container>
@@ -83,7 +91,7 @@ const UserDashboard = (props) => {
       </Container>
     </div>
     </>
-  )
+    )
 }
 
 export default UserDashboard

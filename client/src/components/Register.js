@@ -1,51 +1,98 @@
-import React, { useContext, useEffect} from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
-import { Button, Form, Header, Segment } from 'semantic-ui-react';
+// import { Button, Form, Header, Segment } from 'semantic-ui-react';
+import {Form, Button} from 'react-bootstrap'
 import { AuthContext } from '../providers/AuthProvider'
 import { useFormInput } from './useFormInput';
 const Register = ( {history} ) => {
   const { handleRegister, authLoading, authErrors, setAuthErrors } = useContext(AuthContext);
-  const email = useFormInput("", "Email");
-  const password = useFormInput("", "Password");
-  const passwordConfirmation = useFormInput("", "Password Confirmation");
+  const [email, setEmail] = useState(null) 
+  const [password, setPassword] = useState(null)
+  const [passwordConfirmation, setPasswordConfirmation] = useState(null)
   useEffect(() =>{
     setAuthErrors([]);
   },[]);
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if(password.value === passwordConfirmation.value)
+    if(password === passwordConfirmation){
       handleRegister({
-        email: email.value,
-        password: password.value,
-        passwordConfirmation: passwordConfirmation.value,
+        email,
+        password,
+        passwordConfirmation,
       },
       history
       );
-      else alert("Passwords Don't Match!!!");
+    }else alert("Passwords Don't Match");
   };
+
+  // return (
+  //   <Segment basic>
+  //     <Header as="h1" textAlign="center">
+  //       Register
+  //     </Header>
+  //     {authErrors && authErrors.map((err) => <p>{err}</p>)}
+  //     <Form onSubmit={handleSubmit}>
+  //       <Form.Input autoFocus {...email} />
+  //       <Form.Input type="password" {...password} />
+  //       <Form.Input type="password" {...passwordConfirmation} />
+  //       <Segment textAlign="center" basic>
+  //         <Button 
+  //         loading={authLoading}
+  //         disabled={authLoading}
+  //         primary
+  //         type="submit"
+  //         >
+  //           Submit
+  //         </Button>
+  //       </Segment>
+  //     </Form>
+  //     <Link to='/'>return to home page</Link>
+  //   </Segment>
+  // );
+
   return (
-    <Segment basic>
-      <Header as="h1" textAlign="center">
-        Register
-      </Header>
-      {authErrors && authErrors.map((err) => <p>{err}</p>)}
-      <Form onSubmit={handleSubmit}>
-        <Form.Input autoFocus {...email} />
-        <Form.Input type="password" {...password} />
-        <Form.Input type="password" {...passwordConfirmation} />
-        <Segment textAlign="center" basic>
-          <Button 
-          loading={authLoading}
-          disabled={authLoading}
-          primary
-          type="submit"
-          >
-            Submit
-          </Button>
-        </Segment>
-      </Form>
-      <Link to='/'>return to home page</Link>
-    </Segment>
-  );
+    <>
+    <h1>Register New Account</h1>
+    {authErrors && authErrors.map((err) => <p>{err}</p>)}
+    <Form onSubmit={handleSubmit}>
+      <Form.Group>
+        <Form.Control
+          label="Email"
+          autoFocus
+          required         
+          name='email'
+          value={email}
+          placeholder='Email'
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Control
+          label="Password"
+          required
+          name='password'
+          value={password}
+          placeholder='Password'
+          type='password'
+          onChange={(e) => setPassword(e.target.value)}
+        /> 
+      </Form.Group>
+      <Form.Group>
+        <Form.Control
+          label="Password Confirmation"
+          required
+          name='passwordConfirmation'
+          value={passwordConfirmation}
+          placeholder='Password Confirmation'
+          type='password'
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+        /> 
+      </Form.Group>
+        <Button variant="primary" type='submit'>Submit</Button>
+    </Form>
+    </>
+
+);
 };
 export default Register;
