@@ -6,9 +6,10 @@ Rails.application.routes.draw do
 
     get 'vaccinations', to: "vaccinations#all_vaccinations"
     get 'vaccinations/:user_id', to: "vaccinations#user_vaccinations"
-    get 'required_vaccines', to: "user#required_vaccines"
-    get 'required_vaccines/:id', to: "user#user_required_vaccine"
-    get 'verify_vaccine/:holder_id/:verifer_id', to: "user#verify_user"
+    get 'required_vaccines', to: "vaccinations#required_vaccines"
+    get 'required_vaccines/:id', to: "vaccinations#user_required_vaccine"
+    get 'verify_vaccine/:user_id/:verifier_id', to: "vaccinations#verify_user"
+
 
     resources :users do
       resources :vaccines
