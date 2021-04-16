@@ -35,21 +35,15 @@ def index
       render json: {errors: required_vaccines.errors}, status: 422
     end
   end
-  
-  def update
-    if @required_vaccines.update(required_vaccines_params)
-      render json: @required_vaccines
-    else 
-      render json: {errors: required_vaccines.errors}, status: 422
-    end 
-  end
 
 
   def destroy
-  
+    @required_vaccines.destroy
   end
   
-
+  def verifiers_required_vaccines
+    render json: RequiredVaccine.user_required_vaccines(params[:user_id])
+  end
 
   private
     def set_required_vaccines

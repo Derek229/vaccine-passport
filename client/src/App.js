@@ -17,6 +17,7 @@ import AdminVaccines from './pages/Admin/AdminVaccines'
 import VerifierReq from './pages/verifier/VerifiersReq';
 import VerifierLogin from './pages/verifier/VerifierLogin';
 import IssuerLogin from './pages/issuer/IssuerLogin';
+import RequiredVaccine from './pages/verifier/RequiredVaccine';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
         <Route exact path='/users/self' component={UserDashboard} />
         <ProtectedRoute exact path='/users/issuer/vaccines' component={IssuerVaccines} />
         <Route exact path='/users/verifier/required' component={VerifierReq}/>
+        <Route exact path='/users/verifier/requiredVaccines' component={RequiredVaccine}/>
         <Route exact path='/admin' component={AdminVaccines} />
         < Route component={NoMatch} />
       </Switch>
