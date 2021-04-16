@@ -11,6 +11,19 @@ def index
   def show
     render json: {required_vaccines: @required_vaccines}
   end
+
+  def  required_vaccines
+    render json: RequiredVaccine.all_required_vaccines
+  end
+
+  def user_required_vaccine
+    render json: RequiredVaccine.user_required_vaccine(params[:id])
+  end 
+
+  def verify_user
+    render json: User.verify_vaccine(params[:user_id], params[:verifer_id])
+  end
+
   
 
   def create

@@ -32,7 +32,7 @@ class Api::VaccinationsController < ApplicationController
 
   def verify_user
 
-    render json: User.verify_vaccine(params[:user_id], params[:verifer_id])
+    render json: User.verify_vaccine(params[:user_id], params[:verifier_id])
   end
 
   def show 

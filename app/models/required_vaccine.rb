@@ -1,6 +1,6 @@
 class RequiredVaccine < ApplicationRecord
   belongs_to :user
-  belongs_to :vaccines
+  belongs_to :vaccine
   
   def self.all_required_vaccines
     select('u.id as user_id, u.name as user_name, v.name as vaccine_name')

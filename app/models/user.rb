@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
 
 
 
-  def self.verify_vaccine(user_id, verifer_id)
+  def self.verify_vaccine(user_id, verifier_id)
     user_vaccines = Vaccination.user_vaccinations(user_id)
-    verifers_vaccines = RequiredVaccine.user_required_vaccine_ids(verifer_id)
-    hasAllVaccines= (verifers_vaccines - user_vaccines).length === 0
-    {user_vaccines:user_vaccines, verifers_vaccines:verifers_vaccines, hasAllVaccines: hasAllVaccines}
+    verifiers_vaccines = RequiredVaccine.user_required_vaccine_ids(verifier_id)
+    hasAllVaccines= (verifiers_vaccines - user_vaccines).length === 0
+    {user_vaccines:user_vaccines, verifiers_vaccines:verifiers_vaccines, hasAllVaccines: hasAllVaccines}
   end
 end
