@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get 'verify_vaccine/:user_id/:verifier_id', to: "vaccinations#verify_user"
 
 
+    # put 'users/:user_id/vaccinations/:vaccination_id', to: "vaccinations#vaccination_image_upload"
+
     resources :users do
       resources :vaccines
       resources :vaccinations

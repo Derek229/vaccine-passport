@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 export const AuthContext = React.createContext()
 export const AuthConsumer = AuthContext.Consumer
 
 const AuthProvider=(props) => {
+
 const  [user,setUser] = useState(null)
 const [authErrors, setAuthErrors] = useState([])
 const [authLoading, setAuthLoading] = useState(false)
@@ -26,10 +28,8 @@ const handleRegister = async (user, history) => {
     resetProvider()
     let res = await axios.post('/api/auth', user)
     setUser(res.data.data)
-  
-
-    
-    history.push('/')
+    history.push("/users/self")
+    alert('Please update name in profile')
   } catch(err){
     debugger
     setAuthErrors(err.response.data.errors.full_messages)
@@ -39,12 +39,14 @@ const handleRegister = async (user, history) => {
 }
 
 const handleLogin = async (user, history) => {
+  
   try {
     resetProvider()
     let res = await axios.post('/api/auth/sign_in', user)
     setUser(res.data.data)
-    // history.push('/users/issuer/vaccines')
+    history.push("/users/self")
   } catch(err) {
+    console.log('login error: ', err)
     setAuthErrors(err.response.data.errors)
   }finally{
     setAuthLoading(false)
