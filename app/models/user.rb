@@ -17,4 +17,10 @@ class User < ActiveRecord::Base
     hasAllVaccines= (verifiers_vaccines - user_vaccines).length === 0
     {user_vaccines:user_vaccines, verifiers_vaccines:verifiers_vaccines, hasAllVaccines: hasAllVaccines}
   end
+
+  def self.get_verifiers
+    select('users.name, users.role, users.email, users.id')
+    .from('users')
+    .where('users.role LIKE ?', "%verifier%")
+  end
 end
