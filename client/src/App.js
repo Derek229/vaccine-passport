@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import {Container} from 'react-bootstrap'
 import NavBar from './components/NavBar';
 import About from './pages/About';
-import ComponentDemo from './pages/ComponentDemo';
 import NoMatch from './components/NoMatch';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -34,7 +33,6 @@ function App() {
         <Route exact path='/verifierLogin' component={VerifierLogin}/>
         <Route exact path='/issuerLogin' component={IssuerLogin}/>
         <Route exact path='/about' component={About} />
-        <Route exact path='/componentDemo' component={ComponentDemo} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/users/self/wallet' component={Wallet} />
         <Route exact path='/users/self' component={UserDashboard} />
