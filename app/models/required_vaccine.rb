@@ -9,8 +9,8 @@ class RequiredVaccine < ApplicationRecord
       inner join vaccines v on v.id = rv.vaccine_id")
   end
 
-  def self.user_required_vaccine(id)
-    select('u.id as user_id, u.name as user_name, v.name as vaccine_name')
+  def self.user_required_vaccines(id)
+    select('u.id as user_id, u.name as user_name, v.name as vaccine_name, rv.id as required_vaccines_id')
     .from('required_vaccines rv')
     .joins("inner join users u on u.id = rv.user_id  
       inner join vaccines v on v.id = rv.vaccine_id")
