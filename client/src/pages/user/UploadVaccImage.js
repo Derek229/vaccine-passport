@@ -4,8 +4,7 @@ import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation'
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
-import { FilePond, File, registerPlugin } from "react-filepond";
-import { Button, Image , Form} from "react-bootstrap";
+import { FilePond, registerPlugin } from "react-filepond";
 import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 
@@ -13,7 +12,7 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
 function UploadVaccImage(props) {
 
-  const {vaccination_id, vaccination} = props
+  const {vaccination_id} = props
 
   const auth = useContext(AuthContext)
   const [files, setFiles] = useState([]);
@@ -42,10 +41,7 @@ function UploadVaccImage(props) {
       <FilePond
         files={files}
         onupdatefiles={handleUpdate}
-        // onupdatefiles={setFiles}
         allowMultiple={false}
-        // maxFiles={3}
-        // server="/api/basicUpload"
         name="image"
         labelIdle='Drag  Drop your files or <span class="filepond--label-action">Browse</span>'
       />

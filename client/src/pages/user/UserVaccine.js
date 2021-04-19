@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Card, Modal, Form, Button} from 'react-bootstrap'
+import {Card, Modal, Button} from 'react-bootstrap'
 import UploadVaccImage from './UploadVaccImage'
 
 const UserVaccine = (props) => {
