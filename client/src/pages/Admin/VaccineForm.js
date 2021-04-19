@@ -18,7 +18,6 @@ const VaccineForm = (props) => {
       verified: vaccineProp.verified,
       date: vaccineProp.date,
 			user_id: auth.user.id,
-      required_vaccine_id: vaccineProp.required_vaccine_id,
     }  :
     {
 
@@ -28,8 +27,6 @@ const VaccineForm = (props) => {
       verified: '',
       date: '',
       user_id: auth.user.id,
-      //this defaults to required_vaccine_id: 1, will need to change later 
-      required_vaccine_id: 1
     }
   )
 
