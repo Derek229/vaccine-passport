@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import Button from '../../components/Button'
 import axios from 'axios'
-import {Form} from 'semantic-ui-react'
+import {Form} from 'react-bootstrap'
 import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
 
@@ -74,25 +74,28 @@ const VaccineForm = (props) => {
 	return (
 		<>
     <Form onSubmit={handleSubmit}>
-      <Form.Field>
-        <label>Vaccine Name</label>
-				<input 
-          name="name"
+      <Form.Group>
+        <Form.Control
+          label="Vaccine Name"
+          autoFocus
+          required         
+          name='name'
           value={vaccineState.name}
-          onChange={handleChange}
           placeholder={vaccineProp ? vaccineState.name : 'Name'}
+          onChange={handleChange}
         />
-      </Form.Field>
-      <Form.Field>
-        <label>Vaccine Manufacturer</label>
-				<input 
-					name="manufacturer"
+      </Form.Group>
+      <Form.Group>
+        <Form.Control
+          label="Vaccine Manufacturer"
+          required
+          name='manufacturer'
           value={vaccineState.manufacturer}
-					onChange={handleChange}
-					placeholder='Enter Manufacturer'
-				/>
-      </Form.Field>
-      <Button type='submit'>Submit</Button> 
+          placeholder={vaccineProp ? vaccineState.name : 'Name'}
+          onChange={handleChange}
+        /> 
+      </Form.Group>
+        <Button variant="primary" type='submit'>Submit</Button>
     </Form>
     </>
 	)
