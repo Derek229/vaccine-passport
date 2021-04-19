@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider"
 
@@ -8,11 +8,9 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-      
         authenticated ? (
           <Component {...props} />
         ) : (
-     
           <Redirect
             to={{
               pathname: "/",

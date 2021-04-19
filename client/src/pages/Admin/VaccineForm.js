@@ -3,15 +3,13 @@ import Button from '../../components/Button'
 import axios from 'axios'
 import {Form} from 'react-bootstrap'
 import {AuthContext} from '../../providers/AuthProvider'
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 
 const VaccineForm = (props) => {
   const {vaccineProp, handleClose, addVaccine} = props
 
-  const history = useHistory()
+  // const history = useHistory()
   const auth = useContext(AuthContext);
-  const [name, setName] = useState('')
-  const [manufacturer, setManufacturer] = useState('')
   const [vaccineState, setVaccineState] = useState(
     vaccineProp ? {
       name: vaccineProp.name,
