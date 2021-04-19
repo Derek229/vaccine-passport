@@ -108,7 +108,7 @@ def set_vaccination
 end
 
 def vaccination_params
-  params.require(:vaccination).permit(:user_id, :vaccine_id, :image)
+  params.require(:vaccination).permit(:user_id, :vaccine_id, :image, :issuer_name)
 end
 
 
