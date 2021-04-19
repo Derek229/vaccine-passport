@@ -103,7 +103,7 @@ const VerifierReq = () => {
     {chooseUserForm()}
     {requiredVaccines && renderRequiredVaccines(requiredVaccines)}
     {!requiredVaccines && <p>choose a user</p>}
-
+    
     </div>
   )
 }

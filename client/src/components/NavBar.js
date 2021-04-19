@@ -48,6 +48,8 @@ class Navbar1 extends React.Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/users/self/wallet">Wallet</Nav.Link>
+              <Nav.Link href="/users/self/wallet">Wallet</Nav.Link>
+              <Nav.Link href="/users/verifier/VerifierHomePage">Verifier Home</Nav.Link>
               <NavDropdown title="Menu">
                 <NavDropdown.Item href="/users/issuer/vaccines">Issuers Vaccines</NavDropdown.Item>
                 <NavDropdown.Divider />

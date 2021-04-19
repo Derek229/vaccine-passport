@@ -1,6 +1,6 @@
 class Api::RequiredVaccinesController < ApplicationController
-  before_action :set_required_vaccines, only: [:create,  :update, :destoy]
-  before_action :set_required_vaccines, only: [:show, :destoy, :update]
+  before_action :set_required_vaccines, only: [:create,  :update, :destroy]
+  before_action :set_required_vaccines, only: [:show, :destroy, :update]
   
 
 def index
@@ -27,7 +27,7 @@ def index
   
 
   def create
-    required_vaccines = @current_user.required_vaccines.new(required_vaccines_params)
+    required_vaccines = RequiredVaccine.new(required_vaccine_params)
     
     if required_vaccines.save
       render json: required_vaccines
@@ -51,6 +51,6 @@ def index
     end
 
     def required_vaccine_params 
-      params.permit(:user_id)
+      params.permit(:user_id, :vaccine_id)
     end
 end 

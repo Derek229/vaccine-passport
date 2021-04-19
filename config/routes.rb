@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'required_vaccines/:id', to: "vaccinations#user_required_vaccine"
     get 'verify_vaccine/:user_id/:verifier_id', to: "vaccinations#verify_user"
     get 'users/:user_id/required_vaccines/', to:"required_vaccines#verifiers_required_vaccines"
-
+    get 'users/:user_id/required_vaccines/:id', to:"required_vaccines#destroy"
     resources :users do
       resources :vaccines
       resources :vaccinations
