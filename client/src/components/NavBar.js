@@ -47,10 +47,7 @@ class Navbar1 extends React.Component {
     }
   
   }
-  // if (user.role === 'user') {
-  //   return(
-  //     <Nav.Link href= > </Nav.Link>
-  // }
+
   render() {
     return (
       <div>
@@ -61,15 +58,15 @@ class Navbar1 extends React.Component {
             <Nav activeKey={this.props.location.pathname} className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
-              {/* {this.props.auth.user?.role == "user" && */}
-                <Nav.Link href="/users/self/wallet">Wallet</Nav.Link>
-              {/* } */}
-              {/* {this.props.auth.user?.role == "issuer" && */}
+              {this.props.auth.user?.role == "user" &&
+                <Nav.Link href="/users/self/wallet">My QR Code</Nav.Link>
+              } 
+              {this.props.auth.user?.role == "issuer" &&
                 <Nav.Link href="/users/issuer/vaccines">Issuer Vaccines</Nav.Link>
-              {/* } */}
-              {/* {this.props.auth.user?.role == "verifier" && */}
-                <Nav.Link href="/users/verifier/pending">Verifier Vaccines</Nav.Link>
-              {/* }  */}
+              }
+              {this.props.auth.user?.role == "verifier" &&
+                <Nav.Link href="/users/verifier/required">Verifier Vaccines</Nav.Link>
+              }
             </Nav>
           <Nav activeKey={this.props.location.pathname} className="justify-content-end" style={{ width: "100%" }}>
             {this.rightNavItems()}
