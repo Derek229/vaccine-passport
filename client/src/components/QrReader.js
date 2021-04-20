@@ -47,7 +47,7 @@ class QReader extends Component {
           onScan={this.handleScan}
           style={{ width: '50%' , height: '50%'}}
         />
-        <p>qr value: {this.state.result}</p>
+        <p>user id: {this.state.result}</p>
         
       </div>
     )
