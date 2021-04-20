@@ -4,6 +4,24 @@ import {Link} from 'react-router-dom'
 
 const Home = () => {
 
+if (user.role === 'user'){
+return(
+    <UserDashboard />
+)}
+else if (user.role === 'issuer'){
+  return(
+    <IssuerVaccines/>
+  )}
+  // else if (user.role === 'verifier'){
+  //   return(
+  //     <
+  //   )
+  // }
+
+
+
+
+
   return (
     <div>
         <Login/>

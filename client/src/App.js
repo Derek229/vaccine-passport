@@ -16,6 +16,7 @@ import AdminVaccines from './pages/Admin/AdminVaccines'
 import VerifierReq from './pages/verifier/VerifiersReq';
 import VerifierLogin from './pages/verifier/VerifierLogin';
 import IssuerLogin from './pages/issuer/IssuerLogin';
+import AllVaccines from './pages/Public/AllVaccines';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <ProtectedRoute exact path='/users/issuer/vaccines' component={IssuerVaccines} />
         <Route exact path='/users/verifier/required' component={VerifierReq}/>
         <Route exact path='/admin' component={AdminVaccines} />
+				<Route exact path='/users/allVaccines' component={AllVaccines} />
         < Route component={NoMatch} />
       </Switch>
       </Container>
