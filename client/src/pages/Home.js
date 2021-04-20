@@ -5,9 +5,9 @@ import UserDashboard from '../pages/user/UserDashboard';
 import IssuerVaccines from '../pages/issuer/IssuerVaccines';
 import VerifierHomePage from '../pages/verifier/VerifierHomePage'
 
-const Home = () => {
+const Home = (props) => {
 
-	const {user}= props
+	const user = props
 
 if (user.role === 'user'){
 return(
