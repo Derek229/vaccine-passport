@@ -24,10 +24,10 @@ walgreens=User.create(name:'walgreens', email: 'walgreens@test.com', role:'issue
 ihc=User.create(name:'ihc', email: 'ihc@test.com', role:'issuer', password:'123456')
 
 #many verifiers
-delta = User.create(name:'Delta', email: 'delta@test.com', role:'issuer', password:'123456')
-usa = User.create(name:'USA', email: 'usa@test.com', role:'issuer', password:'123456')
-mexico = User.create(name:'mexico', email: 'mexico@test.com', role:'issuer', password:'123456')
-sizzler = User.create(name:'sizzler', email: 'sizzler@test.com', role:'issuer', password:'123456')
+delta = User.create(name:'Delta', email: 'delta@test.com', role:'verifier', password:'123456')
+usa = User.create(name:'USA', email: 'usa@test.com', role:'verifier', password:'123456')
+mexico = User.create(name:'mexico', email: 'mexico@test.com', role:'verifier', password:'123456')
+sizzler = User.create(name:'sizzler', email: 'sizzler@test.com', role:'verifier', password:'123456')
 
 #many users
 user1 = User.create(
