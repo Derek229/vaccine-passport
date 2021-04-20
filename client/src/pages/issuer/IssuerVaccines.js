@@ -38,7 +38,6 @@ const IssuerVaccines = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    debugger
     //handle submission of vaccine sent to user wallet
     let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name})
     console.log(res)
@@ -83,6 +82,7 @@ const IssuerVaccines = () => {
 		return (
 			<>
       <Form onSubmit={handleSubmit}>
+					<h1>Issuer: {auth.user.name}</h1>
 				<Form.Group>
 					<Form.Label>Select a User</Form.Label>
 					<Typeahead
