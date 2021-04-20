@@ -83,6 +83,7 @@ const IssuerVaccines = () => {
 		return (
 			<>
       <Form onSubmit={handleSubmit}>
+					<h1>Issuer: {auth.user.name}</h1>
 				<Form.Group>
 					<Form.Label>Select a User</Form.Label>
 					<Typeahead
