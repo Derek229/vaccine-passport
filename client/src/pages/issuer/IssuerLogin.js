@@ -6,7 +6,7 @@ const IssuerLogin =()=> {
   return (
    
     <div>
-      <h1>Issuer Login</h1>
+      <h1>Issuer </h1>
       <Login/>
       <Link to= '/'>Return to Login</Link>
     </div>

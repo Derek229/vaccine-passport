@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 
+
 export const AuthContext = React.createContext()
 export const AuthConsumer = AuthContext.Consumer
 
@@ -56,7 +57,7 @@ const handleLogin = async (user, history) => {
 const handleLogout = async (history) => {
   try {
     setAuthErrors ([]) 
-    let res = await axios.delete('/api/auth/sign_out')
+    await axios.delete('/api/auth/sign_out')
     setUser(null)
     history.push('/')
   } catch (err) {

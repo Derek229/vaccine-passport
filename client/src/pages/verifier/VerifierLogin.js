@@ -68,8 +68,8 @@ import Login from "../../components/Login"
 function VerifierLogin() {
   return (
     <div>
-      <h1>Verifier page</h1>
-      <Login/>
+      <h1>Verifier </h1>
+      <Login />
       <Link to='/'>return to user login</Link>    
     </div>
   )

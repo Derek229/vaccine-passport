@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState} from 'react'
-import { Link } from 'react-router-dom';
 import {Form, Button} from 'react-bootstrap'
 import { AuthContext } from '../providers/AuthProvider'
-import { useFormInput } from './useFormInput';
+
 const Register = ( {history} ) => {
-  const { handleRegister, authLoading, authErrors, setAuthErrors } = useContext(AuthContext);
+  const { handleRegister, authErrors, setAuthErrors } = useContext(AuthContext);
   const [email, setEmail] = useState(null) 
   const [password, setPassword] = useState(null)
   const [passwordConfirmation, setPasswordConfirmation] = useState(null)
@@ -24,31 +23,6 @@ const Register = ( {history} ) => {
       );
     }else alert("Passwords Don't Match");
   };
-
-  // return (
-  //   <Segment basic>
-  //     <Header as="h1" textAlign="center">
-  //       Register
-  //     </Header>
-  //     {authErrors && authErrors.map((err) => <p>{err}</p>)}
-  //     <Form onSubmit={handleSubmit}>
-  //       <Form.Input autoFocus {...email} />
-  //       <Form.Input type="password" {...password} />
-  //       <Form.Input type="password" {...passwordConfirmation} />
-  //       <Segment textAlign="center" basic>
-  //         <Button 
-  //         loading={authLoading}
-  //         disabled={authLoading}
-  //         primary
-  //         type="submit"
-  //         >
-  //           Submit
-  //         </Button>
-  //       </Segment>
-  //     </Form>
-  //     <Link to='/'>return to home page</Link>
-  //   </Segment>
-  // );
 
   return (
     <>

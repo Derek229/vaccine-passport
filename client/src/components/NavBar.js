@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 class Navbar1 extends React.Component {
   
   rightNavItems = () => {
-    const { auth: { user, handleLogout, }, location, } = this.props;
+    const { auth: { user, handleLogout, } } = this.props;
     
     if (user) {
       return (
@@ -45,10 +45,12 @@ class Navbar1 extends React.Component {
         </>
       )
     }
+  
   }
-
-  
-  
+  // if (user.role === 'user') {
+  //   return(
+  //     <Nav.Link href= > </Nav.Link>
+  // }
   render() {
     return (
       <div>

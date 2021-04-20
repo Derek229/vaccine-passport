@@ -83,11 +83,11 @@ mers=Vaccine.create(name:'MERS', manufacturer:'The Black Market', user_id: admin
 # VACCINATION (VaccineWallet)
 # CREATED BY ISSUER IN UI but add holder id in DB
 
-Vaccination.create(user_id:user3.id, vaccine_id: covid.id, image:'pic here of user3 covid card')
-Vaccination.create(user_id:user3.id, vaccine_id: flu.id, image:'pic here of user3 flu shot')
-Vaccination.create(user_id:user3.id, vaccine_id: sars.id, image:'pic here of user3 sar shot')
-Vaccination.create(user_id:user1.id, vaccine_id: sars.id, image:'pic here of user1 sar shot')
-Vaccination.create(user_id:user1.id, vaccine_id: covid.id, image:'pic here of user1 covid shot')
+Vaccination.create(user_id:user3.id, vaccine_id: covid.id, image:'pic here of user3 covid card', issuer_name:'walmart')
+Vaccination.create(user_id:user3.id, vaccine_id: flu.id, image:'pic here of user3 flu shot', issuer_name:'cvs')
+Vaccination.create(user_id:user3.id, vaccine_id: sars.id, image:'pic here of user3 sar shot', issuer_name:'walgreens')
+Vaccination.create(user_id:user1.id, vaccine_id: sars.id, image:'pic here of user1 sar shot', issuer_name:'ihc')
+Vaccination.create(user_id:user1.id, vaccine_id: covid.id, image:'pic here of user1 covid shot', issuer_name:'rite aid')
 
 # REquired VACCINATION
 # CREATED BY Verifer IN UI 
