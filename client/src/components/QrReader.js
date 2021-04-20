@@ -20,11 +20,12 @@ class QReader extends Component {
   getRequiredState = async data => {
       try { 
       let res = await axios.get(`/api/verify_vaccine/${data}/${this.props.auth.user.id}`)
+      console.log(res.data)
       this.setState({
         result: data,
         verifierVaccines: res.data.verifier_vaccines,
         userVaccines: res.data.user_vaccines,
-        hasAllVaccines: res.data.has_all_vaccines
+        hasAllVaccines: res.data.hasAllVaccines
       })
    } catch (err){  
       console.log(err)
@@ -35,30 +36,19 @@ class QReader extends Component {
     console.error(err)
   }
 
-  renderRequiredVaccines = () => {
-    console.log('renderRequiredVaccines called')
-    return(
-      <>
-        <div>
-          <h1>hasAllVaccines: {this.state.hasAllVaccines.toString()}</h1>
-        </div>
-      </>
-    )
-
-
- }
 
   render() {
     return (
       <div>
+        {this.state.hasAllVaccines !== null ? <h1>User has all required vaccines: {this.state.hasAllVaccines.toString()}</h1> : <h3>waiting for scan results</h3>}
         <QrReader
           delay={300}
           onError={this.handleError}
           onScan={this.handleScan}
-          style={{ width: '100%' }}
+          style={{ width: '50%' , height: '50%'}}
         />
-        <p>{this.state.result}</p>
-        {this.state?.hasAllVaccines && this.renderRequiredVaccines()}
+        <p>qr value: {this.state.result}</p>
+        
       </div>
     )
   }
