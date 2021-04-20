@@ -4,7 +4,7 @@ import UploadVaccImage from './UploadVaccImage'
 
 const UserVaccine = (props) => {
 
-  const {vaccination, vaccine_id, vaccine_name, manufacturer, vaccination_id} = props
+  const {vaccination, vaccine_id, vaccine_name, manufacturer, vaccination_id, issuer_name} = props
 
   //modal vars
   const [show, setShow] = useState(false);
@@ -48,6 +48,9 @@ const UserVaccine = (props) => {
           </Card.Text>
           <Card.Text>
             id: {vaccine_id}
+          </Card.Text>
+          <Card.Text>
+            Issuer: {issuer_name}
           </Card.Text>
         </Card.Body>
         <Card.Body>
