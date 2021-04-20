@@ -46,11 +46,11 @@ class Navbar1 extends React.Component {
       )
     }
   
-
-  if (user.role === 'user') {
-    return(
-      <Nav.Link href= > </Nav.Link>
   }
+  // if (user.role === 'user') {
+  //   return(
+  //     <Nav.Link href= > </Nav.Link>
+  // }
   render() {
     return (
       <div>
@@ -62,12 +62,8 @@ class Navbar1 extends React.Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/users/self/wallet">Wallet</Nav.Link>
-<<<<<<< HEAD
 							<Nav.Link href="/users/allVaccines">Vaccines</Nav.Link>
-=======
-              <Nav.Link href="/users/self/wallet">Wallet</Nav.Link>
               <Nav.Link href="/users/verifier/VerifierHomePage">Verifier Home</Nav.Link>
->>>>>>> e1a1c7ee6def360ee2cfbaa2ead0ee33370610ba
               <NavDropdown title="Menu">
                 <NavDropdown.Item href="/users/issuer/vaccines">Issuers Vaccines</NavDropdown.Item>
                 <NavDropdown.Divider />

@@ -16,14 +16,10 @@ import AdminVaccines from './pages/Admin/AdminVaccines'
 import VerifierReq from './pages/verifier/VerifiersReq';
 import VerifierLogin from './pages/verifier/VerifierLogin';
 import IssuerLogin from './pages/issuer/IssuerLogin';
-<<<<<<< HEAD
-import AllVaccines from './pages/Public/AllVaccines';
-=======
 import RequiredVaccine from './pages/verifier/RequiredVaccine';
 import VerifierHomePage from './pages/verifier/VerifierHomePage';
 import QRScanner from './pages/verifier/QRScanner';
->>>>>>> e1a1c7ee6def360ee2cfbaa2ead0ee33370610ba
-
+import AllVaccines from './pages/Public/AllVaccines';
 function App() {
 
   return (

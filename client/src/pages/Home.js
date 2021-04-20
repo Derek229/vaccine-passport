@@ -1,8 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import Login from '../components/Login'
 import {Link} from 'react-router-dom'
+import UserDashboard from '../pages/user/UserDashboard';
+import IssuerVaccines from '../pages/issuer/IssuerVaccines';
+import VerifierHomePage from '../pages/verifier/VerifierHomePage'
 
 const Home = () => {
+
+	const {user}= props
 
 if (user.role === 'user'){
 return(
@@ -12,16 +17,12 @@ else if (user.role === 'issuer'){
   return(
     <IssuerVaccines/>
   )}
-  // else if (user.role === 'verifier'){
-  //   return(
-  //     <
-  //   )
-  // }
+  else if (user.role === 'verifier'){
+    return(
+      <VerifierHomePage/>
+    )}
 
-
-
-
-
+  else {
   return (
     <div>
         <Login/>
@@ -32,7 +33,7 @@ else if (user.role === 'issuer'){
   <Link to='/verifierLogin'>Country origin access</Link>
   </div>
     </div>
-  )
-}
+  )}
+  }
 
 export default Home
