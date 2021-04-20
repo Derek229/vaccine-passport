@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 class Navbar1 extends React.Component {
   
   rightNavItems = () => {
-    const { auth: { user, handleLogout, }, location, } = this.props;
+    const { auth: { user, handleLogout, } } = this.props;
     
     if (user) {
       return (
@@ -45,10 +45,12 @@ class Navbar1 extends React.Component {
         </>
       )
     }
+  
   }
-
-  
-  
+  // if (user.role === 'user') {
+  //   return(
+  //     <Nav.Link href= > </Nav.Link>
+  // }
   render() {
     return (
       <div>
@@ -60,6 +62,8 @@ class Navbar1 extends React.Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/users/self/wallet">Wallet</Nav.Link>
+							<Nav.Link href="/users/allVaccines">Vaccines</Nav.Link>
+              <Nav.Link href="/users/verifier/VerifierHomePage">Verifier Home</Nav.Link>
               <NavDropdown title="Menu">
                 <NavDropdown.Item href="/users/issuer/vaccines">Issuers Vaccines</NavDropdown.Item>
                 <NavDropdown.Divider />

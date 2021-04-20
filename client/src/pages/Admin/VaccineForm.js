@@ -3,15 +3,13 @@ import Button from '../../components/Button'
 import axios from 'axios'
 import {Form} from 'semantic-ui-react'
 import {AuthContext} from '../../providers/AuthProvider'
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 
 const VaccineForm = (props) => {
   const {vaccineProp, handleClose, addVaccine} = props
 
-  const history = useHistory()
+  // const history = useHistory()
   const auth = useContext(AuthContext);
-  const [name, setName] = useState('')
-  const [manufacturer, setManufacturer] = useState('')
   const [vaccineState, setVaccineState] = useState(
     vaccineProp ? {
       name: vaccineProp.name,
@@ -20,7 +18,6 @@ const VaccineForm = (props) => {
       verified: vaccineProp.verified,
       date: vaccineProp.date,
 			user_id: auth.user.id,
-      required_vaccine_id: vaccineProp.required_vaccine_id,
     }  :
     {
 
@@ -30,8 +27,6 @@ const VaccineForm = (props) => {
       verified: '',
       date: '',
       user_id: auth.user.id,
-      //this defaults to required_vaccine_id: 1, will need to change later 
-      required_vaccine_id: 1
     }
   )
 
