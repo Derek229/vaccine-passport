@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
     # put 'users/:user_id/vaccinations/:vaccination_id', to: "vaccinations#vaccination_image_upload"
 
+    # put 'users/:user_id/vaccinations/:vaccination_id', to: "vaccinations#vaccination_image_upload"
+
     resources :users do
       resources :vaccines
       resources :vaccinations
