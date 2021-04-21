@@ -43,6 +43,7 @@ function App() {
         <Route exact path='/users/verifier/QRScanner' component={QRScanner}/>
         <Route exact path='/admin' component={AdminVaccines} />
 				<Route exact path='/users/allVaccines' component={AllVaccines} />
+        
         < Route component={NoMatch} />
       </Switch>
       </Container>
