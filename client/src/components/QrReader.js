@@ -40,7 +40,7 @@ class QReader extends Component {
   render() {
     return (
       <div>
-        {this.state.hasAllVaccines !== null ? <h1>User has all required vaccines: {this.state.hasAllVaccines.toString()}</h1> : <h3>waiting for scan results</h3>}
+        {this.state.hasAllVaccines !== null ? <h3>User has all required vaccines: {this.state.hasAllVaccines.toString()}</h3> : <h3>waiting for scan results</h3>}
         <QrReader
           delay={300}
           onError={this.handleError}
