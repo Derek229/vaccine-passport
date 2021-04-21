@@ -21,7 +21,6 @@ class QReader extends Component {
   getRequiredState = async data => {
       try { 
       let res = await axios.get(`/api/verify_vaccine/${data}/${this.props.auth.user.id}`)
-      console.log(res.data)
       this.setState({
         result: data,
         verifierVaccines: res.data.verifiers_vaccines,
@@ -40,7 +39,7 @@ class QReader extends Component {
   renderListOfVaccines = list => {
     return list.map(item => {
       return(
-      <ListGroup key={item.id}>
+      <ListGroup key={item.vaccine_name}>
         <ListGroupItem>{item.vaccine_name}</ListGroupItem>
       </ListGroup>
       )
@@ -49,13 +48,26 @@ class QReader extends Component {
     )
   }
 
+  compareVaccines = (userArr, verifArr) => {
+    let result = 'true'
+    verifArr.forEach(verifVacc => {
+      let found = userArr.find(userVacc => userVacc.vaccine_name === verifVacc.vaccine_name)
+      console.log('found', found)
+      if (!found){
+        result = "false"
+      }
+    })
+    console.log('loop finished, result: ', result)
+    return result
+  }
+
 
   render() {
     return (
       <Container>
         <Row>
         <Col>
-        {this.state.hasAllVaccines !== null ? <h3>User has all required vaccines: {this.state.hasAllVaccines.toString()}</h3> : <h3>waiting for scan results</h3>}
+        {this.state.hasAllVaccines !== null ? <h3>User has all required vaccines: {this.compareVaccines(this.state.userVaccines, this.state.verifierVaccines)}</h3> : <h3>waiting for scan results</h3>}
         <QrReader
           delay={300}
           onError={this.handleError}
