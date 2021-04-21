@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   has_many :vaccines
 
-
+ 
 
   def self.verify_vaccine(user_id, verifier_id)
     user_vaccines = Vaccination.user_vaccinations(user_id)
