@@ -17,6 +17,10 @@ class Api::VaccinationsController < ApplicationController
     render json: vaccination
   end
 
+  def issuer_vaccinations
+    vaccinations = Vaccination.issuer_vaccinations(params[:issuer_id])
+    render json: vaccinations
+  end
 
   def all_vaccines
     render json: Vaccine.all
@@ -108,7 +112,7 @@ def set_vaccination
 end
 
 def vaccination_params
-  params.require(:vaccination).permit(:user_id, :vaccine_id, :image, :issuer_name)
+  params.require(:vaccination).permit(:user_id, :vaccine_id, :image, :issuer_name, :issuer_id)
 end
 
 
