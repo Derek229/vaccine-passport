@@ -82,7 +82,7 @@ const IssuerVaccines = () => {
 		return (
 			<>
       <Form onSubmit={handleSubmit}>
-					<h1>Issuer: {auth.user.name}</h1>
+					<h3>Issuing as: {auth.user.name}</h3>
 				<Form.Group>
 					<Form.Label>Select a User</Form.Label>
 					<Typeahead
@@ -121,7 +121,7 @@ const IssuerVaccines = () => {
   }else{
     return (
       <>
-      <h1>issuer vaccines (add vacc to user wallet) here</h1>
+      <h1>Issue Vaccine to User</h1>
       <Container>
         {issuerVaccForm()}
       </Container>
