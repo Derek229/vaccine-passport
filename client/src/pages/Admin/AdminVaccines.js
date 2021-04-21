@@ -65,7 +65,7 @@ const Vaccines = () => {
   return (
     <>
     <Container>
-      <h1>page for issuer to see all vaccines, add, edit, and delete listings</h1>
+      <h1>page for admin to see all vaccines, add, edit, and delete listings</h1>
       <div>
         {addFormModal()}
       </div>
