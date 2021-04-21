@@ -1,28 +1,34 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import Login from '../components/Login'
 import {Link} from 'react-router-dom'
 import UserDashboard from '../pages/user/UserDashboard';
 import IssuerVaccines from '../pages/issuer/IssuerVaccines';
 import VerifierHomePage from '../pages/verifier/VerifierHomePage'
+import AdminVaccines from '../pages/Admin/AdminVaccines'
+import { AuthContext } from '../providers/AuthProvider';
 
-const Home = (props) => {
+const Home = () => {
 
-	const user = props
+	const auth = useContext(AuthContext)
 
-if (user.role === 'user'){
-return(
-    <UserDashboard />
-)}
-else if (user.role === 'issuer'){
-  return(
-    <IssuerVaccines/>
-  )}
-  else if (user.role === 'verifier'){
+  if(auth?.user){
+    if (auth.user.role === 'user'){
     return(
-      <VerifierHomePage/>
+        <UserDashboard />
     )}
-
-  else {
+    else if (auth.user.role === 'issuer'){
+      return(
+        <IssuerVaccines/>
+    )}
+    else if(auth.user.role === 'verifier'){
+      return(
+        <VerifierHomePage/>
+    )}
+    else if(auth.user.role === 'admin'){
+      return(
+        <AdminVaccines/>
+    )}
+  }else {
   return (
     <div>
         <Login/>

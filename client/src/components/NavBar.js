@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 class Navbar1 extends React.Component {
   
   rightNavItems = () => {
-    const { auth: { user, handleLogout, } } = this.props;
+    const { auth: { user, handleLogout } } = this.props;
     
     if (user) {
       return (
