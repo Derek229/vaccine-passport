@@ -39,7 +39,7 @@ const IssuerVaccines = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     //handle submission of vaccine sent to user wallet
-    let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name})
+    let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name, issuer_id: auth.user.id})
     console.log(res)
     alert(`vaccine: ${vaccSelection[0].vaccine} sent to user: ${userSelection[0].name}`)
     // console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
