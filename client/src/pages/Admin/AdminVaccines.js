@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect, useContext } from 'react'
-import {Button, Modal, Table} from 'react-bootstrap'
+import {Button, Modal, Table, Container} from 'react-bootstrap'
 import VaccineForm from './VaccineForm'
 import AdminVaccine from './AdminVaccine'
 import { AuthContext } from '../../providers/AuthProvider'
@@ -87,17 +87,19 @@ const Vaccines = () => {
 
   return (
     <>
-    <div className="header">
-      <div className="leftalign">
-        <h1>Manage Vaccines</h1>
+    <Container>
+      <div className="header">
+        <div className="leftalign">
+          <h1>Manage Vaccines</h1>
+        </div>
+        <div>
+          {addFormModal()}
+        </div>
       </div>
-      <div>
-        {addFormModal()}
+      <div className="tablecontainer">
+        {vaccinesTable()}
       </div>
-    </div>
-    <div className="tablecontainer">
-      {vaccinesTable()}
-    </div>
+    </Container>
     </>
   )
 }

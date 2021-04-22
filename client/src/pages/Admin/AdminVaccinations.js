@@ -59,6 +59,7 @@ const AdminVaccinations = () => {
 
   return (
     <>
+    <Container>
       <div className="header">
         <div className="leftalign">
           <h1>Manage Previously Issued Vaccinations</h1>
@@ -68,6 +69,7 @@ const AdminVaccinations = () => {
       <div style={{boxShadow: '0px 1px 10px 1px lightgrey'}}>
         {vaccinationsTable()}
       </div>
+    </Container>
     </>
     
   )

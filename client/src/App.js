@@ -28,7 +28,6 @@ function App() {
     <>
     <NavBar />
     <FetchUser>
-    <Container>
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login}/>
@@ -50,7 +49,6 @@ function App() {
         
         < Route component={NoMatch} />
       </Switch>
-      </Container>
     </FetchUser>
    </>
   );

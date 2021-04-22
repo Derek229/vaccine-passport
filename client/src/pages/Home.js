@@ -33,12 +33,6 @@ const Home = () => {
     return (
       <div>
         <Login/>
-        <Link to="/issuerLogin">
-          Click here to login or register your company
-        </Link>
-        <div>
-          <Link to='/verifierLogin'>Country origin access</Link>
-        </div>
       </div>
     )
   }
