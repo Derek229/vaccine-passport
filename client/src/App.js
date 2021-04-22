@@ -16,10 +16,12 @@ import AdminVaccines from './pages/Admin/AdminVaccines'
 import VerifierReq from './pages/verifier/VerifiersReq';
 import VerifierLogin from './pages/verifier/VerifierLogin';
 import IssuerLogin from './pages/issuer/IssuerLogin';
-import RequiredVaccine from './pages/verifier/RequiredVaccine';
+import RequiredVaccines from './pages/verifier/RequiredVaccines';
 import VerifierHomePage from './pages/verifier/VerifierHomePage';
 import QRScanner from './pages/verifier/QRScanner';
 import AllVaccines from './pages/Public/AllVaccines';
+import IssuersCRUD from './pages/issuer/IssuersCRUD';
+import AdminVaccinations from './pages/Admin/AdminVaccinations';
 function App() {
 
   return (
@@ -34,14 +36,16 @@ function App() {
         <Route exact path='/issuerLogin' component={IssuerLogin}/>
         <Route exact path='/about' component={About} />
         <Route exact path='/register' component={Register} />
-        <Route exact path='/users/self/wallet' component={Wallet} />
+        <Route exact path='/users/self/qr_code' component={Wallet} />
         <Route exact path='/users/self' component={UserDashboard} />
         <ProtectedRoute exact path='/users/issuer/vaccines' component={IssuerVaccines} />
         <Route exact path='/users/verifier/required' component={VerifierReq}/>
-        <Route exact path='/users/verifier/requiredVaccines' component={RequiredVaccine}/>
+        <Route exact path='/users/verifier/requiredVaccines' component={RequiredVaccines}/>
         <Route exact path='/users/verifier/VerifierHomePage' component={VerifierHomePage}/>
         <Route exact path='/users/verifier/QRScanner' component={QRScanner}/>
-        <Route exact path='/admin' component={AdminVaccines} />
+        <Route exact path='/users/issuer/manage' component={IssuersCRUD} />
+        <Route exact path='/admin/vaccines' component={AdminVaccines} />
+        <Route exact path='/admin/vaccinations' component={AdminVaccinations} />
 				<Route exact path='/users/allVaccines' component={AllVaccines} />
         
         < Route component={NoMatch} />

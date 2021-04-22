@@ -8,7 +8,7 @@ import EditUserDetails from './EditUserDetails'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
-const UserDashboard = (props) => {
+const UserDashboard = () => {
   
   const auth = useContext(AuthContext)
 
@@ -51,7 +51,7 @@ const UserDashboard = (props) => {
       <>
        <Card >
          <Card.Body>
-           <Card.Title><h4>{user.first_name} {user.last_name}</h4></Card.Title>
+           <Card.Title>{user?.first_name ? <h4>{user.first_name} {user.last_name}</h4> : <h4>{user.name} </h4>}</Card.Title>
            <Card.Text>
             User Details (ID): {user.id}
            </Card.Text>
@@ -84,10 +84,14 @@ const UserDashboard = (props) => {
       {renderUser()}
       </Container>
       <Container>
-      <h2>My Vaccines: </h2>
-      <CardGroup >
-        {renderVaccines()}
-      </CardGroup>
+      {user.role === "user" &&
+      <div>
+        <h2>My Vaccines: </h2>
+        <CardGroup >
+          {renderVaccines()}
+        </CardGroup>
+      </div>
+      }
       </Container>
     </div>
     </>

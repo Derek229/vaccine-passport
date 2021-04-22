@@ -1,13 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react'
 import {AuthContext} from '../../providers/AuthProvider'
 import axios from 'axios'
-import AdminVaccines from '../Admin/AdminVaccines'
 import { Typeahead } from 'react-bootstrap-typeahead';
 import {Container, Button, Form} from 'react-bootstrap'
 
 //this page will show issuers option to assign existing vaccine to user through user's wallet
-
-//TODO: only show vaccines that the user does not have in select list
 
 
 const IssuerVaccines = () => {
@@ -39,7 +36,7 @@ const IssuerVaccines = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     //handle submission of vaccine sent to user wallet
-    let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name})
+    let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name, issuer_id: auth.user.id})
     console.log(res)
     alert(`vaccine: ${vaccSelection[0].vaccine} sent to user: ${userSelection[0].name}`)
     // console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
@@ -82,7 +79,7 @@ const IssuerVaccines = () => {
 		return (
 			<>
       <Form onSubmit={handleSubmit}>
-					<h1>Issuer: {auth.user.name}</h1>
+					<h3>Issuing as: {auth.user.name}</h3>
 				<Form.Group>
 					<Form.Label>Select a User</Form.Label>
 					<Typeahead
@@ -114,14 +111,9 @@ const IssuerVaccines = () => {
 	}
 	
   
-  if(auth.user.role === 'admin'){
-    return(
-      <AdminVaccines />
-    )
-  }else{
     return (
       <>
-      <h1>issuer vaccines (add vacc to user wallet) here</h1>
+      <h1>Issue Vaccine to User</h1>
       <Container>
         {issuerVaccForm()}
       </Container>
@@ -129,7 +121,6 @@ const IssuerVaccines = () => {
 
     </>
     )
-    }
 }
 
 export default IssuerVaccines
