@@ -16,10 +16,10 @@ const {reqVaccine, reqVaccines, setReqVaccines, user_id}=props
 
   return (
     <div>
-  <Card>
+  <Card border='primary' style={{paddingBottom:'25', paddingTop:'25', marginTop:'10px', marginBottom:'10px', borderRadius:'20px'}}>
     <Card.Body>{reqVaccine.user_name}</Card.Body>
     <Card.Body>{reqVaccine.vaccine_name}</Card.Body>
-    <Button onClick={deleteReqVaccine}>delete required vaccine</Button>
+    <Button style={{margin:'10px'}} onClick={deleteReqVaccine}>delete required vaccine</Button>
   </Card>
     </div>
   )
