@@ -16,6 +16,7 @@ const RequiredVaccine=()=> {
  
 
   const auth = useContext(AuthContext)
+  
   useEffect(()=> {
     getReqVaccine()
     getVaccines()
