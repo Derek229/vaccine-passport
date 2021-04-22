@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import {useEffect} from 'react'
-import { Button, Card, Form, NavLink } from 'react-bootstrap';
+import { Button, Form, NavLink } from 'react-bootstrap';
 import axios from 'axios'
 import { AuthContext } from '../../providers/AuthProvider';
 import { Typeahead } from 'react-bootstrap-typeahead'
@@ -26,11 +26,10 @@ const RequiredVaccine=()=> {
   const getReqVaccine = async () => {
     let res = await axios.get(`/api/users/${auth.user.id}/required_vaccines/`)
     setReqVaccines(res.data)
-    console.log('get required vaccines', res.data)
   }
   
   const renderReqVaccine = () =>{
-      return reqVaccines.map(reqVaccine =><ReqVaccineCard reqVaccine={reqVaccine} user_id={auth.user.id} /> 
+      return reqVaccines.map(reqVaccine =><ReqVaccineCard reqVaccine={reqVaccine} reqVaccines={reqVaccines} setReqVaccines={setReqVaccines} user_id={auth.user.id} /> 
 
       
       )
@@ -42,20 +41,14 @@ const RequiredVaccine=()=> {
  }
 
   const createReqVaccine = async () => {
-    let res = await axios.post(`/api/users/${auth.user.id}/required_vaccines`,{user_id: auth.user.id, vaccine_id: vaccineSelection[0].id})
+    await axios.post(`/api/users/${auth.user.id}/required_vaccines`,{user_id: auth.user.id, vaccine_id: vaccineSelection[0].id})
+    getReqVaccine()
 
   }
     const handleSubmit = (e)=>{
       e.preventDefault()  
       console.log(vaccineSelection)
       createReqVaccine()
-    }
-    const deleteReqVaccine = async () => {
-      console.log('button clicked')
-      debugger
-    let res = await axios.delete(`/api/users/${auth.user.id}/required_vaccines/`)
-      const filteredReqVaccines = RequiredVaccine.filter(x=>x.id !== RequiredVaccine.id)
-      setReqVaccines(filteredReqVaccines)
     }
 
     const requiredVaccineForm = () =>{
