@@ -16,7 +16,7 @@ import AdminVaccines from './pages/Admin/AdminVaccines'
 import VerifierReq from './pages/verifier/VerifiersReq';
 import VerifierLogin from './pages/verifier/VerifierLogin';
 import IssuerLogin from './pages/issuer/IssuerLogin';
-import RequiredVaccine from './pages/verifier/RequiredVaccines';
+import RequiredVaccines from './pages/verifier/RequiredVaccines';
 import VerifierHomePage from './pages/verifier/VerifierHomePage';
 import QRScanner from './pages/verifier/QRScanner';
 import AllVaccines from './pages/Public/AllVaccines';
@@ -40,7 +40,7 @@ function App() {
         <Route exact path='/users/self' component={UserDashboard} />
         <ProtectedRoute exact path='/users/issuer/vaccines' component={IssuerVaccines} />
         <Route exact path='/users/verifier/required' component={VerifierReq}/>
-        <Route exact path='/users/verifier/requiredVaccines' component={RequiredVaccine}/>
+        <Route exact path='/users/verifier/requiredVaccines' component={RequiredVaccines}/>
         <Route exact path='/users/verifier/VerifierHomePage' component={VerifierHomePage}/>
         <Route exact path='/users/verifier/QRScanner' component={QRScanner}/>
         <Route exact path='/users/issuer/manage' component={IssuersCRUD} />
