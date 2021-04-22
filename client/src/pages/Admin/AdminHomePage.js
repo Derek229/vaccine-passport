@@ -1,29 +1,29 @@
 import React from 'react'
-import { Button, Container, Col, Row } from 'react-bootstrap'
+import { Button, Container, Col, Row, Card } from 'react-bootstrap'
+
+import "../ComponentStyles/container.css";
 
 const AdminHomePage = () => {
   return (
-    <>
-    <Container>
-      <h1>Logged in as role: Admin</h1>
-      <Row>
-        <Col>
-        <h3>Admin Pages: </h3>
-          <Button href="/admin/vaccines">Admin Vaccines</Button>
-          <Button style={{marginLeft: 10}} href="/admin/vaccinations">Admin Vaccinations</Button>
-        </Col>
-        <Col>
-        <h3>Issuer Pages: </h3>
-          <Button href="/users/issuer/vaccines">Issue Vaccination</Button>
-        </Col>
-        <Col>
-        <h3>Verifier Pages: </h3>
-          <Button href="/users/verifier/requiredVaccines">Required Vaccines</Button>
-          <Button style={{marginLeft: 10}} href="/users/verifier/QRScanner">QR Scanner</Button>
-        </Col>
-      </Row>
-    </Container>
-    </>
+    <div className="div">
+      <Container className="divcontainer">
+        <h1>Admin</h1>
+        <Row style={{width: '100%'}}>
+          <Col>
+            <Card style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
+              <Card.Img variant="middle" src="https://mpng.subpng.com/20180421/obq/kisspng-injection-computer-icons-medicine-health-care-syri-shot-clipart-5adadcb3673e06.9413091315242927874229.jpg"/>
+              <Button href="/admin/vaccines">Admin Vaccines</Button>
+            </Card>
+          </Col>
+          <Col>
+            <Card style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
+              <Card.Img variant="middle" src="https://mpng.subpng.com/20180421/obq/kisspng-injection-computer-icons-medicine-health-care-syri-shot-clipart-5adadcb3673e06.9413091315242927874229.jpg"/>
+              <Button href="/admin/vaccinations">Admin Vaccinations</Button>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   )
 }
 
