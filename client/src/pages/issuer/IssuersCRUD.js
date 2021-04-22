@@ -39,7 +39,7 @@ const IssuersCRUD = () => {
   return (
     <div>
       <h1>Manage Previously Issued Vaccines</h1>
-      <Button style={{marginBottom: 20}} onClick={()=>history.push('/users/issuer/vaccines')}>Add New Vaccine</Button>
+      <Button style={{marginBottom: 20}} onClick={()=>history.push('/users/issuer/vaccines')}>Issue New Vaccination</Button>
       {renderVaccinations()}
       
     </div>

@@ -3,13 +3,14 @@ import {Modal, Card, ListGroup, ListGroupItem, Button} from 'react-bootstrap'
 import VaccineForm from './VaccineForm'
 import axios from 'axios'
 
+
 const Vaccine = (props) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
-  const {vaccine, userId, setVaccines, vaccines} = props
+  const {vaccine, userId, setVaccines, vaccines, addVaccine} = props
 
   //modal specific for editing items in page
   const editFormModal = () => {
@@ -23,13 +24,14 @@ const Vaccine = (props) => {
           <Modal.Header closeButton>
             <Modal.Title>Edit this Vaccine</Modal.Title>
           </Modal.Header>
-          <Modal.Body><VaccineForm vaccineProp={vaccine} handleClose={handleClose}/></Modal.Body>
+          <Modal.Body><VaccineForm vaccineProp={vaccine} addVaccine={addVaccine} handleClose={handleClose}/></Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
           </Modal.Footer>
         </Modal>
+        
       </>
     );
   }
@@ -43,21 +45,15 @@ const Vaccine = (props) => {
 
   return(
     <>
-      <Card>
-        <Card.Body>
-          <Card.Title><h4>Vaccine Name: {vaccine.name}</h4></Card.Title>
-          <Card.Text>
-          Manufacturer {vaccine.manufacturer}
-          </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroupItem>verified status: {vaccine.verified}</ListGroupItem>
-        </ListGroup>
-        <Card.Body>
+      <tr>
+        <td>{vaccine.id}</td>
+        <td>{vaccine.name}</td>
+        <td>{vaccine.manufacturer}</td>
+        <td>
           {editFormModal()}
-          <Button className="ml-1 btn btn-danger" onClick={()=>deleteVaccine()}>Delete</Button>
-        </Card.Body>
-      </Card>
+          <Button className="ml-2 btn btn-danger" onClick={()=>deleteVaccine()}>Delete</Button>
+        </td>
+      </tr>
     </>
       )
 }
