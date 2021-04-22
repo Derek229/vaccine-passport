@@ -5,14 +5,12 @@ import axios from 'axios'
 const  ReqVaccineCard=(props)=> {
 
 
-const {reqVaccine, user_id}=props
+const {reqVaccine, reqVaccines, setReqVaccines, user_id}=props
 
   const deleteReqVaccine = async () => {
-    console.log('button clicked')
-    debugger
-  let res = await axios.delete(`/api/users/${user_id}/required_vaccines/${reqVaccine.required_vaccines_id}`)
-    // const filteredReqVaccines = RequiredVaccine.filter(x=>x.id !== RequiredVaccine.id)
-    // setReqVaccines(filteredReqVaccines)
+    await axios.delete(`/api/users/${user_id}/required_vaccines/${reqVaccine.required_vaccines_id}`)
+    const filteredReqVaccines = reqVaccines.filter(x=>x.required_vaccines_id !== reqVaccine.required_vaccines_id)
+    setReqVaccines(filteredReqVaccines)
   }
 
 

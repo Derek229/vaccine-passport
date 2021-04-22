@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect, useContext } from 'react'
-import {Button, Card, Form, ListGroup, ListGroupItem} from 'react-bootstrap'
+import {Button, Form } from 'react-bootstrap'
 import { Typeahead } from 'react-bootstrap-typeahead';
-import { useParams } from 'react-router'
 import {AuthContext} from '../../providers/AuthProvider'
 
 //TODO: show array of the requierd vaccines for after hitting submit
@@ -43,13 +42,13 @@ const VerifierReq = () => {
   const normalizeUserData = (arrayIn) => {
     //normalize user data to display in typeahead
     const tempArray = []
-    arrayIn.map(obj => {
+    arrayIn.forEach(obj => {
       let name = `${obj.first_name} ${obj.last_name}, ID: ${obj.id}`
       let user_id = obj.id
       let labelKey = 'user_id'
 
       //excludes issuers and admin from list of selectable people
-      if(obj.role == "user"){
+      if(obj.role === "user"){
         tempArray.push({name: name, user_id: user_id, labelKey: labelKey})
       }
 
