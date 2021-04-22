@@ -9,6 +9,7 @@ function VerifierHomePage() {
 
   
   return (
+    <Container>
     <div className='div'>
       <Container className='containerdiv '>
       <Row style={{width: '100%'}}>
@@ -36,6 +37,7 @@ function VerifierHomePage() {
 </Row>
 </Container>
     </div>
+    </Container>
   )
 }
 
