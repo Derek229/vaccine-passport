@@ -1,10 +1,14 @@
 import React from 'react'
-import { Card, Col, Container, Row } from 'react-bootstrap'
-
+import { Card, Col, Container, Row } from 'react-bootstrap';
+import '../../components/Container.css';
 function VerifierHomePage() {
+
+
+
+  
   return (
     <div>
-      <Container>
+      <Container style={Container}>
       <Row>
         <Col>
       <Card style={{ width: '18rem' }}>
