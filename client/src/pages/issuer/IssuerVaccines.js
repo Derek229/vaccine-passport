@@ -114,11 +114,6 @@ const IssuerVaccines = () => {
 	}
 	
   
-  if(auth.user.role === 'admin'){
-    return(
-      <AdminVaccines />
-    )
-  }else{
     return (
       <>
       <h1>Issue Vaccine to User</h1>
@@ -129,7 +124,6 @@ const IssuerVaccines = () => {
 
     </>
     )
-    }
 }
 
 export default IssuerVaccines

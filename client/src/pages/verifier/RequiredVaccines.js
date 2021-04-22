@@ -26,11 +26,10 @@ const RequiredVaccine=()=> {
   const getReqVaccine = async () => {
     let res = await axios.get(`/api/users/${auth.user.id}/required_vaccines/`)
     setReqVaccines(res.data)
-    console.log('get required vaccines', res.data)
   }
   
   const renderReqVaccine = () =>{
-      return reqVaccines.map(reqVaccine =><ReqVaccineCard reqVaccine={reqVaccine} user_id={auth.user.id} /> 
+      return reqVaccines.map(reqVaccine =><ReqVaccineCard reqVaccine={reqVaccine} reqVaccines={reqVaccines} setReqVaccines={setReqVaccines} user_id={auth.user.id} /> 
 
       
       )
@@ -43,6 +42,7 @@ const RequiredVaccine=()=> {
 
   const createReqVaccine = async () => {
     let res = await axios.post(`/api/users/${auth.user.id}/required_vaccines`,{user_id: auth.user.id, vaccine_id: vaccineSelection[0].id})
+    getReqVaccine()
 
   }
     const handleSubmit = (e)=>{
