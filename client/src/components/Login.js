@@ -26,7 +26,8 @@ const  Login=(props) =>{
   }
   return (
     <>
-    <h1>Login</h1>
+      <h1>Sign In</h1>
+      <p> Welcome back to your digital vaccine passport </p>
     {authErrors.length > 0 && <p>{authErrors[0]}</p>}
     <Form onSubmit={handleSubmit}>
       <Form.Group>
