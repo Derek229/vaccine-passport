@@ -51,7 +51,7 @@ class Navbar1 extends React.Component {
   render() {
     return (
       <div>
-        <Navbar bg="primary" expand="lg" variant="dark">
+        <Navbar bg="secondary" expand="lg" variant="dark">
           <Navbar.Brand href="/">COVIDIA</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
