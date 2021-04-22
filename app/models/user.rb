@@ -9,12 +9,12 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   has_many :vaccines
 
-
+ 
 
   def self.verify_vaccine(user_id, verifier_id)
     user_vaccines = Vaccination.user_vaccinations(user_id)
-    verifiers_vaccines = RequiredVaccine.user_required_vaccine_ids(verifier_id)
-    hasAllVaccines= (verifiers_vaccines - user_vaccines).length === 0
+    verifiers_vaccines = RequiredVaccine.user_required_vaccines(verifier_id)
+    hasAllVaccines= (verifiers_vaccines.length - user_vaccines.length) === 0
     {user_vaccines:user_vaccines, verifiers_vaccines:verifiers_vaccines, hasAllVaccines: hasAllVaccines}
   end
 

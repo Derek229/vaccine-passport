@@ -64,6 +64,9 @@ class Navbar1 extends React.Component {
               {this.props.auth.user?.role == "issuer" &&
                 <Nav.Link href="/users/issuer/vaccines">Issuer Vaccines</Nav.Link>
               }
+              {this.props.auth.user?.role == "issuer" &&
+                <Nav.Link href="/users/issuer/manage">Manage</Nav.Link>
+              }
               {this.props.auth.user?.role == "verifier" &&
                 <Nav.Link href="/users/verifier/required">Verifier Vaccines</Nav.Link>
               }

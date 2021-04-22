@@ -20,6 +20,7 @@ import RequiredVaccine from './pages/verifier/RequiredVaccine';
 import VerifierHomePage from './pages/verifier/VerifierHomePage';
 import QRScanner from './pages/verifier/QRScanner';
 import AllVaccines from './pages/Public/AllVaccines';
+import IssuersCRUD from './pages/issuer/IssuersCRUD';
 function App() {
 
   return (
@@ -41,8 +42,10 @@ function App() {
         <Route exact path='/users/verifier/requiredVaccines' component={RequiredVaccine}/>
         <Route exact path='/users/verifier/VerifierHomePage' component={VerifierHomePage}/>
         <Route exact path='/users/verifier/QRScanner' component={QRScanner}/>
+        <Route exact path='/users/issuer/manage' component={IssuersCRUD} />
         <Route exact path='/admin' component={AdminVaccines} />
 				<Route exact path='/users/allVaccines' component={AllVaccines} />
+        
         < Route component={NoMatch} />
       </Switch>
       </Container>
