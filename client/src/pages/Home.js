@@ -1,11 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext} from 'react'
 import Login from '../components/Login'
 import {Link} from 'react-router-dom'
-import UserDashboard from '../pages/user/UserDashboard';
-import IssuerVaccines from '../pages/issuer/IssuerVaccines';
 import VerifierHomePage from '../pages/verifier/VerifierHomePage'
 import { AuthContext } from '../providers/AuthProvider';
-import AdminVaccines from '../pages/Admin/AdminVaccines'
+import UserHomePage from './user/UserHomePage';
+import IssuerHomePage from './issuer/IssuerHomePage';
+import AdminHomePage from './Admin/AdminHomePage';
 
 const Home = () => {
 
@@ -14,11 +14,11 @@ const Home = () => {
   if(auth?.user){
     if (auth.user.role === 'user'){
     return(
-        <UserDashboard />
+        <UserHomePage/>
     )}
     else if (auth.user.role === 'issuer'){
       return(
-        <IssuerVaccines/>
+        <IssuerHomePage/>
     )}
     else if (auth.user.role === 'verifier'){
         return(
@@ -26,7 +26,7 @@ const Home = () => {
     )}
     else if (auth.user.role === 'admin'){
       return(
-        <AdminVaccines/>
+        <AdminHomePage/>
     )}
 
   }else {
