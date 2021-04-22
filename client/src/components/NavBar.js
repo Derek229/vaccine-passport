@@ -58,23 +58,23 @@ class Navbar1 extends React.Component {
             <Nav activeKey={this.props.location.pathname} className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
-              {this.props.auth.user?.role == "user" &&
+              {this.props.auth.user?.role === "user" &&
                 <Nav.Link href="/users/self/qr_code">My QR Code</Nav.Link>
               } 
-              {this.props.auth.user?.role == "issuer" &&
+              {this.props.auth.user?.role === "issuer" &&
                 <NavDropdown title="Menu" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/users/issuer/vaccines">Issue Vaccination</NavDropdown.Item>
                   <NavDropdown.Item href="/users/issuer/manage">Manage Vaccinations</NavDropdown.Item>
                 </NavDropdown>
               }
-              {this.props.auth.user?.role == "verifier" &&
+              {this.props.auth.user?.role === "verifier" &&
                 <NavDropdown title="Menu" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/users/verifier/required">Required Vaccines</NavDropdown.Item>
+                  <NavDropdown.Item href="/users/verifier/requiredVaccines">Required Vaccines List</NavDropdown.Item>
                   <NavDropdown.Item href="/users/verifier/QRScanner">QR Scanner</NavDropdown.Item>
                   
                 </NavDropdown>
               }
-              {this.props.auth.user?.role == "admin" &&
+              {this.props.auth.user?.role === "admin" &&
                 <NavDropdown title="Admin Menu" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/admin/vaccines">Admin Vaccines</NavDropdown.Item>
                   <NavDropdown.Item href="/admin/vaccinations">Admin Vaccinations</NavDropdown.Item>

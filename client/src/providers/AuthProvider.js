@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
 
 
 export const AuthContext = React.createContext()
@@ -12,13 +11,14 @@ const  [user,setUser] = useState(null)
 const [authErrors, setAuthErrors] = useState([])
 const [authLoading, setAuthLoading] = useState(false)
 
-function timeoutPromise(interval) {
-  return new Promise((resolve, reject) => {
-    setTimeout(function (){
-      resolve('done')
-    }, interval) 
-  })
-}
+// function timeoutPromise(interval) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(function (){
+//       resolve('done')
+//     }, interval) 
+//   })
+// }
+
 const resetProvider = () => {
   setAuthLoading(true)
   setAuthErrors([])

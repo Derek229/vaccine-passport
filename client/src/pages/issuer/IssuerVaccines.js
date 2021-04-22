@@ -1,13 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react'
 import {AuthContext} from '../../providers/AuthProvider'
 import axios from 'axios'
-import AdminVaccines from '../Admin/AdminVaccines'
 import { Typeahead } from 'react-bootstrap-typeahead';
 import {Container, Button, Form} from 'react-bootstrap'
 
 //this page will show issuers option to assign existing vaccine to user through user's wallet
-
-//TODO: only show vaccines that the user does not have in select list
 
 
 const IssuerVaccines = () => {

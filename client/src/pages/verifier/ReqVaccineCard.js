@@ -8,7 +8,7 @@ const  ReqVaccineCard=(props)=> {
 const {reqVaccine, reqVaccines, setReqVaccines, user_id}=props
 
   const deleteReqVaccine = async () => {
-  let res = await axios.delete(`/api/users/${user_id}/required_vaccines/${reqVaccine.required_vaccines_id}`)
+    await axios.delete(`/api/users/${user_id}/required_vaccines/${reqVaccine.required_vaccines_id}`)
     const filteredReqVaccines = reqVaccines.filter(x=>x.required_vaccines_id !== reqVaccine.required_vaccines_id)
     setReqVaccines(filteredReqVaccines)
   }
