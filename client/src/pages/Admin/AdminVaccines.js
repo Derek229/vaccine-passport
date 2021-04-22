@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { useState, useEffect, useContext } from 'react'
-import {Button, Container, Modal} from 'react-bootstrap'
+import {Button, Modal, Table} from 'react-bootstrap'
 import VaccineForm from './VaccineForm'
-import Vaccine from './AdminVaccine'
+import AdminVaccine from './AdminVaccine'
 import { AuthContext } from '../../providers/AuthProvider'
+import '../ComponentStyles/container.css'
 
 const Vaccines = () => {
 
@@ -28,19 +29,41 @@ const Vaccines = () => {
   //generate list of vaccines
   const renderVaccines = () => {  
     //map through array and pass each vaccine to vaccine.js to render card
-    return vaccines.map( vaccine => <Vaccine key={vaccine.id} vaccine={vaccine} userId={auth.user.id} setVaccines={setVaccines} vaccines={vaccines}/>)
+    return vaccines.map( vaccine => <AdminVaccine key={vaccine.id} addVaccine={addVaccine} vaccine={vaccine} userId={auth.user.id} setVaccines={setVaccines} vaccines={vaccines}/>)
+  }
+
+  const vaccinesTable = () => {
+    return(
+      <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} hover responsive striped bordered>
+      <thead>
+        <tr>
+          <th width="10%">Vaccine ID</th>
+          <th>Vaccine Name</th>
+          <th>Manufacturer</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {renderVaccines()}
+      </tbody>
+    </Table>
+    )
   }
 
   //when new vaccine is added to db, this fn adds the new vacc to the array rendered in the page
   //eliminates need to remount
-  const addVaccine = (vaccine) => {
-    setVaccines([vaccine,...vaccines])
+  const addVaccine = (vaccine, x) => {
+    if(x === "add"){
+    setVaccines([...vaccines, vaccine])
+    }else{
+      getVaccines()
+    }
   }
 
   //modal specific for adding new vaccine
   const addFormModal = () => {
     return (
-      <>
+      <div style={{margin: '0'}}>
         <Button variant="primary" onClick={handleShow}>
           Add New Vaccine
         </Button>
@@ -56,7 +79,7 @@ const Vaccines = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      </>
+      </div>
     );
   }
 
@@ -64,18 +87,17 @@ const Vaccines = () => {
 
   return (
     <>
-    <Container>
-      <h1>page for admin to see all vaccines, add, edit, and delete listings</h1>
+    <div className="header">
+      <div className="leftalign">
+        <h1>Manage Vaccines</h1>
+      </div>
       <div>
         {addFormModal()}
       </div>
-    </Container>
-    <br />
-    <Container>
-      <div>
-        {renderVaccines()}
-      </div>
-    </Container>
+    </div>
+    <div className="tablecontainer">
+      {vaccinesTable()}
+    </div>
     </>
   )
 }

@@ -34,7 +34,7 @@ const VaccineForm = (props) => {
     try{
       let res = await axios.post(`/api/users/${auth.user.id}/vaccines`, vaccineState)
       handleClose()
-      addVaccine(res.data)
+      addVaccine(res.data, "add")
 
     }catch(err){
       alert(err)
@@ -43,7 +43,8 @@ const VaccineForm = (props) => {
 
   const editVaccine = async () => {
     try{
-      axios.put(`/api/users/${auth.user.id}/vaccines/${vaccineProp.id}`, vaccineState)
+      await axios.put(`/api/users/${auth.user.id}/vaccines/${vaccineProp.id}`, vaccineState)
+      addVaccine()
       handleClose()
     }catch(err){
       alert(err)
@@ -62,7 +63,6 @@ const VaccineForm = (props) => {
   }
 
   const handleChange = (e) => {
-    console.log(e)
     setVaccineState({...vaccineState, [e.target.name]: e.target.value})
   }
 
@@ -86,7 +86,7 @@ const VaccineForm = (props) => {
           required
           name='manufacturer'
           value={vaccineState.manufacturer}
-          placeholder={vaccineProp ? vaccineState.name : 'Name'}
+          placeholder={vaccineProp ? vaccineState.manufacturer : 'Manufacturer'}
           onChange={handleChange}
         /> 
       </Form.Group>
