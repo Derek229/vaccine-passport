@@ -19,15 +19,15 @@ const  LandingPage =() =>{
     <Container className="logincontainer">
       <Row style={{width: '100%'}}>
         <Col style={{width: '50%'}}>
-            <img src={Terminal} style={{maxWidth: "90%"}}/>
+            <img className="fade-in-image" src={Terminal} style={{maxWidth: "90%"}}/>
         </Col>
         <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '50%', backgroundColor: 'white'}}>
           <h1>Vaccine Passport</h1>
           <p style={{margin: '15px 0 0 0'}}>Never forget your vaccine card during travel again. </p>
           <p style={{margin:'0 0 35px 0'}}>A digital vaccine passport for the digital age. </p>
           <div className="buttondiv">
-          <Link to="/register"><Button style={{margin: '10px 10px 10px 0px', padding: '10px 30px 10px 30px'}}>Sign Up</Button></Link>
-          <Link to="/login"><Button style={{margin: '10px 10px 10px 0px', padding: '10px 35px 10px 35px'}}>Sign In</Button></Link>
+          <Link to="/register"><Button className="fade-in-image" style={{margin: '10px 10px 10px 0px', padding: '10px 30px 10px 30px'}}>Sign Up</Button></Link>
+          <Link to="/login"><Button className="fade-in-image" style={{margin: '10px 10px 10px 0px', padding: '10px 35px 10px 35px'}}>Sign In</Button></Link>
           </div>
         </Col>
       </Row>

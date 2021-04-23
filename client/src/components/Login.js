@@ -68,7 +68,7 @@ const  Login=() =>{
           </div>
         </Col>
         <Col style={{width: '50%', backgroundColor: 'white'}}>
-          <img src={Terminal2} style={{maxWidth: "90%"}}/>
+          <img className="fade-in-image" src={Terminal2} style={{maxWidth: "90%"}}/>
         </Col>
       </Row>
     </Container>

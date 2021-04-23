@@ -93,8 +93,8 @@ const Register = ( {history} ) => {
           <p style={{marginTop: '20px'}}>Already have an account? <Link to="/login">Sign in</Link></p>
           </div>
         </Col>
-        <Col style={{width: '50%', backgroundColor: 'white'}}>
-          <img src={Airplane} style={{maxWidth: "90%"}}/>
+        <Col style={{width: '50%', height: '100%', backgroundColor: 'white'}}>
+          <img className="fade-in-image" src={Airplane} style={{maxWidth: "90%"}}/>
         </Col>
       </Row>
     </Container>
