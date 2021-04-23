@@ -3,7 +3,7 @@ import {Form, Button, Row, Col, Container} from 'react-bootstrap';
 import { AuthContext } from '../providers/AuthProvider'
 import {Link, useHistory} from 'react-router-dom'
 import '../pages/ComponentStyles/container.css'
-import Terminal2 from '../Images/terminal2.png'
+import Terminal2 from '../Images/terminal2.jpg'
 
 
 const  Login=() =>{
