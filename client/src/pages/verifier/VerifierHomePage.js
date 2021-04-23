@@ -39,6 +39,7 @@ function VerifierHomePage() {
 </Row>
 </Container>
     </div>
+  
   )
 }
 

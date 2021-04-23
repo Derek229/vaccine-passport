@@ -59,7 +59,7 @@ const handleLogout = async (history) => {
     setAuthErrors ([]) 
     await axios.delete('/api/auth/sign_out')
     setUser(null)
-    history.push('/login')
+    history.push('/')
   } catch (err) {
     setAuthErrors(err.response.data)
   } finally {

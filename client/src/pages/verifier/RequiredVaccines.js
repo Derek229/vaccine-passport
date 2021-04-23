@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import {useEffect} from 'react'
-import { Button, Form, NavLink } from 'react-bootstrap';
+import { Container, Button, Form, NavLink } from 'react-bootstrap';
 import axios from 'axios'
 import { AuthContext } from '../../providers/AuthProvider';
 import { Typeahead } from 'react-bootstrap-typeahead'
@@ -42,10 +42,14 @@ const RequiredVaccine=()=> {
  }
 
   const createReqVaccine = async () => {
-    await axios.post(`/api/users/${auth.user.id}/required_vaccines`,{user_id: auth.user.id, vaccine_id: vaccineSelection[0].id})
-    getReqVaccine()
-
+    try{
+      await axios.post(`/api/users/${auth.user.id}/required_vaccines`,{user_id: auth.user.id, vaccine_id: vaccineSelection[0].id})
+      getReqVaccine()
+    }catch(err){
+      alert("invalid submission. Ensure all fields are filled out")
+    }
   }
+
     const handleSubmit = (e)=>{
       e.preventDefault()  
       console.log(vaccineSelection)
@@ -57,7 +61,7 @@ const RequiredVaccine=()=> {
         <>
         <Form onSubmit= {handleSubmit}>
         <Form.Group>
-          <Form.Label>Select a User</Form.Label>
+          <Form.Label>Add a Vaccine to Required List</Form.Label>
           <Typeahead
             id="vaccine"
             labelKey="name"
@@ -77,14 +81,15 @@ const RequiredVaccine=()=> {
 
 
   return (
+    <Container>
     <div>
       <h1>Required Vaccines List</h1>
       <NavLink href='/users/verifier/VerifierHomePage'>return to home page</NavLink>
       <Button onClick={() => setShowForm(!showForm)}>{showForm ? 'Hide Form' : 'Add New Required Vaccine'}</Button>
       {showForm && requiredVaccineForm()}
       {renderReqVaccine()}
-      <NavLink href='/users/verifier/VerifierHomePage'>return to home page</NavLink>
     </div>
+    </Container>
   )
 }
 
