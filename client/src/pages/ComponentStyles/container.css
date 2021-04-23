@@ -1,18 +1,25 @@
 .divcontainer {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 15px;
-  margin-top: 50px;
+  padding: 25px;
+  margin: 3% auto;
+  width: 80%;
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
-  box-shadow: 1px 1px 5px 3px lightgrey;
+  box-shadow: 0px 33px 31px 3px rgba(0,0,0,0);
 }
 
 .div {
-  width: 50%;
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
+  width: 65%;
+  padding: 0;
+}
+
+.homecontainer {
+  margin: 0 auto 0 auto;
 }
 
 .tablecontainer {
@@ -22,8 +29,9 @@
   justify-content: center;
   padding: 0px;
   margin: 0;
-  box-shadow: 0px 1px 10px 1px lightgrey;
+  box-shadow: 0px 33px 31px 3px rgba(0,0,0,0);
   height: auto;
+  z-index: -1;
 }
 
 .header {
@@ -31,10 +39,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  margin: 20px 0px 20px 0px;
+  margin: 30px 0px 0px 0px;
+  padding: 20px 15px 20px 15px;
+  background-color: white;
+  position: relative;
 }
 
 .leftalign{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   margin: 0 auto 0 0;
 }
@@ -44,7 +59,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10% 0;
+  margin: 6% 0;
   width: 100%;
 }
 
@@ -63,4 +78,36 @@
   color:  #6D767D;
   border-radius: 4px;
   margin-bottom: 15px;
+}
+
+.fade-in-image {
+  animation: fadeIn 1.5s;
+  -webkit-animation: fadeIn 1.5s;
+  -moz-animation: fadeIn 1.5s;
+  -o-animation: fadeIn 1.5s;
+  -ms-animation: fadeIn 1.5s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }

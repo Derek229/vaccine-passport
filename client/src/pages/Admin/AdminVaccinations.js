@@ -39,10 +39,10 @@ const AdminVaccinations = () => {
 
   const vaccinationsTable = () => {
     return(
-    <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} responsive striped hover bordered>
+    <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} responsive striped hover>
       <thead>
         <tr>
-          <th width="12%">Vaccination ID</th>
+          <th width="13%">Vaccination ID</th>
           <th>Vaccine Name</th>
           <th>Manufacturer</th>
           <th>Issued To</th>
@@ -59,10 +59,11 @@ const AdminVaccinations = () => {
 
   return (
     <>
-    <Container>
+    <Container >
       <div className="header">
         <div className="leftalign">
-          <h1>Manage Previously Issued Vaccinations</h1>
+        <h3>Manage Vaccinations |</h3>
+          <p style={{paddingTop: '12px', paddingLeft: '7px'}}>  {vaccinations.length} Vaccinations</p>
         </div>
         <Button onClick={()=>history.push('/users/issuer/vaccines')}>Add New Vaccination</Button>
       </div>

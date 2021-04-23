@@ -5,10 +5,14 @@ import axios from 'axios'
 
 const EditUserDetails = (props) => {
 
-  const {user, setUser} = props
+  const {user, setUser, getUserData} = props
+
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    getUserData()
+  }
   const handleShow = () => setShow(true);
 
 
@@ -27,28 +31,47 @@ const EditUserDetails = (props) => {
     return(
       <>
         <Form onSubmit={handleSubmit}>
-          <Form.Group>
-            <Form.Control
-              label="First Name"
-              autoFocus
-              required         
-              name='first_name'
-              value={user.first_name}
-              placeholder={user.first_name}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              label="Last Name"
-              autoFocus
-              required         
-              name='last_name'
-              value={user.last_name}
-              placeholder={user.last_name}
-              onChange={handleChange}
-            />
-          </Form.Group>
+            {(user.role === "user") &&
+              <div>
+                <Form.Group>
+                  <Form.Control
+                    label="First Name"
+                    autoFocus
+                    required         
+                    name='first_name'
+                    value={user.first_name}
+                    placeholder={user?.first_name ? user.first_name : "First Name"}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Control
+                    label="Last Name"
+                    autoFocus
+                    required         
+                    name='last_name'
+                    value={user.last_name}
+                    placeholder={user?.last_name ? user.last_name : "Last Name"}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+              </div>
+            }
+            {(user.role !== "user") &&
+              <div>
+                <Form.Group>
+                  <Form.Control
+                    label="Name"
+                    autoFocus
+                    required         
+                    name='name'
+                    value={user.name}
+                    placeholder={user?.name ? user.name : "Name"}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+              </div>
+            }
           <Form.Group>
             <Form.Control
               label="Email"

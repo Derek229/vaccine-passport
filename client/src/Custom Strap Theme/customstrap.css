@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -34,7 +36,7 @@
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -44,13 +46,13 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Nunito', sans-serif;;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #f5fcff; }
+  background-color: #D2E0E8; }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
@@ -384,7 +386,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f5fcff;
+  background-color: #D2E0E8;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -2872,11 +2874,11 @@ input[type="button"].btn-block {
   .custom-range:focus {
     outline: none; }
     .custom-range:focus::-webkit-slider-thumb {
-      box-shadow: 0 0 0 1px #f5fcff, 0 0 0 0.2rem rgba(47, 115, 218, 0.25); }
+      box-shadow: 0 0 0 1px #D2E0E8, 0 0 0 0.2rem rgba(47, 115, 218, 0.25); }
     .custom-range:focus::-moz-range-thumb {
-      box-shadow: 0 0 0 1px #f5fcff, 0 0 0 0.2rem rgba(47, 115, 218, 0.25); }
+      box-shadow: 0 0 0 1px #D2E0E8, 0 0 0 0.2rem rgba(47, 115, 218, 0.25); }
     .custom-range:focus::-ms-thumb {
-      box-shadow: 0 0 0 1px #f5fcff, 0 0 0 0.2rem rgba(47, 115, 218, 0.25); }
+      box-shadow: 0 0 0 1px #D2E0E8, 0 0 0 0.2rem rgba(47, 115, 218, 0.25); }
   .custom-range::-moz-focus-outer {
     border: 0; }
   .custom-range::-webkit-slider-thumb {
@@ -3008,8 +3010,8 @@ input[type="button"].btn-block {
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
     color: #495057;
-    background-color: #f5fcff;
-    border-color: #dee2e6 #dee2e6 #f5fcff; }
+    background-color: #D2E0E8;
+    border-color: #dee2e6 #dee2e6 #D2E0E8; }
   .nav-tabs .dropdown-menu {
     margin-top: -1px;
     border-top-left-radius: 0;

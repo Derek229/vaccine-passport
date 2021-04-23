@@ -34,7 +34,7 @@ const Vaccines = () => {
 
   const vaccinesTable = () => {
     return(
-      <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} hover responsive striped bordered>
+      <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} hover responsive striped>
       <thead>
         <tr>
           <th width="10%">Vaccine ID</th>
@@ -90,7 +90,8 @@ const Vaccines = () => {
     <Container>
       <div className="header">
         <div className="leftalign">
-          <h1>Manage Vaccines</h1>
+          <h3>Manage Vaccines |</h3>
+          <p style={{paddingTop: '12px', paddingLeft: '7px'}}> {vaccines.length} Vaccines</p>
         </div>
         <div>
           {addFormModal()}

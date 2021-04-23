@@ -1,7 +1,8 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
+import LogoOnly from '../Logos/Covidia_LogOnly_T.png'
 
 class Navbar1 extends React.Component {
   
@@ -36,11 +37,11 @@ class Navbar1 extends React.Component {
     } else {
       return (
         <>
-        <Nav.Link href="/">
-          Login
+        <Nav.Link href="/register">
+          <Button style={{padding: '5px 20px 5px 20px', backgroundColor: 'white', color: '#262626'}}>Sign Up</Button>
         </Nav.Link>
-        <Nav.Link href="/Register">
-          Register
+        <Nav.Link href="/Login">
+          <Button style={{padding: '5px 22px 5px 22px'}}>Sign In</Button>
         </Nav.Link>
         </>
       )
@@ -52,7 +53,7 @@ class Navbar1 extends React.Component {
     return (
       <div>
         <Navbar bg="secondary" expand="lg" variant="dark">
-          <Navbar.Brand href="/">COVIDIA</Navbar.Brand>
+          <Navbar.Brand href="/"><img src={LogoOnly} style={{height: '40px'}}/></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav activeKey={this.props.location.pathname} className="mr-auto">

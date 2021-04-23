@@ -36,9 +36,13 @@ const IssuerVaccines = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     //handle submission of vaccine sent to user wallet
-    let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name, issuer_id: auth.user.id})
-    console.log(res)
-    alert(`vaccine: ${vaccSelection[0].vaccine} sent to user: ${userSelection[0].name}`)
+    try{
+      let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name, issuer_id: auth.user.id})
+      console.log(res)
+      alert(`vaccine: ${vaccSelection[0].vaccine} sent to user: ${userSelection[0].name}`)
+    }catch(err){
+      alert("invalid submission. Ensure all fields are filled out")
+    }
     // console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
   }
 
@@ -85,6 +89,7 @@ const IssuerVaccines = () => {
 					<Typeahead
 						id="users"
 						labelKey="name"
+            required
 						onChange={setUserSelection}
 						placeholder="Select a User"
             selected={userSelection}
@@ -96,6 +101,7 @@ const IssuerVaccines = () => {
 					<Typeahead
 						id="vaccines"
 						labelKey="vaccine"
+            required
 						onChange={setVaccSelection}
 						options={vaccOptions}
 						placeholder="Select a Vaccine"
