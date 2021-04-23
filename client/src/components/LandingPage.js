@@ -13,9 +13,6 @@ const  LandingPage =() =>{
   const history = useHistory()
 
 
-  if (authLoading) {
-    return <p>Loading</p>
-  }
   return (
     <div className="login">
     <Container className="logincontainer">
