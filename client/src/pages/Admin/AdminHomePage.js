@@ -1,29 +1,29 @@
 import React from 'react'
-import { Button, Container, Col, Row } from 'react-bootstrap'
+import { Button, Container, Col, Row, Card } from 'react-bootstrap'
+
+import "../ComponentStyles/container.css";
 
 const AdminHomePage = () => {
   return (
-    <>
-    <Container>
-      <h1>Logged in as role: Admin</h1>
-      <Row>
-        <Col>
-        <h3>Admin Pages: </h3>
-          <Button href="/admin/vaccines">Admin Vaccines</Button>
-          <Button style={{marginLeft: 10}} href="/admin/vaccinations">Admin Vaccinations</Button>
-        </Col>
-        <Col>
-        <h3>Issuer Pages: </h3>
-          <Button href="/users/issuer/vaccines">Issue Vaccination</Button>
-        </Col>
-        <Col>
-        <h3>Verifier Pages: </h3>
-          <Button href="/users/verifier/requiredVaccines">Required Vaccines</Button>
-          <Button style={{marginLeft: 10}} href="/users/verifier/QRScanner">QR Scanner</Button>
-        </Col>
-      </Row>
-    </Container>
-    </>
+      <div className="div">
+        <div className="divcontainer">
+          <h1>Admin</h1>
+          <Row style={{flexWrap: 'wrap', width: '100%', height: 'auto', paddingTop: '30px', paddingBottom: '30px', padding: '15px'}}>
+            <Col>
+              <Card border="primary" style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
+                <Card.Img style={{ maxWidth: "100%"}} variant="middle" src="https://freepngimg.com/thumb/syringe/2-2-syringe-picture-thumb.png"/>
+                <Button style={{marginTop: '10px'}}  href="/admin/vaccines">Admin Vaccines</Button>
+              </Card>
+            </Col>
+            <Col>
+              <Card border="primary" style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
+                <Card.Img style={{ maxWidth: "100%"}} variant="middle" src="https://img.pngio.com/checklist-poll-task-to-do-list-clipboard-svg-png-icon-free-to-do-list-png-708_980.png"/>
+                <Button style={{marginTop: '10px'}} href="/admin/vaccinations">Admin Vaccinations</Button>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      </div>
   )
 }
 

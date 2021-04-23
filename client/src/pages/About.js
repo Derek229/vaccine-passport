@@ -1,9 +1,13 @@
 import React from 'react'
+import '../pages/ComponentStyles/container.css'
+import {Container} from 'react-bootstrap'
 
 const About =()=> {
   return (
-    <div>
-      <h1>About page </h1>
+    <div className="login">
+      <Container>
+        <h1>About page </h1>
+      </Container>
     </div>
   )
 }

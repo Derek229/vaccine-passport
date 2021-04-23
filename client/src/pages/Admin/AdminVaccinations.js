@@ -1,9 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {Button} from 'react-bootstrap'
+import {Button, Table, Container} from 'react-bootstrap'
 import {AuthContext} from '../../providers/AuthProvider'
 import axios from 'axios'
-import IssuerVaccinationCard from '../../pages/issuer/IssuerVaccinationCard'
 import {useHistory} from 'react-router-dom'
+import AdminVaccination from './AdminVaccination'
+import '../ComponentStyles/container.css'
 
 const AdminVaccinations = () => {
 
@@ -31,18 +32,47 @@ const AdminVaccinations = () => {
     return vaccinations.map(vaccination => {
 
       return(
-        <IssuerVaccinationCard key={vaccination.id} vaccination={vaccination} vaccinations={vaccinations} setVaccinations={setVaccinations} auth={auth}/>
+        <AdminVaccination key={vaccination.id} vaccination={vaccination} vaccinations={vaccinations} setVaccinations={setVaccinations} auth={auth}/>
       )
     })
   }
 
+  const vaccinationsTable = () => {
+    return(
+    <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} responsive striped hover>
+      <thead>
+        <tr>
+          <th width="13%">Vaccination ID</th>
+          <th>Vaccine Name</th>
+          <th>Manufacturer</th>
+          <th>Issued To</th>
+          <th>Issued By</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {renderVaccinations()}
+      </tbody>
+    </Table>
+    )
+  }
+
   return (
-    <div>
-      <h1>Manage Previously Issued Vaccines</h1>
-      <Button style={{marginBottom: 20}} onClick={()=>history.push('/users/issuer/vaccines')}>Add New Vaccine</Button>
-      {renderVaccinations()}
-      
-    </div>
+    <>
+    <Container >
+      <div className="header">
+        <div className="leftalign">
+        <h3>Manage Vaccinations |</h3>
+          <p style={{paddingTop: '12px', paddingLeft: '7px'}}>  {vaccinations.length} Vaccinations</p>
+        </div>
+        <Button onClick={()=>history.push('/users/issuer/vaccines')}>Add New Vaccination</Button>
+      </div>
+      <div style={{boxShadow: '0px 1px 10px 1px lightgrey'}}>
+        {vaccinationsTable()}
+      </div>
+    </Container>
+    </>
+    
   )
 }
 
