@@ -5,6 +5,7 @@ import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
 import UserVaccine from './UserVaccine'
 import EditUserDetails from './EditUserDetails'
+import '../ComponentStyles/container.css'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
@@ -52,9 +53,6 @@ const UserDashboard = () => {
        <Card >
          <Card.Body>
            <Card.Title>{user?.first_name ? <h4>{user.first_name} {user.last_name}</h4> : <h4>{user.name} </h4>}</Card.Title>
-           <Card.Text>
-            User Details (ID): {user.id}
-           </Card.Text>
          </Card.Body>
          <ListGroup className="list-group-flush">
            <ListGroupItem>Email: {user.email}</ListGroupItem>
@@ -80,14 +78,17 @@ const UserDashboard = () => {
     <>
     <div>
       <Container>
-      <h1>User Dashboard</h1>
-      {renderUser()}
+				<div className="divcontainer">
+      		<h1>My Dashboard</h1>
+				</div>
+      	{/* {renderUser()} */}
       </Container>
-      <Container>
+      <Container className="userinfo">
       {user.role === "user" &&
       <div>
-        <h2>My Vaccines: </h2>
-        <CardGroup >
+				{renderUser()}
+        <h2>My Vaccines</h2>
+        <CardGroup>
           {renderVaccines()}
         </CardGroup>
       </div>
