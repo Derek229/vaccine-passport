@@ -39,6 +39,7 @@ const Register = ( {history} ) => {
           {authErrors && authErrors.map((err) => <p>{err}</p>)}
           <Form onSubmit={handleSubmit}>
             <Form.Group>
+            <Form.Label>Account Details</Form.Label>
               <Form.Control
                 label="Email"
                 autoFocus
@@ -71,9 +72,10 @@ const Register = ( {history} ) => {
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
               /> 
             </Form.Group>
+            <Form.Label>Select Role</Form.Label>
             <Form.Control 
               as="select"
-              label="Password Confirmation"
+              label="Role"
               required
               name='role'
               value={role}
