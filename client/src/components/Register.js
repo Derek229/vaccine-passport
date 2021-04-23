@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Register = ( {history} ) => {
   const { handleRegister, authErrors, setAuthErrors } = useContext(AuthContext);
   const [email, setEmail] = useState(null)
-	const [role, setRole] = useState('')
+	const [role, setRole] = useState('user')
   const [password, setPassword] = useState(null)
   const [passwordConfirmation, setPasswordConfirmation] = useState(null)
   useEffect(() =>{
@@ -71,33 +71,21 @@ const Register = ( {history} ) => {
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
               /> 
             </Form.Group>
-            <div className="rolefield">
-              <Form.Group as={Row} style={{margin: 'auto auto auto 0'}}>
-                <Form.Label as="legend" column style={{display: 'flex', margin: 'auto 0 auto auto', paddingRight: '0'}}>
-                  Role:
-                </Form.Label>
-                <Col style={{display: 'flex', margin: 'auto 0 auto auto', paddingLeft: '0'}}>
-                  <Form.Check
-                    type="radio"
-                    label="user"
-                    name="role"
-                    id="formHorizontalRadios1"
-                    onChange={(e) => setRole(e.target.labels[0].innerText)}
-                  />
-                  </Col>
-                  <Col style={{display: 'flex', margin: 'auto 0 auto 0', paddingLeft: '0'}}>
-                  <Form.Check
-                    style={{margin: '0'}}
-                    type="radio"
-                    label="verifier"
-                    name="role"
-                    id="formHorizontalRadios2"
-                    onChange={(e) => setRole(e.target.labels[0].innerText)}
-                  />
-                </Col>
-              </Form.Group>
-            </div>
-            <Button style={{width: '100%', marginTop: '5px'}} variant="primary" type='submit'>Submit</Button>
+            <Form.Control 
+              as="select"
+              label="Password Confirmation"
+              required
+              name='role'
+              value={role}
+              placeholder='Choose Role'
+              onChange={(e) => {
+                setRole(e.target.value)
+              }}
+              >
+              <option>user</option>
+              <option>verifier</option>
+            </Form.Control>
+            <Button style={{width: '100%', marginTop: '25px'}} variant="primary" type='submit'>Submit</Button>
           </Form>
           <p style={{marginTop: '20px'}}>Already have an account? <Link to="/login">Sign in</Link></p>
           </div>

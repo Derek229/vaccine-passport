@@ -31,7 +31,7 @@ const  LandingPage =() =>{
           <p style={{margin: '15px 0 0 0'}}>Never forget your vaccine card during travel again. </p>
           <p style={{margin:'0 0 35px 0'}}>A digital vaccine passport for the digital age. </p>
           <Link to="/register"><Button style={{margin: '10px 10px 10px 0px', padding: '10px 30px 10px 30px'}}>Sign Up</Button></Link>
-          <Link to="/login"><Button style={{margin: '10px 10px 10px 0px', padding: '10px 35px 10px 35px'}}>Log In</Button></Link>
+          <Link to="/login"><Button style={{margin: '10px 10px 10px 0px', padding: '10px 35px 10px 35px'}}>Sign In</Button></Link>
         </Col>
       </Row>
     </Container>
