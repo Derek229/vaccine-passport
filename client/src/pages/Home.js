@@ -1,6 +1,4 @@
 import React, {useContext} from 'react'
-import Login from '../components/Login'
-import {Link} from 'react-router-dom'
 import VerifierHomePage from '../pages/verifier/VerifierHomePage'
 import { AuthContext } from '../providers/AuthProvider';
 import UserHomePage from './user/UserHomePage';

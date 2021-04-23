@@ -23,7 +23,11 @@ const  Login=() =>{
 
   }
   if (authLoading) {
-    return <p>Loading</p>
+    return(
+      <Container>
+        <p>Login Loading Message</p>
+      </Container> 
+    )
   }
   return (
     <div className="login">
