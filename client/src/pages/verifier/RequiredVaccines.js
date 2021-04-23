@@ -42,10 +42,14 @@ const RequiredVaccine=()=> {
  }
 
   const createReqVaccine = async () => {
-    await axios.post(`/api/users/${auth.user.id}/required_vaccines`,{user_id: auth.user.id, vaccine_id: vaccineSelection[0].id})
-    getReqVaccine()
-
+    try{
+      await axios.post(`/api/users/${auth.user.id}/required_vaccines`,{user_id: auth.user.id, vaccine_id: vaccineSelection[0].id})
+      getReqVaccine()
+    }catch(err){
+      alert("invalid submission. Ensure all fields are filled out")
+    }
   }
+
     const handleSubmit = (e)=>{
       e.preventDefault()  
       console.log(vaccineSelection)
@@ -57,7 +61,7 @@ const RequiredVaccine=()=> {
         <>
         <Form onSubmit= {handleSubmit}>
         <Form.Group>
-          <Form.Label>Select a User</Form.Label>
+          <Form.Label>Add a Vaccine to Required List</Form.Label>
           <Typeahead
             id="vaccine"
             labelKey="name"
