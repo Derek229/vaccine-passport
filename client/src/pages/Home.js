@@ -6,6 +6,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import UserHomePage from './user/UserHomePage';
 import IssuerHomePage from './issuer/IssuerHomePage';
 import AdminHomePage from './Admin/AdminHomePage';
+import LandingPage from '../components/LandingPage';
 
 const Home = () => {
 
@@ -32,13 +33,7 @@ const Home = () => {
   }else {
     return (
       <div>
-        <Login/>
-        <Link to="/issuerLogin">
-          Click here to login or register your company
-        </Link>
-        <div>
-          <Link to='/verifierLogin'>Country origin access</Link>
-        </div>
+        <LandingPage/>
       </div>
     )
   }
