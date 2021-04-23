@@ -67,12 +67,14 @@ class Navbar1 extends React.Component {
     return (
       <div>
         <Navbar bg="secondary" expand="lg" variant="dark">
-          <Navbar.Brand href="/"><img src={LogoOnly} style={{height: '40px'}}/></Navbar.Brand>
+          <Navbar.Brand href="/"><img src={LogoOnly} style={{height: '45px'}}/></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav activeKey={this.props.location.pathname} className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link style = {{width: '120px'}} href="/users/allVaccines">All Vaccines</Nav.Link>
+              
               {this.props.auth.user?.role === "user" &&
                 <Nav.Link href="/users/self/qr_code">My QR Code</Nav.Link>
               } 
