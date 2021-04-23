@@ -3,6 +3,7 @@ import {Form, Button, Row, Col, Container} from 'react-bootstrap'
 import { AuthContext } from '../providers/AuthProvider'
 import '../pages/ComponentStyles/container.css'
 import { Link } from 'react-router-dom';
+import Airplane from '../Images/airplaneWindow.jpg'
 
 const Register = ( {history} ) => {
   const { handleRegister, authErrors, setAuthErrors } = useContext(AuthContext);
@@ -32,7 +33,7 @@ const Register = ( {history} ) => {
     <div className='login'>
     <Container className="logincontainer">
       <Row style={{width: '100%'}}>
-        <Col style={{width: '50%'}}>
+      <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '50%', backgroundColor: 'white'}}> 
           <div className="div">
           <h1>Registration</h1>
           <p style={{marginTop: '15px', marginBottom: '35px'}}>Never forget your vaccine card again.</p>
@@ -92,8 +93,8 @@ const Register = ( {history} ) => {
           <p style={{marginTop: '20px'}}>Already have an account? <Link to="/login">Sign in</Link></p>
           </div>
         </Col>
-        <Col style={{width: '50%', backgroundColor: 'white'}}>
-          <h1>Image Here</h1>
+        <Col style={{width: '50%', height: '100%', backgroundColor: 'white'}}>
+          <img className="fade-in-image" src={Airplane} style={{maxWidth: "90%"}}/>
         </Col>
       </Row>
     </Container>
