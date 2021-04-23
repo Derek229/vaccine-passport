@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import {useEffect} from 'react'
-import { Button, Form, NavLink } from 'react-bootstrap';
+import { Container, Button, Form, NavLink } from 'react-bootstrap';
 import axios from 'axios'
 import { AuthContext } from '../../providers/AuthProvider';
 import { Typeahead } from 'react-bootstrap-typeahead'
@@ -77,6 +77,7 @@ const RequiredVaccine=()=> {
 
 
   return (
+    <Container>
     <div>
       <h1>Required Vaccines List</h1>
       <NavLink href='/users/verifier/VerifierHomePage'>return to home page</NavLink>
@@ -85,6 +86,7 @@ const RequiredVaccine=()=> {
       {renderReqVaccine()}
       <NavLink href='/users/verifier/VerifierHomePage'>return to home page</NavLink>
     </div>
+    </Container>
   )
 }
 
