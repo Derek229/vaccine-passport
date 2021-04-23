@@ -3,8 +3,13 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import LogoOnly from '../Logos/Covidia_LogOnly_T.png'
+import '../pages/ComponentStyles/container.css'
 
 class Navbar1 extends React.Component {
+
+  state={
+    showRightNavButtons: false,
+  }
   
   rightNavItems = () => {
     const { auth: { user, handleLogout } } = this.props;
@@ -35,18 +40,27 @@ class Navbar1 extends React.Component {
         </>
       )
     } else {
-      return (
-        <>
-        <Nav.Link href="/register">
-          <Button style={{padding: '5px 20px 5px 20px', backgroundColor: 'white', color: '#262626'}}>Sign Up</Button>
-        </Nav.Link>
-        <Nav.Link href="/Login">
-          <Button style={{padding: '5px 22px 5px 22px'}}>Sign In</Button>
-        </Nav.Link>
-        </>
-      )
+      setTimeout(() => {
+        this.setState({ showRightNavButtons: true })
+      }, 500);
+      if(this.state.showRightNavButtons === true){
+        return (
+          <>
+          <Nav.Link href="/register">
+            <Button className= "fade-in-navbutton" style={{padding: '5px 20px 5px 20px', backgroundColor: 'white', color: '#262626'}}>Sign Up</Button>
+          </Nav.Link>
+          <Nav.Link href="/Login">
+            <Button className= "fade-in-navbutton" style={{padding: '5px 22px 5px 22px'}}>Sign In</Button>
+          </Nav.Link>
+          </>
+        )
+      }
     }
   
+  }
+
+  rightNavButtons = () => {
+
   }
 
   render() {
