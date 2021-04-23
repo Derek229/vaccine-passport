@@ -60,7 +60,7 @@ const UserDashboard = () => {
            <ListGroupItem>Email: {user.email}</ListGroupItem>
          </ListGroup>
          <Card.Body>
-           <EditUserDetails user={user} setUser={setUser}/>
+           <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
          </Card.Body>
        </Card>
       </>
