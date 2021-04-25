@@ -37,7 +37,7 @@ const Register = ( {history} ) => {
           <div className="div">
           <h1>Registration</h1>
           <p style={{marginTop: '15px', marginBottom: '35px'}}>Never forget your vaccine card again.</p>
-          {authErrors && authErrors.map((err) => <p>{err}</p>)}
+          {authErrors.length > 0 && <p style={{color: 'red'}}>{authErrors[0]}</p>}
           <Form onSubmit={handleSubmit}>
             <Form.Group>
             <Form.Label>Account Details</Form.Label>
