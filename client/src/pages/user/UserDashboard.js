@@ -115,8 +115,8 @@ const UserDashboard = () => {
           {showProfile && 
             <div>
               <div className="header2">
-                <h2>My Account</h2>
-                <div className="rightalign">
+                <h2 style={{marginBottom: '0px'}}>My Account</h2>
+                <div className="rightalign" style={{marginBottom: '0px'}}>
                   <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
                 </div>
                 
