@@ -139,25 +139,21 @@ const UserDashboard = () => {
         <Container>
             {showProfile && 
               <div>
-                <div className="header2">
-                  <h2 style={{marginBottom: '0px'}}>My Account</h2>
-                  <div className="rightalign" style={{marginBottom: '0px'}}>
-                    <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
+                <Row className="justify-content-md-center">
+                  <Col>
+                  <div className="header2" style={{marginBottom: '20px'}}>
+                    <h2 style={{marginBottom: '0px'}}>My Account</h2>
+                    <div className="rightalign" style={{marginBottom: '0px'}}>
+                      <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
+                    </div>
+                    
                   </div>
-                  
-                </div>
-                <div style={{marginTop: '20px'}}>
-                  <Row className="justify-content-md-center">
-                    <Col>
-                      {renderUser()}
-                    </Col>
-                    <Col md="auto">
-                      <h3>User Profile Image and Uploader here</h3>
-                    </Col>
-                  </Row>
-                  
-                </div>
-                
+                    {renderUser()}
+                  </Col>
+                  <Col md="auto">
+                    <h3 style={{marginTop: '20px'}}>User Profile Image and Uploader here</h3>
+                  </Col>
+                </Row>
               </div>
             }
 
