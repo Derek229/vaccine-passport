@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {CardGroup, Card, ListGroup, ListGroupItem, Container} from 'react-bootstrap'
+import {CardGroup, Card, ListGroup, ListGroupItem, Container, Button, Row, Col, Nav} from 'react-bootstrap'
 import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
 import UserVaccine from './UserVaccine'
 import EditUserDetails from './EditUserDetails'
+import '../ComponentStyles/container.css'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
@@ -16,6 +17,9 @@ const UserDashboard = () => {
   
   const [user, setUser] = useState([])
   const [vaccinations, setVaccinations] = useState([])
+
+  const [showProfile, setShowProfile] = useState(true)
+  const [showVaccines, setShowVaccines] = useState(false)
 
   useEffect(()=>{
     if(auth?.user){
@@ -59,9 +63,6 @@ const UserDashboard = () => {
          <ListGroup className="list-group-flush">
            <ListGroupItem>Email: {user.email}</ListGroupItem>
          </ListGroup>
-         <Card.Body>
-           <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
-         </Card.Body>
        </Card>
       </>
     )
@@ -79,19 +80,70 @@ const UserDashboard = () => {
     return (
     <>
     <div>
+      <div style={{background: 'white', display: 'flex', flexDirection: 'row', alignContent: 'center', margin: 'auto', height: '60px'}}>
+          <div className="leftalign">{user?.role === "user" ? <Nav.Link style={{margin: '10px'}}>{user?.first_name} {user?.last_name}</Nav.Link> : <Nav.Link style={{margin: '10px'}}>{user?.name}</Nav.Link>}</div>
+          <Nav className="navbar2" >
+          {user.role === "user" && 
+          <>
+            <Nav.Link 
+              active 
+              style = {{width: '130px', textAlign: "center"}} 
+              onClick={() => {
+                setShowProfile(true)
+                setShowVaccines(false)
+              }}
+            >
+              My Profile
+            </Nav.Link>
+            <h3 style={{color: 'lightgrey', marginTop: '0px', marginBottom: '0px'}}>|</h3>
+            <Nav.Link 
+              active 
+              style = {{width: '130px', textAlign: "center"}} 
+              onClick={() => {
+                setShowProfile(false)
+                setShowVaccines(true)
+              }}
+            >
+              My Vaccines
+            </Nav.Link>
+          </>
+            } 
+          </Nav>
+          <div className="rightAlign"><Button style= {{margin: '10px'}} href="/users/self/qr_code">My QR Code</Button></div>
+      </div>  
       <Container>
-      <h1>User Dashboard</h1>
-      {renderUser()}
-      </Container>
-      <Container>
-      {user.role === "user" &&
-      <div>
-        <h2>My Vaccines: </h2>
-        <CardGroup >
-          {renderVaccines()}
-        </CardGroup>
-      </div>
-      }
+          {showProfile && 
+            <div>
+              <div className="header2">
+                <h2>My Account</h2>
+                <div className="rightalign">
+                  <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
+                </div>
+                
+              </div>
+              <div style={{marginTop: '20px'}}>
+                <Row className="justify-content-md-center">
+                  <Col>
+                    {renderUser()}
+                  </Col>
+                  <Col md="auto">
+                    <h3>User Profile Image and Uploader here</h3>
+                  </Col>
+                </Row>
+                
+              </div>
+              
+            </div>
+          }
+
+            {showVaccines &&
+              <div>
+                <h2 className="header2" style={{marginBottom: '20px'}}>My Vaccines</h2>
+                <CardGroup >
+                  {renderVaccines()}
+                </CardGroup>
+              </div>
+            }
       </Container>
     </div>
     </>

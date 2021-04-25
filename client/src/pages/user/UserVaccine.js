@@ -41,7 +41,7 @@ const UserVaccine = (props) => {
     <div key={vaccine_id}>
       <Card style={{ width: '25rem' }} className="mr-1">
         <Card.Body>
-        <Card.Img variant="top" src={vaccination.image}/>
+        <Card.Img variant="top" src={vaccination.image} />
           <Card.Title><h3>Vaccination: {vaccine_name}</h3></Card.Title>
           <Card.Text>
             MFG: {manufacturer}
