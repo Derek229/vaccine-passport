@@ -86,17 +86,6 @@ class Navbar1 extends React.Component {
                   
                 </NavDropdown>
               }
-              {this.props.auth.user?.role === "admin" &&
-                <NavDropdown title="Menu" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/admin/vaccines">Admin Vaccines</NavDropdown.Item>
-                  <NavDropdown.Item href="/admin/vaccinations">Admin Vaccinations</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/users/issuer/vaccines">Issue Vaccination</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/users/verifier/requiredVaccines">Required Vaccines</NavDropdown.Item>
-                  <NavDropdown.Item href="/users/verifier/QRScanner">QR Scanner</NavDropdown.Item>
-                </NavDropdown>
-              }
             </Nav>
           <Nav activeKey={this.props.location.pathname} className="justify-content-end" style={{ width: "100%" }}>
             {this.rightNavItems()}

@@ -61,7 +61,7 @@
   flex-direction: row;
   justify-content: flex-start;
   padding: 0;
-  margin: 0 auto 0 0;
+  margin: 10px auto 0 0;
 }
 
 .rightalign{
@@ -78,13 +78,54 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: auto auto auto -250px;
+  margin: auto auto auto -200px;
   padding: 10px 0 10px 0;
   position: absolute;
   top: 10;
   left: 50%;
-  width: 500px;
+  width: 400px;
     
+}
+
+.navbar3{
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin: auto;
+  padding: 10px 0 10px 0;
+  position: absolute;
+  width: 100%;
+    
+}
+
+.centernavcol {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  margin: 0;
+}
+
+.leftnavcol {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px;
+  margin: 0;
+}
+
+.rightnavcol {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px;
+  margin: 0;
 }
 
 .logincontainer{

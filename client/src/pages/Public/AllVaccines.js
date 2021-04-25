@@ -4,6 +4,7 @@ import {Card, Container, Navbar, Nav, Button} from 'react-bootstrap'
 import '../../pages/ComponentStyles/container.css'
 import { AuthContext } from '../../providers/AuthProvider'
 import InPageNav from '../../components/InPageNav'
+import SiteStats from '../../components/SiteStats'
 
 
 
@@ -28,7 +29,7 @@ const AllVaccines = () => {
     return allVaccines.map( vaccine => {
 			
 			return(
-			<Card>
+			<Card key={vaccine.id}>
 			  <Card.Body>
           <Card.Title><h4>Vaccine Name: {vaccine.name}</h4></Card.Title>
           <Card.Text>
@@ -45,7 +46,7 @@ const AllVaccines = () => {
 			<div>
 				
 				<Container>
-					<h1>page for any user to see all vaccines.</h1>
+					<SiteStats />
 					{renderAllVaccines()}
 				</Container>
 			</div>
