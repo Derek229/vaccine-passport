@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
-import {Card, Container} from 'react-bootstrap'
+import {Card, Container, Navbar, Nav, Button} from 'react-bootstrap'
+import '../../pages/ComponentStyles/container.css'
+import { AuthContext } from '../../providers/AuthProvider'
+import InPageNav from '../../components/InPageNav'
 
 
 
 const AllVaccines = () => {
 
 	const [allVaccines, setAllVaccines] = useState([])
+
+	const auth = useContext(AuthContext)
 
 	useEffect(()=>{
     getAllVaccines()
@@ -35,12 +40,16 @@ const AllVaccines = () => {
   }
 
 	return (
-		<div>
-			<Container>
-      	<h1>page for any user to see all vaccines.</h1>
-    	</Container>
-        	{renderAllVaccines()}
-		</div>
+		<>
+			<InPageNav auth={auth}/>
+			<div>
+				
+				<Container>
+					<h1>page for any user to see all vaccines.</h1>
+					{renderAllVaccines()}
+				</Container>
+			</div>
+		</>
 	)
 }
 

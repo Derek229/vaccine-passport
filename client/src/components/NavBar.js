@@ -8,7 +8,7 @@ import '../pages/ComponentStyles/container.css'
 class Navbar1 extends React.Component {
 
   state={
-    showRightNavButtons: false,
+    showRightNavButtons: false, 
   }
   
   rightNavItems = () => {
@@ -59,9 +59,7 @@ class Navbar1 extends React.Component {
   
   }
 
-  rightNavButtons = () => {
-
-  }
+  
 
   render() {
     return (
@@ -73,11 +71,8 @@ class Navbar1 extends React.Component {
             <Nav activeKey={this.props.location.pathname} className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link style = {{width: '120px'}} href="/users/allVaccines">All Vaccines</Nav.Link>
+              <Nav.Link style = {{width: '130px'}} href="/users/allVaccines">All Vaccines</Nav.Link>
               
-              {this.props.auth.user?.role === "user" &&
-                <Nav.Link href="/users/self/qr_code">My QR Code</Nav.Link>
-              } 
               {this.props.auth.user?.role === "issuer" &&
                 <NavDropdown title="Menu" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/users/issuer/vaccines">Issue Vaccination</NavDropdown.Item>
@@ -92,7 +87,7 @@ class Navbar1 extends React.Component {
                 </NavDropdown>
               }
               {this.props.auth.user?.role === "admin" &&
-                <NavDropdown title="Admin Menu" id="basic-nav-dropdown">
+                <NavDropdown title="Menu" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/admin/vaccines">Admin Vaccines</NavDropdown.Item>
                   <NavDropdown.Item href="/admin/vaccinations">Admin Vaccinations</NavDropdown.Item>
                   <NavDropdown.Divider />

@@ -5,6 +5,7 @@ import VaccineForm from './VaccineForm'
 import AdminVaccine from './AdminVaccine'
 import { AuthContext } from '../../providers/AuthProvider'
 import '../ComponentStyles/container.css'
+import AdminNav from '../../components/AdminNav'
 
 const Vaccines = () => {
 
@@ -87,11 +88,13 @@ const Vaccines = () => {
 
   return (
     <>
+    <AdminNav />
     <Container>
       <div className="header">
         <div className="leftalign">
-          <h3>Manage Vaccines |</h3>
-          <p style={{paddingTop: '12px', paddingLeft: '7px'}}> {vaccines.length} Vaccines</p>
+          <h3 style={{margin: '10px'}}>Manage All Vaccines </h3>
+          <h3 style={{color: 'lightgrey', marginTop: '10px', marginBottom: '0px'}}>|</h3>
+          <p style={{marginTop: '16px', paddingLeft: '7px'}}>  {vaccines.length} Vaccines</p>
         </div>
         <div>
           {addFormModal()}
