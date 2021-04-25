@@ -25,7 +25,7 @@ const  Login=() =>{
   if (authLoading) {
     return(
       <Container>
-        <p>Login Loading Message</p>
+        <p>Logging In...</p>
       </Container> 
     )
   }
