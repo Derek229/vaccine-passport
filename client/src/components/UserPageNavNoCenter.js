@@ -11,12 +11,12 @@ const InPageNavNoCenter = (props) => {
 		return(
 			<>
 				{auth.user?.first_name &&
-					<Nav.Link style = {{width: 'auto', marginTop: '10px'}} href="/users/self">
+					<Nav.Link style = {{width: 'auto', margin: '0px 0px 10px 10px'}} href="/users/self">
 							{auth.user.first_name} {auth.user.last_name}
 					</Nav.Link>
 				}
 				{(auth.user?.name && !auth.user?.first_name) &&
-					<Nav.Link style = {{width: 'auto', marginTop: '10px'}} href="/users/self">
+					<Nav.Link style = {{width: 'auto', margin: '0px 0px 10px 10px'}} href="/users/self">
 							{auth.user.name}
 					</Nav.Link>
 				}
