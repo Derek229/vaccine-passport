@@ -5,6 +5,7 @@ import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import AdminVaccination from './AdminVaccination'
 import '../ComponentStyles/container.css'
+import AdminNav from '../../components/AdminNav'
 
 const AdminVaccinations = () => {
 
@@ -59,11 +60,13 @@ const AdminVaccinations = () => {
 
   return (
     <>
+    <AdminNav />
     <Container >
       <div className="header">
         <div className="leftalign">
-        <h3>Manage Vaccinations |</h3>
-          <p style={{paddingTop: '12px', paddingLeft: '7px'}}>  {vaccinations.length} Vaccinations</p>
+          <h3 style={{margin: '10px'}}>Manage All Vaccinations </h3>
+          <h3 style={{color: 'lightgrey', marginTop: '10px', marginBottom: '0px'}}>|</h3>
+          <p style={{marginTop: '16px', paddingLeft: '7px'}}>  {vaccinations.length} Vaccinations</p>
         </div>
         <Button onClick={()=>history.push('/users/issuer/vaccines')}>Add New Vaccination</Button>
       </div>
