@@ -71,7 +71,8 @@ class Navbar1 extends React.Component {
             <Nav activeKey={this.props.location.pathname} className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link style = {{width: '130px'}} href="/users/allVaccines">All Vaccines</Nav.Link>
+              <Nav.Link style = {{width: '110px'}} href="/all-vaccines">All Vaccines</Nav.Link>
+              <Nav.Link style = {{width: '110px'}} href="/all-verifiers">All Verifiers</Nav.Link>
               
               {this.props.auth.user?.role === "issuer" &&
                 <NavDropdown title="Menu" id="basic-nav-dropdown">

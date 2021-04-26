@@ -34,18 +34,25 @@ const UserDashboard = () => {
   
   const getUserData = async () => {
     //get user info
+    try{
     let res = await axios.get(`/api/users/${auth.user.id}`)
     setUser(res.data)
+    }catch(err){
+      alert('error retrieiving profile information')
+    }
 
     //setUser(res.data) --check to make sure this is right w/ console.log() once backend is setup
   }
 
   const getVaccinations = async () => {
     //TODO: change 1 in URL below to string interpolate userID once users controller is setup
-
+    try{
     let res = await axios.get(`/api/vaccinations/${auth.user.id}`)
     setVaccinations(res.data)
     console.log('vaccinations: ', res.data)
+    }catch(err){
+      alert('error retrieving vaccines')
+    }
 
   }
 

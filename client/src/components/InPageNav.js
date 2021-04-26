@@ -81,13 +81,13 @@ const InPageNav = (props) => {
 						<Nav activeKey={location.pathname}>
 							<Nav.Link 
 								style = {{width: 'auto', textAlign: "center"}} 
-								href="/users/allVaccines"
+								href="/all-vaccines"
 							>
 								All Vaccines
 							</Nav.Link>
 							<Nav.Link  
 								style = {{width: 'auto', textAlign: "center"}} 
-								href="/"
+								href="/all-verifiers"
 							>
 								All Verifiers
 							</Nav.Link>
