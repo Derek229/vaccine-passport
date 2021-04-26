@@ -81,7 +81,6 @@ const UserDashboard = () => {
 				<div className="divcontainer">
       		<h1>My Dashboard</h1>
 				</div>
-      	{/* {renderUser()} */}
       </Container>
       <Container className="userinfo">
       {user.role === "user" &&
