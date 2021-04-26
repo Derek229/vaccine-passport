@@ -74,11 +74,6 @@ const Vaccines = () => {
             <Modal.Title>Add new Vaccine</Modal.Title>
           </Modal.Header>
           <Modal.Body><VaccineForm handleClose={handleClose} addVaccine={addVaccine}/></Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
         </Modal>
       </div>
     );

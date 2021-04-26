@@ -17,7 +17,7 @@ const AdminNav = () => {
 				<Row style={{width: '100%'}}>
 					<Col className="leftnavcol">
 						<Nav>
-							<Nav.Link style={{margin: '10px 0px 10px 100px'}} href="/users/self">{auth?.user.name}</Nav.Link>
+							<Nav.Link style={{margin: '10px 0px 10px 60px'}} href="/users/self">{auth?.user.name}</Nav.Link>
 						</Nav>
 					</Col>
 					<Col className="centernavcol">
@@ -28,7 +28,6 @@ const AdminNav = () => {
               >
                 Admin Vaccines
               </Nav.Link>
-              <h3 style={{color: 'lightgrey', marginTop: '0px', marginBottom: '0px'}}>|</h3>
               <Nav.Link 
                 style = {{width: 'auto', textAlign: "center"}} 
                 href="/admin/vaccinations"
