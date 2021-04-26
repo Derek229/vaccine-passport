@@ -25,11 +25,12 @@ const  LandingPage =() =>{
         <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '50%', backgroundColor: 'white'}}>
           <Row style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', width: '100%', backgroundColor: 'white'}}>
             <Col sm={4} style={{margin: '0px'}}>
-            <img className="fade-in-image" src={BlueLogo} style={{maxWidth: "100%"}}/>
+            <img src={BlueLogo} style={{maxWidth: "100%"}}/>
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '65%', backgroundColor: 'white', margin: '0px'}}>
               <h1 style={{color: '#2F73DA'}}>Vaccine Passport</h1>
-              <p style={{margin: '15px 50px 0 0'}}>Never forget your vaccine card during travel again. </p>
+              <p style={{margin: '-10px 0px 0 10px'}}>by COVIDIA</p>
+              <p style={{margin: '15px 50px 0 10px'}}>Never forget your vaccine card during travel again. </p>
             </Col>
           </Row>
           
