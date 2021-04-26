@@ -4,7 +4,7 @@ import UploadVaccImage from './UploadVaccImage'
 
 const UserVaccine = (props) => {
 
-  const {vaccination, vaccine_id, vaccine_name, manufacturer, vaccination_id, issuer_name} = props
+  const {vaccination, vaccine_id, vaccine_name, manufacturer, vaccination_id, issuer_name, getVaccinations} = props
 
   //modal vars
   const [show, setShow] = useState(false);
@@ -23,15 +23,7 @@ const UserVaccine = (props) => {
             <Modal.Header closeButton>
               <Modal.Title>Upload Vaccine Image Here</Modal.Title>
             </Modal.Header>
-            <Modal.Body><UploadVaccImage vaccination={vaccination} vaccination_id={vaccination_id}/></Modal.Body>
-            <Modal.Footer>
-            <Button variant="primary" onClick={handleClose}>
-                Submit
-              </Button>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
+            <Modal.Body><UploadVaccImage handleClose={handleClose} vaccination={vaccination} getVaccinations={getVaccinations} vaccination_id={vaccination_id}/></Modal.Body>
           </Modal>
         </>
       );
@@ -41,7 +33,7 @@ const UserVaccine = (props) => {
     <div key={vaccine_id}>
       <Card style={{ width: '25rem' }} className="mr-1">
         <Card.Body>
-        <Card.Img variant="top" src={vaccination.image}/>
+        <Card.Img variant="top" src={vaccination.image} />
           <Card.Title><h3>Vaccination: {vaccine_name}</h3></Card.Title>
           <Card.Text>
             MFG: {manufacturer}
