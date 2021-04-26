@@ -74,7 +74,7 @@ const InPageNav = (props) => {
 				<Row style={{width: '100%'}}>
 					<Col className="leftnavcol">
 						<Nav>
-							<Nav.Link style={{margin: '10px'}} href="/users/self">{userButtonsLeft()}</Nav.Link>
+							<Nav.Link style={{width: 'auto', margin: '10px 0px 0px 60px'}} href="/users/self">{userButtonsLeft()}</Nav.Link>
 						</Nav>
 					</Col>
 					<Col className="centernavcol">

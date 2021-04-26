@@ -146,6 +146,14 @@
   background: white;
 }
 
+.buttondiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0px 10px 0px
+}
+
 .rolefield{
   background-color: white;
   border: 1px solid #CED5DA;
