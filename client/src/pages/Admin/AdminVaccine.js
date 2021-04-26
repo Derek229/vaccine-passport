@@ -25,11 +25,6 @@ const Vaccine = (props) => {
             <Modal.Title>Edit this Vaccine</Modal.Title>
           </Modal.Header>
           <Modal.Body><VaccineForm vaccineProp={vaccine} addVaccine={addVaccine} handleClose={handleClose}/></Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-          </Modal.Footer>
         </Modal>
         
       </>

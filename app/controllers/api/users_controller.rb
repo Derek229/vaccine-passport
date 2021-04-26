@@ -23,6 +23,10 @@ class Api::UsersController < ApplicationController
     render json: User.get_verifiers
   end
 
+  def site_stats
+    render json: User.site_stats
+  end
+
   private 
 
   def set_user

@@ -6,17 +6,21 @@ import { Link } from 'react-router-dom';
 import Airplane from '../Images/airplaneWindow.jpg'
 
 const Register = ( {history} ) => {
-  const { handleRegister, authErrors, setAuthErrors } = useContext(AuthContext);
+  const { handleRegister, authErrors, setAuthErrors, authLoading } = useContext(AuthContext);
   const [email, setEmail] = useState(null)
 	const [role, setRole] = useState('user')
   const [password, setPassword] = useState(null)
   const [passwordConfirmation, setPasswordConfirmation] = useState(null)
+  const [passwordWarning, setPasswordWarning] = useState(null)
   useEffect(() =>{
     setAuthErrors([]);
+    setPasswordWarning(null)
   },[]);
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if(password === passwordConfirmation){
+      setPasswordWarning(null)
       handleRegister({
 				role,
         email,
@@ -25,8 +29,21 @@ const Register = ( {history} ) => {
       },
       history
       );
-    }else alert("Passwords Don't Match");
+    }
+    if(password !== passwordConfirmation){
+      setPasswordWarning("Passwords do not match")
+    };
   };
+
+  if (authLoading) {
+    return(
+      <div className="login">
+        <Container>
+          <h3 style={{margin: '50px 0 0 auto'}}>Please wait...</h3>
+        </Container>
+      </div> 
+    )
+  }
 
   
   return (
@@ -37,7 +54,6 @@ const Register = ( {history} ) => {
           <div className="div">
           <h1>Registration</h1>
           <p style={{marginTop: '15px', marginBottom: '35px'}}>Never forget your vaccine card again.</p>
-          {authErrors && authErrors.map((err) => <p>{err}</p>)}
           <Form onSubmit={handleSubmit}>
             <Form.Group>
             <Form.Label>Account Details</Form.Label>
@@ -50,6 +66,7 @@ const Register = ( {history} ) => {
                 placeholder='Email'
                 onChange={(e) => setEmail(e.target.value)}
               />
+              {authErrors?.email && <p style={{color: 'red', margin: '10px 0 0 0'}}>Please enter a valid email.</p>}
             </Form.Group>
             <Form.Group>
               <Form.Control
@@ -72,6 +89,7 @@ const Register = ( {history} ) => {
                 type='password'
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
               /> 
+              <p style={{color: 'red', margin: '10px 0 0 0'}}>{passwordWarning}</p>
             </Form.Group>
             <Form.Label>Select Role</Form.Label>
             <Form.Control 
