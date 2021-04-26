@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
     get'issuers/manage/:issuer_id', to: "vaccinations#issuer_vaccinations"
 
+    get'users/stats', to: "users#site_stats"
+
 
     # put 'users/:user_id/vaccinations/:vaccination_id', to: "vaccinations#vaccination_image_upload"
 

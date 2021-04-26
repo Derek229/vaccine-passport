@@ -5,7 +5,6 @@ import {Link, useHistory} from 'react-router-dom'
 import '../pages/ComponentStyles/container.css'
 import Terminal2 from '../Images/terminal2.jpg'
 
-
 const  Login=() =>{
   const [email, setEmail] = useState('')
   const [password, setPassword]= useState('')
@@ -25,9 +24,11 @@ const  Login=() =>{
   }
   if (authLoading) {
     return(
-      <Container>
-        <p>Login Loading Message</p>
-      </Container> 
+      <div className="login">
+        <Container>
+          <h3 style={{margin: '50px 0 0 auto'}}>Please wait...</h3>
+        </Container>
+      </div> 
     )
   }
   return (
@@ -38,7 +39,7 @@ const  Login=() =>{
           <div className="div">
             <h1>Sign in</h1>
             <p style={{marginTop: '15px', marginBottom: '35px'}}>Welcome back to your digital vaccine passport.</p>
-            {authErrors.length > 0 && <p>{authErrors[0]}</p>}
+            {authErrors.length > 0 && <p style={{color: 'red'}}>{authErrors[0]}</p>}
             <Form onSubmit={handleSubmit}>
               <Form.Group>
                 <Form.Control

@@ -5,6 +5,7 @@ import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 import { FilePond, registerPlugin } from "react-filepond";
+import {Button} from 'react-bootstrap'
 import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 
@@ -12,29 +13,38 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 
 function UploadVaccImage(props) {
 
-  const {vaccination_id} = props
+  const {vaccination_id, getVaccinations, handleClose} = props
 
   const auth = useContext(AuthContext)
   const [files, setFiles] = useState([]);
 
 
 
-  const handleUpdate = async (fileItems) => {
+  const handleUpdate = (fileItems) => {
     console.log('handleUpdate for image called')
-    try {
-      setFiles(fileItems);
+    setFiles(fileItems);
+    logFiles(fileItems)
+  };
 
-      // appending 'file' with image info to pass can retieve in params
+  const logFiles = (fileItems) => {
+    console.log('files: ', files)
+    console.log('fileItems: ', fileItems)
+  }
+
+  const submitImage = async () => {
+    try {
+      // appending 'file' with image info to pass can retrieve in params
       let data = new FormData()
         // files[0].file  this will come in as params file
-       data.append('file', fileItems[0].file)
+       data.append('file', files[0].file)
       let res = await axios.put(`/api/users/${auth.user.id}/vaccinations/${vaccination_id}`, data);
       console.log(res.data);
     } catch (err) {
       console.log(err.response);
-      alert("error in upload");
+      alert("Error submitting Image. Please try again.");
     }
-  };
+
+  }
   
   return (
     <div>
@@ -45,6 +55,14 @@ function UploadVaccImage(props) {
         name="image"
         labelIdle='Drag  Drop your files or <span class="filepond--label-action">Browse</span>'
       />
+      <Button variant="primary" onClick={()=>{
+        submitImage()
+        handleClose()
+        getVaccinations()
+      }}>
+        Submit
+      </Button>
+      <Button variant="danger" style={{marginLeft: '10px'}} onClick={handleClose}>Cancel</Button>
     </div>
   );
 }

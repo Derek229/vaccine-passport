@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react'
-import Button from '../../components/Button'
 import axios from 'axios'
-import {Form} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 import {AuthContext} from '../../providers/AuthProvider'
 // import {useHistory} from 'react-router-dom'
 
@@ -91,6 +90,7 @@ const VaccineForm = (props) => {
         /> 
       </Form.Group>
         <Button variant="primary" type='submit'>Submit</Button>
+        <Button variant="danger" style={{marginLeft: '10px'}} onClick={handleClose}>Cancel</Button>
     </Form>
     </>
 	)
