@@ -1,44 +1,50 @@
 import React from 'react'
-import { Button, Card, CardGroup, Figure } from 'react-bootstrap'
-import '../Public/IssuerStyle.css'
+import { Button, Card, CardGroup} from 'react-bootstrap'
+import '../issuer/Styling/IssuerStyle.css'
 
 const IssuerHomePage = () => {
   return (
   <>
-  <Card style={{borderWidth: '1px', padding:'50px', width:'65rem', marginTop: 100}}>
+  <Card style={{width:"75rem", height:"75rem", margin:"0 auto 0 auto", marginTop:"100px"}} >
     <div>
-      <h1 style={{textAlign: 'center', paddingBottom:'30px'}}>Issuer Home Page</h1>
+      <h1 style={{textAlign: 'center', marginTop: '100px'}}>Issuer Home Page</h1>
     </div>
-    <div>
-      <div>
-        <h4>Issue Vaccination</h4>
-      </div> 
-      <div>
-        <h4>Manage Vaccinations</h4>  
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="left-side">
+              <div class="nav-link-wrapper">
+                <h4>Issue Vaccination</h4>
+              </div>
+              <div class="nav-link-wrapper">
+                <h4>Manage Vaccinations</h4> 
+              </div>
+          </div>  
+        </div>
       </div>  
-    </div>  
     
     
-    <CardGroup style= {{margin:10}}>
-    <div>
-        <Card style={{ width: '25rem', height:'35rem', padding:'50px', borderRadius:'10px', borderWidth: '3px', margin: 20 }}>
-          <Card.Body style={{ paddingTop: '50px', paddingBottom: '100px' }}>
+    <CardGroup className="card-group">
+      <div style={{marginRight:"10px"}}>
+        <Card className="card-selection">
+          <Card.Body className="card-body">
             <div style={{ margin:'10px'}}>
-            <Card.Img style={{ padding: '10px' }} variant="top" src="images/syringe.png" />
+            <Card.Img className="card-img" variant="top" src="images/syringe.png" />
             </div>
-            <div>
-            <Button style={{ paddingLeft:'30px', paddingRight:'30px', fontSize:'20px' }} href="/users/issuer/vaccines">Issue Vaccination</Button>            </div>
+            <div className="button-position">
+            <Button className="card-button" href="/users/issuer/vaccines">Issue Vaccination</Button>
+            </div>
           </Card.Body>
         </Card>
       </div>
-      <div>
-        <Card style={{ width: '25rem', height:'35rem', padding:'50px', borderRadius:'10px', borderWidth: '3px',margin: 20 }}>
-          <Card.Body style={{ paddingTop: '50px', paddingBottom: '100px' }}>
+      <div style={{marginLeft:"10px"}}>
+        <Card className="card-selection">
+          <Card.Body className="card-body">
             <div style={{ margin:'10px'}}>
-            <Card.Img style={{ padding: '10px' }} variant="top" src="images/employee.png" />
+            <Card.Img className="card-img" variant="top" src="images/employee.png" />
             </div>
-            <div>
-            <Button style={{ paddingLeft:'30px', paddingRight:'30px', fontSize:'20px' }} href="/users/issuer/manage">Manage Vaccinations</Button>            </div>
+            <div className="button-position">
+            <Button className="card-button" href="/users/issuer/manage">Manage Vaccinations</Button>
+            </div>
           </Card.Body>
         </Card>
       </div>
@@ -104,4 +110,9 @@ Manage Vaccinations
   </Card.Body>
 </Card>
 </div> */}
+
+
+
+
+
 
