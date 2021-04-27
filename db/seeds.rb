@@ -38,7 +38,6 @@ email: "user1@test.com",
 role: 'user',
 country_origin: Faker::Address.country,
 password:'123456',
-image: 'user1 profile image here',
 age: rand(18..80)
 )
 
@@ -50,7 +49,6 @@ user2 = User.create(
   role: 'user',
   country_origin: Faker::Address.country,
   password:'123456',
-  image: 'user2 profile image here',
   age: rand(18..80)
 )
 
@@ -62,7 +60,6 @@ user3 = User.create(
   role: 'user',
   country_origin: Faker::Address.country,
   password:'123456',
-  image: 'user3 profile image here',
   age: rand(18..80)
 )
 
@@ -83,11 +80,11 @@ mers=Vaccine.create(name:'MERS', manufacturer:'The Black Market', user_id: admin
 # VACCINATION (VaccineWallet)
 # CREATED BY ISSUER IN UI but add holder id in DB
 
-Vaccination.create(user_id:user3.id, vaccine_id: covid.id, image:'pic here of user3 covid card', issuer_name:'walmart', issuer_id: walmart.id)
-Vaccination.create(user_id:user3.id, vaccine_id: flu.id, image:'pic here of user3 flu shot', issuer_name:'cvs', issuer_id: cvs.id)
-Vaccination.create(user_id:user3.id, vaccine_id: sars.id, image:'pic here of user3 sar shot', issuer_name:'walgreens', issuer_id: walgreens.id)
-Vaccination.create(user_id:user1.id, vaccine_id: sars.id, image:'pic here of user1 sar shot', issuer_name:'ihc', issuer_id: ihc.id)
-Vaccination.create(user_id:user1.id, vaccine_id: covid.id, image:'pic here of user1 covid shot', issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id:user3.id, vaccine_id: covid.id, issuer_name:'walmart', issuer_id: walmart.id)
+Vaccination.create(user_id:user3.id, vaccine_id: flu.id, issuer_name:'cvs', issuer_id: cvs.id)
+Vaccination.create(user_id:user3.id, vaccine_id: sars.id, issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id:user1.id, vaccine_id: sars.id, issuer_name:'ihc', issuer_id: ihc.id)
+Vaccination.create(user_id:user1.id, vaccine_id: covid.id, issuer_name:'walgreens', issuer_id: walgreens.id)
 
 # REquired VACCINATION
 # CREATED BY Verifer IN UI 
