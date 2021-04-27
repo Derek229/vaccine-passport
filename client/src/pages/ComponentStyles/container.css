@@ -12,10 +12,22 @@
   box-shadow: 0px 33px 31px 3px rgba(0,0,0,0);
 }
 
+a:hover{
+  background: 3073DA;
+}
+
 .div {
   margin: 0 auto 0 auto;
   width: 65%;
   padding: 0;
+}
+
+.card{
+  transition: border .5s;
+}
+
+.card:hover{
+  border: 1px solid #3073DA !important;
 }
 
 .homecontainer {
