@@ -41,6 +41,8 @@ Rails.application.routes.draw do
       resources :required_vaccines
       
     end
-    
   end
+
+	get '*other', to: 'static#index'
+
 end
