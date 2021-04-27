@@ -46,8 +46,8 @@ const AllVaccines = () => {
 			<div>
 				
 				<Container>
-					<SiteStats />
-					<CardGroup>
+					<SiteStats pageName="All Vaccines"/>
+					<CardGroup style={{paddingBottom: '20px'}}>
 						{renderAllVaccines()}
 					</CardGroup>
 				</Container>
