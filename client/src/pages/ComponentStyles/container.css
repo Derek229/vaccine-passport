@@ -177,6 +177,22 @@
   -o-animation: fadeIn 1.5s;
   -ms-animation: fadeIn 1.5s;
 }
+
+.userinfo{
+	text-align: center;
+	display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  margin: 3% auto;
+  width: 80%;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 33px 31px 3px rgba(0,0,0,0);
+}
+
 @keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}

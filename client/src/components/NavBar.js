@@ -71,21 +71,8 @@ class Navbar1 extends React.Component {
             <Nav activeKey={this.props.location.pathname} className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link style = {{width: '130px'}} href="/users/allVaccines">All Vaccines</Nav.Link>
-              
-              {this.props.auth.user?.role === "issuer" &&
-                <NavDropdown title="Menu" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/users/issuer/vaccines">Issue Vaccination</NavDropdown.Item>
-                  <NavDropdown.Item href="/users/issuer/manage">Manage Vaccinations</NavDropdown.Item>
-                </NavDropdown>
-              }
-              {this.props.auth.user?.role === "verifier" &&
-                <NavDropdown title="Menu" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/users/verifier/requiredVaccines">Required Vaccines List</NavDropdown.Item>
-                  <NavDropdown.Item href="/users/verifier/QRScanner">QR Scanner</NavDropdown.Item>
-                  
-                </NavDropdown>
-              }
+              <Nav.Link style = {{width: '110px'}} href="/all-vaccines">All Vaccines</Nav.Link>
+              <Nav.Link style = {{width: '110px'}} href="/all-verifiers">All Verifiers</Nav.Link>
             </Nav>
           <Nav activeKey={this.props.location.pathname} className="justify-content-end" style={{ width: "100%" }}>
             {this.rightNavItems()}

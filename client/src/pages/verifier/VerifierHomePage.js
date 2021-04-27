@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import '../../components/ContainerVerifier.css';
-import VerifierNav from '../../components/VerifierNav';
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 function VerifierHomePage() {
 
 
+  const auth = useContext(AuthContext)
 
   
   return (
-  
-    
     <div className='div'>
       <div className="divcontainer">
-        <h1>Welcome</h1>
+        <h1>Welcome {auth.user.name}</h1>
     <Row style={{flexWrap: 'wrap', width: '100%', height: 'auto', paddingTop: '30px', paddingBottom: '30px', padding: '15px'}}>
         <Col>
         

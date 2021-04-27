@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import UserPageNavNoCenter from '../../components/UserPageNavNoCenter'
 import { AuthContext } from '../../providers/AuthProvider'
-import {Container} from 'react-bootstrap'
+import {Card, Container} from 'react-bootstrap'
 import QRCode from 'qrcode.react'
 // import {useHistory} from 'react-router-dom'
 
@@ -17,9 +17,12 @@ const Wallet = () => {
     <UserPageNavNoCenter auth={auth}/>
     <Container>
       <div>
-        <h1>user wallet QR Code here</h1>
-        <QRCode value={auth.user.id} />
-        {/* {renderWallet()} */}
+				<Card className="header">
+       	 <h1>Your Personal QR Code</h1>
+				</Card>
+				<Card className="header">
+       	 <QRCode value={auth.user.id} size={350} includeMargin={true} imageSettings="center"/>
+				</Card>
       </div>
     </Container>
     </>
