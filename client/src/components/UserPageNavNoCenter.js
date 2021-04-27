@@ -58,7 +58,7 @@ const InPageNavNoCenter = (props) => {
 			</>
 		)
 	}
-
+ 
   return (
     <div style={{background: 'white', display: 'flex', flexDirection: 'row', alignContent: 'center', margin: 'auto', height: '60px'}}>
 				<div className="leftalign">{userButtonsLeft()}</div>

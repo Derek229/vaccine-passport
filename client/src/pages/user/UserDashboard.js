@@ -56,9 +56,6 @@ const UserDashboard = () => {
        <Card >
          <Card.Body>
            <Card.Title>{user?.first_name ? <h4>{user.first_name} {user.last_name}</h4> : <h4>{user.name} </h4>}</Card.Title>
-           <Card.Text>
-            User Details (ID): {user.id}
-           </Card.Text>
          </Card.Body>
          <ListGroup className="list-group-flush">
            <ListGroupItem>Email: {user.email}</ListGroupItem>
