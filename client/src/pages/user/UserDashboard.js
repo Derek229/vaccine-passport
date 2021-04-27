@@ -115,19 +115,18 @@ const UserDashboard = (props) => {
             {showProfile && 
               <div>
                 <Row className="justify-content-md-center">
+								<Card style ={{marginTop: '30px'}}>
+                    <h3 style={{marginTop: '30px'}}> {pictureUploadModal()}</h3>
+                  </Card>
                   <Col>
                   <div className="header2" style={{marginBottom: '20px'}}>
-                    <h2 style={{marginBottom: '0px'}}>My Account</h2>
+                    <h2 style={{marginBottom: '0px'}}>My Profile Information</h2>
                     <div className="rightalign" style={{marginBottom: '0px'}}>
                       <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
                     </div>
-                    
                   </div>
                     {renderUser()}
                   </Col>
-                  <Card style ={{marginTop: '30px'}}>
-                    <h3 style={{marginTop: '30px'}}> {pictureUploadModal()}</h3>
-                  </Card>
                 </Row>
               </div>
             }
