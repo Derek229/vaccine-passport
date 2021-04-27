@@ -10,7 +10,7 @@ import useWindowDimensions from '../../components/useWindowDimensions';
 const UserHomePage = () => {
 
   const {width} = useWindowDimensions()
-  const hide = (width <= 760)
+  const hide = (width <= 950)
   const auth = useContext(AuthContext)
 
   return (

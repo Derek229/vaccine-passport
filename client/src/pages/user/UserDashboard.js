@@ -29,6 +29,8 @@ const UserDashboard = (props) => {
   const [showProfile, setShowProfile] = useState(true)
   const [showVaccines, setShowVaccines] = useState(false)
 
+  const [error, setError] = useState(false)
+
 
   useEffect(()=>{
     if(auth?.user){
@@ -94,7 +96,7 @@ const UserDashboard = (props) => {
 		return (
 			<>
 				<a onClick={handleShow}>
-				{user.image ? <img src={user.image} alt="Please update your profile picture" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : <Button onclick={handleShow}>Upload Profile Picture</Button>}
+				{user.image && error===false ? <img src={user.image} onError={setError(true)} alt="Please update your profile picture" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : <Button onclick={handleShow}>Upload Profile Picture</Button>}
 				</a>
 	
 				<Modal show={show} onHide={handleClose}>
