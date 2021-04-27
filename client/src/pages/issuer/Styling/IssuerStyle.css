@@ -1,0 +1,96 @@
+.div {
+  width: 75rem;
+  margin: 0 auto 0 auto;
+  margin-top: 100px;
+  padding:50px;
+  border-width: '1px';
+}
+
+/* nav buttons */
+
+.nav-wrapper { 
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  padding: 38px;
+
+}
+
+.left-side {
+  display: flex;
+  margin: 0 auto 0 auto;
+}
+
+.nav-wrapper > .left-side > div {
+  margin: 10px;
+  font-size: .1em;
+}
+
+.nav-link-wrapper {
+  height: 30px;
+  border-bottom: 1px solid transparent;
+  transition: border bottom 0.5s;
+}
+
+.nav-link-wrapper a {
+  text-decoration: none;
+  transition: color 0.5s;
+
+}
+
+.nav-link-wrapper:hover {
+  border-bottom: 4px solid rgb(35, 213, 219);
+}
+
+
+/* Cards */
+
+.card-group {
+  margin: 0 auto 0 auto;
+  box-shadow: 0px 33px 31px 3px rgba(0,0,0,0);
+}
+
+.card-selection {
+  width: auto;
+  height: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* border: 3px solid green !important; */
+  border-radius: 10px !important;
+}
+
+.card-body {
+  width: 20rem;
+  height: 20rem;
+  /* border: 3px solid hotpink;  */
+  padding: 1px !important;
+  align-items: baseline !important; 
+}
+
+.card-img{
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
+  /* border: 3px solid green; */
+}
+
+
+
+.card-button {
+  padding-top: 20px !important;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  width: 240px;
+  height: 80px;
+}
+
+.button-position {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100px;
+  /* border: 3px solid blue;  */
+  padding-bottom: 10px;
+}
