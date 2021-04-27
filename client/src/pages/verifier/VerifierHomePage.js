@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import '../../components/ContainerVerifier.css';
+import VerifierNav from '../../components/VerifierNav';
 
 
 function VerifierHomePage() {
@@ -9,6 +10,8 @@ function VerifierHomePage() {
 
   
   return (
+  
+    
     <div className='div'>
       <div className="divcontainer">
         <h1>Welcome</h1>

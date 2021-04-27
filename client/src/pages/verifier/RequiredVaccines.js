@@ -5,6 +5,7 @@ import axios from 'axios'
 import { AuthContext } from '../../providers/AuthProvider';
 import { Typeahead } from 'react-bootstrap-typeahead'
 import ReqVaccineCard from './ReqVaccineCard';
+import VerifierNav from '../../components/VerifierNav'
 // show, create, delete
 const RequiredVaccine=()=> {
 
@@ -81,6 +82,8 @@ const RequiredVaccine=()=> {
 
 
   return (
+    <div>
+    <VerifierNav/>
     <div className='div'>
     <div className='divcontainer'>
     <Container>
@@ -90,6 +93,7 @@ const RequiredVaccine=()=> {
       {showForm && requiredVaccineForm()}
       {renderReqVaccine()}
     </Container>
+    </div>
     </div>
     </div>
   )
