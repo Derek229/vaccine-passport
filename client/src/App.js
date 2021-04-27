@@ -19,6 +19,7 @@ import QRScanner from './pages/verifier/QRScanner';
 import AllVaccines from './pages/Public/AllVaccines';
 import IssuersCRUD from './pages/issuer/IssuersCRUD';
 import AdminVaccinations from './pages/Admin/AdminVaccinations';
+import AllVerifiers from './pages/Public/AllVerifiers';
 
 function App() {
 
@@ -41,7 +42,8 @@ function App() {
         <ProtectedRoute exact path='/users/issuer/manage' component={IssuersCRUD} />
         <ProtectedRoute exact path='/admin/vaccines' component={AdminVaccines} />
         <ProtectedRoute exact path='/admin/vaccinations' component={AdminVaccinations} />
-				<Route exact path='/users/allVaccines' component={AllVaccines} />
+				<Route exact path='/all-vaccines' component={AllVaccines} />
+        <Route exact path='/all-verifiers' component={AllVerifiers} />
         
         < Route component={NoMatch} />
       </Switch>

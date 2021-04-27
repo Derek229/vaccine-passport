@@ -3,7 +3,7 @@ import {Form, Button, Row, Col, Container} from 'react-bootstrap';
 import { AuthContext } from '../providers/AuthProvider'
 import {Link, useHistory} from 'react-router-dom'
 import '../pages/ComponentStyles/container.css'
-
+import Terminal2 from '../Images/terminal2.jpg'
 
 const  Login=() =>{
   const [email, setEmail] = useState('')
@@ -24,20 +24,22 @@ const  Login=() =>{
   }
   if (authLoading) {
     return(
-      <Container>
-        <p>Login Loading Message</p>
-      </Container> 
+      <div className="login">
+        <Container>
+          <h3 style={{margin: '50px 0 0 auto'}}>Please wait...</h3>
+        </Container>
+      </div> 
     )
   }
   return (
     <div className="login">
     <Container className="logincontainer">
       <Row style={{width: '100%'}}>
-        <Col style={{width: '50%'}}>
+        <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '50%', backgroundColor: 'white'}}>  
           <div className="div">
             <h1>Sign in</h1>
             <p style={{marginTop: '15px', marginBottom: '35px'}}>Welcome back to your digital vaccine passport.</p>
-            {authErrors.length > 0 && <p>{authErrors[0]}</p>}
+            {authErrors.length > 0 && <p style={{color: 'red'}}>{authErrors[0]}</p>}
             <Form onSubmit={handleSubmit}>
               <Form.Group>
                 <Form.Control
@@ -67,7 +69,7 @@ const  Login=() =>{
           </div>
         </Col>
         <Col style={{width: '50%', backgroundColor: 'white'}}>
-          <h1>Image Here</h1>
+          <img className="fade-in-image" src={Terminal2} style={{maxWidth: "90%"}}/>
         </Col>
       </Row>
     </Container>

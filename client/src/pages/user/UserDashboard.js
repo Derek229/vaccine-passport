@@ -1,10 +1,12 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {CardGroup, Card, ListGroup, ListGroupItem, Container} from 'react-bootstrap'
+import {CardGroup, Card, ListGroup, ListGroupItem, Container, Button, Row, Col, Nav, NavDropdown} from 'react-bootstrap'
 import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
 import UserVaccine from './UserVaccine'
 import EditUserDetails from './EditUserDetails'
+import '../ComponentStyles/container.css'
+import UserNav from './UserNav'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
@@ -16,6 +18,9 @@ const UserDashboard = () => {
   
   const [user, setUser] = useState([])
   const [vaccinations, setVaccinations] = useState([])
+
+  const [showProfile, setShowProfile] = useState(true)
+  const [showVaccines, setShowVaccines] = useState(false)
 
   useEffect(()=>{
     if(auth?.user){
@@ -30,18 +35,25 @@ const UserDashboard = () => {
   
   const getUserData = async () => {
     //get user info
+    try{
     let res = await axios.get(`/api/users/${auth.user.id}`)
     setUser(res.data)
+    }catch(err){
+      alert('error retrieiving profile information')
+    }
 
     //setUser(res.data) --check to make sure this is right w/ console.log() once backend is setup
   }
 
   const getVaccinations = async () => {
     //TODO: change 1 in URL below to string interpolate userID once users controller is setup
-
+    try{
     let res = await axios.get(`/api/vaccinations/${auth.user.id}`)
     setVaccinations(res.data)
     console.log('vaccinations: ', res.data)
+    }catch(err){
+      alert('error retrieving vaccines')
+    }
 
   }
 
@@ -52,16 +64,10 @@ const UserDashboard = () => {
        <Card >
          <Card.Body>
            <Card.Title>{user?.first_name ? <h4>{user.first_name} {user.last_name}</h4> : <h4>{user.name} </h4>}</Card.Title>
-           <Card.Text>
-            User Details (ID): {user.id}
-           </Card.Text>
          </Card.Body>
          <ListGroup className="list-group-flush">
            <ListGroupItem>Email: {user.email}</ListGroupItem>
          </ListGroup>
-         <Card.Body>
-           <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
-         </Card.Body>
        </Card>
       </>
     )
@@ -71,29 +77,46 @@ const UserDashboard = () => {
     //generate list of vaccine choices
     return vaccinations.map( vaccination => {
       return(
-        <UserVaccine key={vaccination.id} vaccination={vaccination} vaccination_id={vaccination.id} vaccine_id={vaccination.vaccine_id} vaccine_name={vaccination.vaccine_name} manufacturer={vaccination.manufacturer} issuer_name={vaccination.issuer_name}/>
+        <UserVaccine key={vaccination.id} vaccination={vaccination} vaccination_id={vaccination.id} vaccine_id={vaccination.vaccine_id} vaccine_name={vaccination.vaccine_name} manufacturer={vaccination.manufacturer} issuer_name={vaccination.issuer_name} getVaccinations={getVaccinations}/>
       )
     })
   }
 
     return (
     <>
-    <div>
-      <Container>
-      <h1>User Dashboard</h1>
-      {renderUser()}
-      </Container>
-      <Container>
-      {user.role === "user" &&
-      <div>
-        <h2>My Vaccines: </h2>
-        <CardGroup >
-          {renderVaccines()}
-        </CardGroup>
+      <div>  
+        <UserNav user={user} setShowProfile={setShowProfile} setShowVaccines={setShowVaccines}/>
+        <Container>
+            {showProfile && 
+              <div>
+                <Row className="justify-content-md-center">
+                  <Col>
+                  <div className="header2" style={{marginBottom: '20px'}}>
+                    <h2 style={{marginBottom: '0px'}}>My Account</h2>
+                    <div className="rightalign" style={{marginBottom: '0px'}}>
+                      <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
+                    </div>
+                    
+                  </div>
+                    {renderUser()}
+                  </Col>
+                  <Col md="auto">
+                    <h3 style={{marginTop: '20px'}}>User Profile Image and Uploader here</h3>
+                  </Col>
+                </Row>
+              </div>
+            }
+
+              {showVaccines &&
+                <div>
+                  <h2 className="header2" style={{marginBottom: '20px'}}>My Vaccines</h2>
+                  <CardGroup >
+                    {renderVaccines()}
+                  </CardGroup>
+                </div>
+              }
+        </Container>
       </div>
-      }
-      </Container>
-    </div>
     </>
     )
 }
