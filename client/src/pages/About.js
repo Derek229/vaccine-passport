@@ -54,11 +54,14 @@ const About =()=> {
                 <h1 style={{color: 'white'}}>Trevor von Hake</h1>
                 <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Passionate about making beautiful, interactive, and efficient web applications. </h4>
                 {hide === false ? 
+                <>
                   <p style={{color: 'white', margin: '30px 80px 0 0'}}>
                     Proficiencies: Javascript, React JS, 
-                      <a style={{margin: '0', padding: '0'}}></a>
+                  </p>
+                  <p style={{color: 'white', margin: '0px 80px 0 0'}}>
                     Ruby on Rails, Postgresql, Semantic UI, Bootstrap, Postman API, and React Native
                   </p>
+                </>
                 :
                   <p style={{color: 'white', margin: '30px 0px 0 0'}}>
                   Proficiencies: Javascript, React JS, Ruby on Rails, Postgresql, Semantic UI, Bootstrap, Postman API, and React Native
