@@ -30,6 +30,17 @@ a:hover{
   border: 1px solid #3073DA !important;
 }
 
+.aboutlink{
+  border: 1px solid rgba(255, 255, 255, 0) !important;
+  border-radius: 50%;
+  transition: border .5s;
+}
+
+.aboutlink:hover{
+  border: 1px solid rgba(255, 255, 255, 0.219) !important;
+  border-radius: 50%;
+}
+
 .homecontainer {
   margin: auto auto auto auto;
   display: inherit;
