@@ -48,7 +48,7 @@ const InPageNav = (props) => {
 								<Button style={{margin: '0px'}}>Dashboard</Button>
 						</Nav.Link>
 						<Nav.Link style = {{width: 'auto', marginTop: '3px'}} href="/users/self/qr_code">
-							<Button style={{marginLeft: '-20px'}}>QR Code</Button>
+							<Button style={{margin: '0px'}}>QR Code</Button>
 						</Nav.Link>
 					</div>
 				}
@@ -77,17 +77,17 @@ const InPageNav = (props) => {
 							<Nav.Link style={{width: 'auto', margin: '10px 0px 0px 60px'}} href="/users/self">{userButtonsLeft()}</Nav.Link>
 						</Nav>
 					</Col>
-					<Col className="centernavcol">
+					<Col className="centernavcol" style={{marginRight: '-20px'}}>
 						<Nav activeKey={location.pathname}>
 							<Nav.Link 
 								style = {{width: 'auto', textAlign: "center"}} 
-								href="/users/allVaccines"
+								href="/all-vaccines"
 							>
 								All Vaccines
 							</Nav.Link>
 							<Nav.Link  
 								style = {{width: 'auto', textAlign: "center"}} 
-								href="/"
+								href="/all-verifiers"
 							>
 								All Verifiers
 							</Nav.Link>

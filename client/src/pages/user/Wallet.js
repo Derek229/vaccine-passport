@@ -18,9 +18,9 @@ const Wallet = () => {
     <Container>
       <div>
 				<Card className="header">
-       	 <h1>My QR Code</h1>
+       	 <h1>Your Personal QR Code</h1>
 				</Card>
-				<Card>
+				<Card className="header">
        	 <QRCode value={auth.user.id} size={350} includeMargin={true} imageSettings="center"/>
 				</Card>
       </div>
