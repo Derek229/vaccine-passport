@@ -4,13 +4,16 @@ import { AuthContext } from '../providers/AuthProvider'
 import {Link, useHistory} from 'react-router-dom'
 import '../pages/ComponentStyles/container.css'
 import Terminal2 from '../Images/terminal2.jpg'
+import useWindowDimensions from './useWindowDimensions';
 
 const  Login=() =>{
   const [email, setEmail] = useState('')
   const [password, setPassword]= useState('')
   const { handleLogin, authLoading, authErrors, setAuthErrors } = useContext(AuthContext)
-  
+  const {width} = useWindowDimensions()
   const history = useHistory()
+
+  const hideCol=(width <= 760)
 
   useEffect (()=> {
     setAuthErrors([])
@@ -68,9 +71,11 @@ const  Login=() =>{
             <p style={{marginTop: '15px'}}>Don't have an account? <Link to="/register">Sign Up</Link></p>
           </div>
         </Col>
-        <Col style={{width: '50%', backgroundColor: 'white'}}>
-          <img className="fade-in-image" src={Terminal2} style={{maxWidth: "90%"}}/>
-        </Col>
+        {hideCol === false &&
+          <Col style={{width: '50%', backgroundColor: 'white'}}>
+            <img className="fade-in-image" src={Terminal2} style={{maxWidth: "90%"}}/>
+          </Col>
+        }
       </Row>
     </Container>
     </div>

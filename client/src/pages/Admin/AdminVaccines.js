@@ -69,7 +69,7 @@ const Vaccines = () => {
           Add New Vaccine
         </Button>
   
-        <Modal show={show} onHide={handleClose}>
+        <Modal style={{margin: '5% 0 0 0 '}} show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Add new Vaccine</Modal.Title>
           </Modal.Header>
