@@ -17,7 +17,7 @@ const UserNav = (props) => {
   return (
     <div>
       <Navbar bg="white" expand="lg" variant="light">
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+			<Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
       <Nav style={{width: '100%'}}>
         <Row style={{width: '100%'}}>
