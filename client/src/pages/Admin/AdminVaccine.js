@@ -20,7 +20,7 @@ const Vaccine = (props) => {
           Edit
         </Button>
   
-        <Modal show={show} onHide={handleClose}>
+        <Modal  style={{margin: '15% 0 0 0 '}} show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Edit this Vaccine</Modal.Title>
           </Modal.Header>

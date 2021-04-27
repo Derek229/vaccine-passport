@@ -4,6 +4,7 @@ import { AuthContext } from '../providers/AuthProvider'
 import '../pages/ComponentStyles/container.css'
 import { Link } from 'react-router-dom';
 import Airplane from '../Images/airplaneWindow.jpg'
+import useWindowDimensions from './useWindowDimensions';
 
 const Register = ( {history} ) => {
   const { handleRegister, authErrors, setAuthErrors, authLoading } = useContext(AuthContext);
@@ -12,10 +13,14 @@ const Register = ( {history} ) => {
   const [password, setPassword] = useState(null)
   const [passwordConfirmation, setPasswordConfirmation] = useState(null)
   const [passwordWarning, setPasswordWarning] = useState(null)
+  const {width} = useWindowDimensions()
+  const hideCol = (width <= 760)
+
   useEffect(() =>{
     setAuthErrors([]);
     setPasswordWarning(null)
   },[]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -91,7 +96,8 @@ const Register = ( {history} ) => {
               /> 
               <p style={{color: 'red', margin: '10px 0 0 0'}}>{passwordWarning}</p>
             </Form.Group>
-            <Form.Label>Select Role</Form.Label>
+            {hideCol === false && <Form.Label>Select Role</Form.Label>}
+            {hideCol === false &&
             <Form.Control 
               as="select"
               label="Role"
@@ -105,15 +111,17 @@ const Register = ( {history} ) => {
               >
               <option>user</option>
               <option>verifier</option>
-            </Form.Control>
+            </Form.Control>}
             <Button style={{width: '100%', marginTop: '25px'}} variant="primary" type='submit'>Submit</Button>
           </Form>
           <p style={{marginTop: '20px'}}>Already have an account? <Link to="/login">Sign in</Link></p>
           </div>
         </Col>
-        <Col style={{width: '50%', height: '100%', backgroundColor: 'white'}}>
-          <img className="fade-in-image" src={Airplane} style={{maxWidth: "90%"}}/>
-        </Col>
+        {hideCol === false && 
+          <Col style={{width: '50%', height: '100%', backgroundColor: 'white'}}>
+            <img className="fade-in-image" src={Airplane} style={{maxWidth: "90%"}}/>
+          </Col>
+        }
       </Row>
     </Container>
     </div>

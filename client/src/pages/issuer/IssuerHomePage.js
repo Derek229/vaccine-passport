@@ -9,13 +9,13 @@ const IssuerHomePage = () => {
     <div>
       <h1 style={{textAlign: 'center', marginTop: '100px'}}>Issuer Home Page</h1>
     </div>
-      <div class="container">
-        <div class="nav-wrapper">
-          <div class="left-side">
-              <div class="nav-link-wrapper">
+      <div>
+        <div className="nav-wrapper1">
+          <div className="left-side1">
+              <div className="nav-link-wrapper1">
                 <h4>Issue Vaccination</h4>
               </div>
-              <div class="nav-link-wrapper">
+              <div className="nav-link-wrapper1">
                 <h4>Manage Vaccinations</h4> 
               </div>
           </div>  
@@ -23,27 +23,27 @@ const IssuerHomePage = () => {
       </div>  
     
     
-    <CardGroup className="card-group">
+    <CardGroup className="card-group1">
       <div style={{marginRight:"10px"}}>
-        <Card className="card-selection">
-          <Card.Body className="card-body">
+        <Card className="card-selection1">
+          <Card.Body className="card-body1">
             <div style={{ margin:'10px'}}>
-            <Card.Img className="card-img" variant="top" src="images/syringe.png" />
+            <Card.Img className="card-img1" variant="top" src="images/syringe.png" />
             </div>
             <div className="button-position">
-            <Button className="card-button" href="/users/issuer/vaccines">Issue Vaccination</Button>
+            <Button className="card-button1" href="/users/issuer/vaccines">Issue Vaccination</Button>
             </div>
           </Card.Body>
         </Card>
       </div>
       <div style={{marginLeft:"10px"}}>
-        <Card className="card-selection">
-          <Card.Body className="card-body">
+        <Card className="card-selection1">
+          <Card.Body className="card-body1">
             <div style={{ margin:'10px'}}>
-            <Card.Img className="card-img" variant="top" src="images/employee.png" />
+            <Card.Img className="card-img1" variant="top" src="images/employee.png" />
             </div>
-            <div className="button-position">
-            <Button className="card-button" href="/users/issuer/manage">Manage Vaccinations</Button>
+            <div className="button-position1">
+            <Button className="card-button1" href="/users/issuer/manage">Manage Vaccinations</Button>
             </div>
           </Card.Body>
         </Card>

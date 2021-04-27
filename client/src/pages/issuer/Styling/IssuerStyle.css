@@ -1,4 +1,4 @@
-.div {
+.div1 {
   width: 75rem;
   margin: 0 auto 0 auto;
   margin-top: 100px;
@@ -8,7 +8,7 @@
 
 /* nav buttons */
 
-.nav-wrapper { 
+.nav-wrapper1{ 
   display: flex;
   text-align: center;
   justify-content: space-between;
@@ -16,41 +16,41 @@
 
 }
 
-.left-side {
+.left-side1 {
   display: flex;
   margin: 0 auto 0 auto;
 }
 
-.nav-wrapper > .left-side > div {
+.nav-wrapper1 > .left-side > div {
   margin: 10px;
   font-size: .1em;
 }
 
-.nav-link-wrapper {
+.nav-link-wrapper1 {
   height: 30px;
   border-bottom: 1px solid transparent;
   transition: border bottom 0.5s;
 }
 
-.nav-link-wrapper a {
+.nav-link-wrapper1 a {
   text-decoration: none;
   transition: color 0.5s;
 
 }
 
-.nav-link-wrapper:hover {
+.nav-link-wrapper1:hover {
   border-bottom: 4px solid rgb(35, 213, 219);
 }
 
 
 /* Cards */
 
-.card-group {
+.card-group1 {
   margin: 0 auto 0 auto;
   box-shadow: 0px 33px 31px 3px rgba(0,0,0,0);
 }
 
-.card-selection {
+.card-selection1 {
   width: auto;
   height: auto;
   padding-right: 10px;
@@ -61,7 +61,7 @@
   border-radius: 10px !important;
 }
 
-.card-body {
+.card-body1 {
   width: 20rem;
   height: 20rem;
   /* border: 3px solid hotpink;  */
@@ -69,7 +69,7 @@
   align-items: baseline !important; 
 }
 
-.card-img{
+.card-img1{
   height: 200px;
   width: 200px;
   object-fit: contain;
@@ -78,7 +78,7 @@
 
 
 
-.card-button {
+.card-button1 {
   padding-top: 20px !important;
   font-weight: 500 !important;
   font-size: 20px !important;
@@ -86,7 +86,7 @@
   height: 80px;
 }
 
-.button-position {
+.button-position1 {
   display: flex;
   justify-content: center;
   align-items: flex-end;

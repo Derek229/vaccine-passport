@@ -51,8 +51,8 @@ const AllVerifiers = () => {
     <>
     <InPageNav auth={auth}/>
     <Container style={{marginTop: '10px'}}>
-      <SiteStats />
-      <CardGroup>
+      <SiteStats pageName="All Verifiers"/>
+      <CardGroup style={{paddingBottom: '20px'}}>
         {verifiers && renderVerifiers()}
       </CardGroup>
     </Container>
