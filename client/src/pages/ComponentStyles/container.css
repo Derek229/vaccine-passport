@@ -19,7 +19,10 @@
 }
 
 .homecontainer {
-  margin: 0 auto 0 auto;
+  margin: auto auto auto auto;
+  display: inherit;
+  max-height: inherit;
+  padding: 0;
 }
 
 .tablecontainer {
@@ -70,6 +73,15 @@
   justify-content: flex-end;
   padding: 0;
   margin: 0 0 0 auto;
+}
+
+.carousel-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 100px auto 0 auto;
 }
 
 .navbar2{
@@ -138,12 +150,31 @@
 }
 
 .login{
-  margin: 0;
+  margin: 20 0 0 0;
   padding: 0;
   width:100vw;
-  height:100vh;
+  height: 100vh;
   position: absolute;
   background: white;
+}
+
+.about{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 ;
+  padding: 0;
+  width:100vw;
+  height: 100vh;
+  background: white;
+}
+
+.aboutcontainer {
+  margin: 0px 0 0 0 !important;
+  align-self: center !important;
+  padding: 0;
+  background-color: white;
 }
 
 .buttondiv{
@@ -160,6 +191,14 @@
   color:  #6D767D;
   border-radius: 4px;
   margin-bottom: 15px;
+}
+
+.carousel-item-custom{
+  background: #262626 !important;
+  padding: 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .fade-in-navbutton {
@@ -216,4 +255,14 @@
 @-ms-keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
+}
+
+@media screen and (max-width: 600px) {
+  #hide-mobile {
+    visibility: hidden;
+  }
+  #expand-mobile {
+    width: 100%;
+    margin: 0,
+  }
 }

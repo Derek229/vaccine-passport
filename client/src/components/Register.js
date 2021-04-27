@@ -4,6 +4,7 @@ import { AuthContext } from '../providers/AuthProvider'
 import '../pages/ComponentStyles/container.css'
 import { Link } from 'react-router-dom';
 import Airplane from '../Images/airplaneWindow.jpg'
+import useWindowDimensions from './useWindowDimensions';
 
 const Register = ( {history} ) => {
   const { handleRegister, authErrors, setAuthErrors, authLoading } = useContext(AuthContext);
@@ -12,10 +13,14 @@ const Register = ( {history} ) => {
   const [password, setPassword] = useState(null)
   const [passwordConfirmation, setPasswordConfirmation] = useState(null)
   const [passwordWarning, setPasswordWarning] = useState(null)
+  const {width} = useWindowDimensions()
+  const hideCol = (width <= 760)
+
   useEffect(() =>{
     setAuthErrors([]);
     setPasswordWarning(null)
   },[]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -111,9 +116,11 @@ const Register = ( {history} ) => {
           <p style={{marginTop: '20px'}}>Already have an account? <Link to="/login">Sign in</Link></p>
           </div>
         </Col>
-        <Col style={{width: '50%', height: '100%', backgroundColor: 'white'}}>
-          <img className="fade-in-image" src={Airplane} style={{maxWidth: "90%"}}/>
-        </Col>
+        {hideCol === false && 
+          <Col style={{width: '50%', height: '100%', backgroundColor: 'white'}}>
+            <img className="fade-in-image" src={Airplane} style={{maxWidth: "90%"}}/>
+          </Col>
+        }
       </Row>
     </Container>
     </div>
