@@ -22,7 +22,7 @@ const AllVerifiers = () => {
 
   const getVerifiers = async () => {
     try{
-    let res = await axios.get(`http://localhost:3001/api/users/verifiers`)
+    let res = await axios.get(`/api/users/verifiers`)
     setVerifiers(res.data)
     }catch(err){
       alert('unable to retrieve verifier data')
