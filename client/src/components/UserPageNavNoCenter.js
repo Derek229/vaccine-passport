@@ -99,45 +99,6 @@ const InPageNavNoCenter = (props) => {
 		)
 
 	}
-
-	const navMiddleLinks = () => {
-		if(auth?.user)
-		return(
-			<>
-				{auth.user?.role === "verifier" &&
-					<>
-						<Nav.Link href="/users/verifier/requiredVaccines" style={{ marginTop: '0px', marginBottom: '0px'}}>
-							Add Required
-						</Nav.Link>
-						<Nav.Link href="/users/verifier/QRScanner" style={{ marginTop: '0px', marginBottom: '0px'}}>
-							Scan QR
-						</Nav.Link>
-					</>
-				}
-        {auth.user?.role === "user" &&
-					<>
-						<Nav.Link href="/users/self/" style={{ marginTop: '0px', marginBottom: '0px'}}>
-							My Dashboard
-						</Nav.Link>
-						<Nav.Link href="/users/self/qr_code" style={{ marginTop: '0px', marginBottom: '0px'}}>
-							My QR Code
-						</Nav.Link>
-					</>
-				}
-        {auth.user?.role === "issuer" &&
-					<>
-						<Nav.Link href="/users/issuer/vaccines" style={{ marginTop: '0px', marginBottom: '0px'}}>
-								Issue Vaccination
-						</Nav.Link>
-						<Nav.Link href="/users/issuer/manage" style={{ marginTop: '0px', marginBottom: '0px'}}>
-							Manage Vaccinations
-						</Nav.Link>
-					</>
-				}
-			</>
-		)
-
-	}
  
   return (
 			<Navbar bg="white" expand="lg" variant="light">
