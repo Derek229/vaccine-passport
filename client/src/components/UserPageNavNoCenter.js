@@ -11,8 +11,6 @@ const InPageNavNoCenter = (props) => {
 	const {width} = useWindowDimensions()
 	const hide = (width <= 760)
 
-	const location = useLocation()
-
   const userButtonsLeft = () => {
 		if(auth?.user)
 		return(
