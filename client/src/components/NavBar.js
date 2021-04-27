@@ -17,7 +17,7 @@ class Navbar1 extends React.Component {
     if (user) {
       return (
         <>
-        {user?.first_name &&
+        {/* {user?.first_name &&
           <Nav.Link href="/users/self">
             {user.first_name} {user.last_name}
           </Nav.Link>
@@ -26,12 +26,17 @@ class Navbar1 extends React.Component {
           <Nav.Link href="/users/self">
             {user.name}
           </Nav.Link>
-        }
+        } */}
         {(!user?.name && !user?.first_name) &&
           <Nav.Link href="/users/self">
             My Profile
           </Nav.Link>
         }
+				{user.image ? <a href="/users/self"><img src={user.image} style={{maxHeight: "70px", maxWidth: "70px", borderRadius:"50%", margin:"0", padding:"0"}} alt="My Profile"/></a> :
+				  <Nav.Link href="/users/self">
+						My Profile
+					</Nav.Link>
+				}
           <Nav.Link>
           <Nav.Item onClick={() => handleLogout(this.props.history)}>
             Logout
