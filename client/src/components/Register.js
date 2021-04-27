@@ -96,7 +96,8 @@ const Register = ( {history} ) => {
               /> 
               <p style={{color: 'red', margin: '10px 0 0 0'}}>{passwordWarning}</p>
             </Form.Group>
-            <Form.Label>Select Role</Form.Label>
+            {hideCol === false && <Form.Label>Select Role</Form.Label>}
+            {hideCol === false &&
             <Form.Control 
               as="select"
               label="Role"
@@ -110,7 +111,7 @@ const Register = ( {history} ) => {
               >
               <option>user</option>
               <option>verifier</option>
-            </Form.Control>
+            </Form.Control>}
             <Button style={{width: '100%', marginTop: '25px'}} variant="primary" type='submit'>Submit</Button>
           </Form>
           <p style={{marginTop: '20px'}}>Already have an account? <Link to="/login">Sign in</Link></p>

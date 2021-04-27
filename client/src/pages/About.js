@@ -34,9 +34,9 @@ const About =()=> {
               </Col>
               </Row>
                 {hide === false && <h4 style={{color: 'white', alignSelf: 'center', margin: '80px 0 20px 0'}}>Checkout the other slides to meet the developers!</h4>}
-                <div className="carousel-links" style={{margin:'20px 0 15px 0'}}>
+                {hide === false ? <div className="carousel-links" style={{margin:'20px 0 15px 0'}}>
                 <a target="_blank" href="https://github.com/Derek229/vaccine-passport"><img src={github} /></a>
-              </div>
+              </div>: <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
           <Carousel.Item>
@@ -71,10 +71,10 @@ const About =()=> {
                 }
               </Col>
               </Row>
-              <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
+              {hide === false ? <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
                 <a target="_blank" href="https://github.com/tvonhake" style={{marginRight: '20px'}}><img src={github} /></a>
                 <a target="_blank" href="https://www.linkedin.com/in/trevorvonhake/"><img src={linkedin} /></a>
-              </div>
+              </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
           <Carousel.Item>
@@ -95,10 +95,10 @@ const About =()=> {
                 {hide === "false" && <p style={{color: '#D2E0E8', margin: '30px 150px 0 0'}}>Contributions: </p>}
               </Col>
               </Row>
-              <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
+              {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
                 <a target="_blank" href="https://github.com/ahmazur19" style={{marginRight: '20px'}}><img src={github} /></a>
                 <a target="_blank" ><img src={linkedin} /></a>
-              </div>
+              </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
           <Carousel.Item>
@@ -119,10 +119,10 @@ const About =()=> {
                 {hide === "false" && <p style={{color: '#D2E0E8', margin: '30px 150px 0 0'}}>Contributions: </p>}
               </Col>
               </Row>
-              <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
+              {hide === false ? <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
                 <a target="_blank" href="https://github.com/Derek229" style={{marginRight: '20px'}}><img src={github} /></a>
                 <a target="_blank" href="https://www.linkedin.com/in/derek-cluff/"><img src={linkedin} /></a>
-              </div>
+              </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
           <Carousel.Item>
@@ -143,10 +143,10 @@ const About =()=> {
                 {hide === "false" && <p style={{color: '#D2E0E8', margin: '30px 150px 0 0'}}>Contributions: </p>}
               </Col>
               </Row>
-              <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
+              {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
                 <a target="_blank" href="https://github.com/santiago2224" style={{marginRight: '20px'}}><img src={github} /></a>
                 <a target="_blank" href="https://www.linkedin.com/in/santiagolozanoventura/"><img src={linkedin} /></a>
-              </div>
+              </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
         </Carousel>

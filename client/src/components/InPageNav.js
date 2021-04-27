@@ -2,11 +2,14 @@ import React from 'react'
 import {Nav, Button, Navbar, Row, Col, Container} from 'react-bootstrap'
 import { useLocation } from 'react-router'
 import '../pages/ComponentStyles/container.css'
+import useWindowDimensions from './useWindowDimensions'
 
 const InPageNav = (props) => {
 
   const {auth} = props
 	const location = useLocation()
+	const {width} = useWindowDimensions()
+	const hide = (width <= 760)
 
   const userButtonsLeft = () => {
 		if(auth?.user){
@@ -72,13 +75,29 @@ const InPageNav = (props) => {
 			<Navbar.Collapse id="basic-navbar-nav">
 			<Nav style={{width: '100%'}}>
 				<Row style={{width: '100%'}}>
-					<Col className="leftnavcol">
+					{hide === false && <Col className="leftnavcol">
 						<Nav>
 							<Nav.Link style={{width: 'auto', margin: '10px 0px 0px 60px'}} href="/users/self">{userButtonsLeft()}</Nav.Link>
 						</Nav>
-					</Col>
+					</Col>}
 					<Col className="centernavcol" style={{marginRight: '-20px'}}>
 						<Nav activeKey={location.pathname}>
+							{hide === true &&
+							<>
+							<Nav.Link 
+								style = {{width: 'auto', textAlign: "center"}} 
+								href="/"
+							>
+								Home
+							</Nav.Link>
+							{!auth.user?.role && 
+							<Nav.Link  
+								style = {{width: 'auto', textAlign: "center"}} 
+								href="/about"
+							>
+								About
+							</Nav.Link>}
+							</>}
 							<Nav.Link 
 								style = {{width: 'auto', textAlign: "center"}} 
 								href="/all-vaccines"
@@ -93,7 +112,7 @@ const InPageNav = (props) => {
 							</Nav.Link>
 						</Nav>
 					</Col>
-					<Col className="rightnavcol">
+					{hide === false && <Col className="rightnavcol">
 						<Nav>
 							{auth.user?.role === "verifier" &&
 								<>
@@ -126,7 +145,7 @@ const InPageNav = (props) => {
 								</>
 							} 
 						</Nav>
-					</Col>
+					</Col>}
 				</Row>
 			</Nav>
 			</Navbar.Collapse>

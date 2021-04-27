@@ -26,7 +26,7 @@ const  LandingPage =() =>{
         <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '50%', backgroundColor: 'white'}}>
           <Row style={{display: 'flex', flexWrap: 'auto', flexDirection: 'row', justifyContent: 'center', width: '100%', backgroundColor: 'white'}}>
             <Col sm={4} style={{margin: '0px'}}>
-            <img src={BlueLogo} style={{maxWidth: "100%", alignSelf: 'center'}}/>
+            {hideCol === false && <img src={BlueLogo} style={{maxWidth: "100%", alignSelf: 'center'}}/>}
             </Col>
             <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '65%', backgroundColor: 'white', margin: '0px'}}>
               <h1 id="expand-mobile" style={{color: '#2F73DA'}}>Vaccine Passport</h1>
@@ -42,6 +42,11 @@ const  LandingPage =() =>{
           </div>
         </Col>
       </Row>
+      {hideCol === true && <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '50%', margin: '0'}}>
+        <Link to="/all-vaccines"><Button className="fade-in-image" style={{margin: '50px 0px 10px 0px', padding: '10px 30px 10px 30px'}}>All Vaccines</Button></Link>
+        <Link to="/all-verifiers"><Button className="fade-in-image" style={{margin: '20px 0px 10px 0px', padding: '10px 28px 10px 28px'}}>All Verifiers</Button></Link>
+        <Link to="/about"><Button className="fade-in-image" style={{margin: '20px 0px 10px 0px', padding: '10px 30px 10px 30px'}}>About Us</Button></Link>
+      </div>}
     </Container>
     </div>
 
