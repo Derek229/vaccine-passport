@@ -66,18 +66,18 @@ class QReader extends Component {
     return (
       <Container>
         <Row>
-        <Col>
+        <Col style={{display:'flex', flexDirection:'column', alignItem:'center', justifyContent:'center' }}>
         {this.state.hasAllVaccines !== null ? <h3>User has all required vaccines: {this.compareVaccines(this.state.userVaccines, this.state.verifierVaccines)}</h3> : <h3>waiting for scan results</h3>}
         <QrReader
           delay={300}
           onError={this.handleError}
           onScan={this.handleScan}
-          style={{ width: '100%' , height: '100%'}}
+          style={{ width: '100%' , height: '100%', display:'flex', flexDirection:'column', alignItem:'center', justifyContent:'center' }}
         />
         <p>user id: {this.state.result}</p>
 
         </Col>
-        <Col>
+        <Col style={{display:'flex', flexDirection:'column', alignItem:'center', justifyContent:'center' }}>
           {this.state.hasAllVaccines !== null && <h3>User's Vaccines: </h3>}
           {this.state.hasAllVaccines !== null && this.renderListOfVaccines(this.state.userVaccines)}
           {this.state.hasAllVaccines !== null && <h3>Verifier's Vaccines: </h3>}
