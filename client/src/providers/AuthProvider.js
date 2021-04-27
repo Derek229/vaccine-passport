@@ -32,8 +32,8 @@ const handleRegister = async (user, history) => {
     history.push("/users/self")
     alert('Please update name in profile')
   } catch(err){
-    debugger
-    setAuthErrors(err.response.data.errors.full_messages)
+    console.log(err)
+    setAuthErrors(err.response.data.errors)
   } finally {
     setAuthLoading(false)
   }
