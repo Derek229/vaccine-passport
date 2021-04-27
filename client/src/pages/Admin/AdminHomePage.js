@@ -11,16 +11,20 @@ const AdminHomePage = () => {
           <h1>Admin</h1>
           <Row style={{flexWrap: 'wrap', width: '100%', height: 'auto', paddingTop: '30px', paddingBottom: '30px', padding: '15px'}}>
             <Col>
-              <Card border="primary" style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
-                <Card.Img style={{ maxWidth: "100%", paddingBottom: '15px'}} variant="middle" src={Syringe}/>
-                <Button style={{marginTop: '10px'}}  href="/admin/vaccines">Admin Vaccines</Button>
+            <a href="/admin/vaccines" style={{textDecoration: "none"}}>
+              <Card style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
+                <Card.Img style={{ maxWidth: "100%", margin: '50px 30px 35px 30px'}} variant="middle" src={Syringe}/>
+                <Button style={{margin: '15px 20px 25px 20px', padding: '20px 0 20px 0', fontSize: '17px'}}  href="/admin/vaccines">Manage Vaccines</Button>
               </Card>
+            </a>
             </Col>
             <Col>
-              <Card border="primary" style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
-                <Card.Img style={{ maxWidth: "100%", paddingBottom: '15px'}} variant="middle" src={Person}/>
-                <Button style={{marginTop: '10px'}} href="/admin/vaccinations">Admin Vaccinations</Button>
+              <a href="/admin/vaccinations" style={{textDecoration: "none"}}>
+              <Card  style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
+                <Card.Img style={{ maxWidth: "100%", margin: '50px 30px 35px 30px'}} variant="middle" src={Person}/>
+                <Button style={{margin: '15px 20px 25px 20px', padding: '20px 0 20px 0', fontSize: '17px'}} href="/admin/vaccinations">Manage Vaccinations</Button>
               </Card>
+              </a>
             </Col>
           </Row>
         </div>

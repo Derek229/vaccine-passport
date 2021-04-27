@@ -2,12 +2,14 @@ import React from 'react'
 import {Nav, Button, Navbar, Col, Row} from 'react-bootstrap'
 import '../pages/ComponentStyles/container.css'
 import {useLocation} from 'react-router'
+import useWindowDimensions from './useWindowDimensions'
 
 const InPageNavNoCenter = (props) => {
 
   const {auth} = props
-
 	const location = useLocation()
+	const {width} = useWindowDimensions()
+	const hide = (width <= 760)
 
   const userButtonsLeft = () => {
 		if(auth?.user)
@@ -34,14 +36,14 @@ const InPageNavNoCenter = (props) => {
 				{auth.user?.role === "verifier" &&
 					<>
 						<Nav.Link style = {{width: 'auto'}} href="/">
-								<Button style={{margin: '0px'}}>Return to Home</Button>
+								<Button style={{margin: '0px'}}>Home</Button>
 						</Nav.Link>
 					</>
 				}
         {auth.user?.role === "user" &&
 					<>
 						<Nav.Link style = {{width: 'auto'}} href="/">
-								<Button style={{margin: '0px'}}>Return Home</Button>
+								<Button style={{margin: '0px'}}>Home</Button>
 						</Nav.Link>
 					</>
 				}
@@ -106,7 +108,7 @@ const InPageNavNoCenter = (props) => {
 				<Row style={{width: '100%'}}>
 					<Col className="leftnavcol">
 						<Nav>
-							{userButtonsLeft()}
+							{hide === false && userButtonsLeft()}
 						</Nav>
 					</Col>
 					<Col className="centernavcol">
@@ -116,7 +118,7 @@ const InPageNavNoCenter = (props) => {
 					</Col>
 					<Col className="rightnavcol">
 						<Nav>
-							{userButtonsRight()}
+							{hide === false && userButtonsRight()}
 						</Nav>
 					</Col>
 				</Row>
