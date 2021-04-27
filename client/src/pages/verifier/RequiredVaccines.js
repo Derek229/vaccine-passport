@@ -5,6 +5,7 @@ import axios from 'axios'
 import { AuthContext } from '../../providers/AuthProvider';
 import { Typeahead } from 'react-bootstrap-typeahead'
 import ReqVaccineCard from './ReqVaccineCard';
+import InPageNavNoCenter from '../../components/UserPageNavNoCenter'
 // show, create, delete
 const RequiredVaccine=()=> {
 
@@ -81,17 +82,16 @@ const RequiredVaccine=()=> {
 
 
   return (
-    <div className='div'>
-    <div className='divcontainer'>
-    <Container>
-      <h1>Required Vaccines List</h1>
-      <NavLink href='/users/verifier/VerifierHomePage'>return to home page</NavLink>
-      <Button onClick={() => setShowForm(!showForm)}>{showForm ? 'Hide Form' : 'Add New Required Vaccine'}</Button>
-      {showForm && requiredVaccineForm()}
-      {renderReqVaccine()}
-    </Container>
+    <div>
+      <InPageNavNoCenter auth={auth}/>
+      <Container>
+        <h1>Required Vaccines List</h1>
+        <Button onClick={() => setShowForm(!showForm)}>{showForm ? 'Hide Form' : 'Add New Required Vaccine'}</Button>
+        {showForm && requiredVaccineForm()}
+        {renderReqVaccine()}
+      </Container>
     </div>
-    </div>
+
   )
 }
 
