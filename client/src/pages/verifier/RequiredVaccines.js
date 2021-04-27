@@ -81,15 +81,17 @@ const RequiredVaccine=()=> {
 
 
   return (
+    <div className='div'>
+    <div className='divcontainer'>
     <Container>
-    <div>
       <h1>Required Vaccines List</h1>
       <NavLink href='/users/verifier/VerifierHomePage'>return to home page</NavLink>
       <Button onClick={() => setShowForm(!showForm)}>{showForm ? 'Hide Form' : 'Add New Required Vaccine'}</Button>
       {showForm && requiredVaccineForm()}
       {renderReqVaccine()}
-    </div>
     </Container>
+    </div>
+    </div>
   )
 }
 
