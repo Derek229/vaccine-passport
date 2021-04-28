@@ -3,21 +3,25 @@ import {Row, Col, Button, Nav, Navbar, NavDropdown} from 'react-bootstrap'
 import { useLocation } from 'react-router'
 import '../ComponentStyles/container.css'
 import AuthContext from '../../providers/AuthProvider'
+import useWindowDimensions from '../../components/useWindowDimensions'
 
 const UserNav = (props) => {
 
   const auth = useContext(AuthContext)
   const location = useLocation()
+  const{width} = useWindowDimensions()
+  const hide = (width <= 760)
 
   const {user, setShowProfile, setShowVaccines} = props
 
   return (
     <div>
       <Navbar bg="white" expand="lg" variant="light">
+			<Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
       <Nav style={{width: '100%'}}>
         <Row style={{width: '100%'}}>
-          <Col className="leftnavcol">
+          {hide === false && <Col className="leftnavcol">
             <Nav>
             {user?.role === "user" ? 
               <Nav.Link style={{margin: '10px 0 0 50px'}}>{user?.first_name} {user?.last_name}</Nav.Link> 
@@ -25,7 +29,7 @@ const UserNav = (props) => {
               <Nav.Link style={{margin: '10px 0 0 100px'}}>{user?.name}</Nav.Link>
             }
             </Nav>
-          </Col>
+          </Col>}
           <Col className="centernavcol">
             <Nav activeKey={location.pathname}>
             {user.role === "user" && 
@@ -85,7 +89,7 @@ const UserNav = (props) => {
               }
             </Nav>
           </Col>
-          <Col className="rightnavcol">
+          {hide === false && <Col className="rightnavcol">
             <Nav>
             {user.role === "user" &&
               <Button style= {{margin: '10px 50px 10px 10px'}} href="/">Return Home</Button>
@@ -105,7 +109,7 @@ const UserNav = (props) => {
               
             }
             </Nav>
-          </Col>
+          </Col>}
         </Row>
       </Nav>
       </Navbar.Collapse>

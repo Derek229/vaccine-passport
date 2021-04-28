@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Container, CardGroup} from 'react-bootstrap'
+import { Container, CardColumns} from 'react-bootstrap'
 import VerifierCard from './VerifierCard'
 import axios from 'axios'
 import InPageNav from '../../components/InPageNav'
@@ -51,10 +51,10 @@ const AllVerifiers = () => {
     <>
     <InPageNav auth={auth}/>
     <Container style={{marginTop: '10px'}}>
-      <SiteStats />
-      <CardGroup>
+      <SiteStats pageName="All Verifiers"/>
+      <CardColumns style={{paddingBottom: '20px', margin: '0 auto 0 auto'}}>
         {verifiers && renderVerifiers()}
-      </CardGroup>
+      </CardColumns>
     </Container>
     </>
   )

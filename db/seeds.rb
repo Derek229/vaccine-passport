@@ -26,8 +26,8 @@ ihc=User.create(name:'ihc', email: 'ihc@test.com', role:'issuer', password:'1234
 #many verifiers
 delta = User.create(name:'Delta', email: 'delta@test.com', role:'verifier', password:'123456')
 usa = User.create(name:'USA', email: 'usa@test.com', role:'verifier', password:'123456')
-mexico = User.create(name:'mexico', email: 'mexico@test.com', role:'verifier', password:'123456')
-sizzler = User.create(name:'sizzler', email: 'sizzler@test.com', role:'verifier', password:'123456')
+mexico = User.create(name:'Mexico', email: 'mexico@test.com', role:'verifier', password:'123456')
+izzler = User.create(name:'Sizzler', email: 'sizzler@test.com', role:'verifier', password:'123456')
 
 #many users
 user1 = User.create(
@@ -38,7 +38,6 @@ email: "user1@test.com",
 role: 'user',
 country_origin: Faker::Address.country,
 password:'123456',
-image: 'user1 profile image here',
 age: rand(18..80)
 )
 
@@ -50,7 +49,6 @@ user2 = User.create(
   role: 'user',
   country_origin: Faker::Address.country,
   password:'123456',
-  image: 'user2 profile image here',
   age: rand(18..80)
 )
 
@@ -62,11 +60,20 @@ user3 = User.create(
   role: 'user',
   country_origin: Faker::Address.country,
   password:'123456',
-  image: 'user3 profile image here',
   age: rand(18..80)
 )
 
-
+10.times do |i|
+  User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  email: "user#{i+4}@test.com",
+  role: 'user',
+  country_origin: Faker::Address.country,
+  password:'123456',
+  age: rand(18..80)
+  )
+end
 
 #this is issuer seed
 
@@ -75,27 +82,44 @@ user3 = User.create(
 # VACCINES
 # CREATED BY ADMIN IN UI
 covid=Vaccine.create(name:'Covid-19', manufacturer:'BioNTech', user_id: admin.id)
-flu=Vaccine.create(name:'Flu', manufacturer:'Moderna', user_id: admin.id)
+flu=Vaccine.create(name:'Influenza', manufacturer:'GlaxoSmithKline', user_id: admin.id)
 sars=Vaccine.create(name:'SARS', manufacturer:'Johnson & Johnson', user_id: admin.id)
-mers=Vaccine.create(name:'MERS', manufacturer:'The Black Market', user_id: admin.id)
+mers=Vaccine.create(name:'MERS', manufacturer:'Novavax', user_id: admin.id)
+tetanus=Vaccine.create(name:'Tetanus', manufacturer:'GlaxoSmithKline', user_id: admin.id)
+covid2=Vaccine.create(name:'Covid-19', manufacturer:'Pfizer', user_id: admin.id)
+covid3=Vaccine.create(name:'Covid-19', manufacturer:'Johnson & Johnson', user_id: admin.id)
+hpv=Vaccine.create(name:'HPV', manufacturer:'GlaxoSmithKline', user_id: admin.id)
+meningococcal=Vaccine.create(name:'Meningococcal', manufacturer:'Pfizer', user_id: admin.id)
+yellowfever=Vaccine.create(name:'Yellow Fever', manufacturer:'Sanofi Pastuer Biologics Co.', user_id: admin.id)
+diphtheria=Vaccine.create(name:'Diphtheria', manufacturer:'GlaxoSmithKline', user_id: admin.id)
+hib=Vaccine.create(name:'Haemophilus Influenzae Type B', manufacturer:'Sanofi Pastuer Biologics Co.', user_id: admin.id)
+pneumococcal=Vaccine.create(name:'Pneumococcal', manufacturer:'Merck Sharp & Dohme Corp.', user_id: admin.id)
+measles=Vaccine.create(name:'Measles', manufacturer:'Merck Sharp & Dohme Corp.', user_id: admin.id)
+smallpox=Vaccine.create(name:'Smallpox', manufacturer:'Sanofi Pastuer Biologics Co.', user_id: admin.id)
 
 
 # VACCINATION (VaccineWallet)
 # CREATED BY ISSUER IN UI but add holder id in DB
 
-Vaccination.create(user_id:user3.id, vaccine_id: covid.id, image:'pic here of user3 covid card', issuer_name:'walmart', issuer_id: walmart.id)
-Vaccination.create(user_id:user3.id, vaccine_id: flu.id, image:'pic here of user3 flu shot', issuer_name:'cvs', issuer_id: cvs.id)
-Vaccination.create(user_id:user3.id, vaccine_id: sars.id, image:'pic here of user3 sar shot', issuer_name:'walgreens', issuer_id: walgreens.id)
-Vaccination.create(user_id:user1.id, vaccine_id: sars.id, image:'pic here of user1 sar shot', issuer_name:'ihc', issuer_id: ihc.id)
-Vaccination.create(user_id:user1.id, vaccine_id: covid.id, image:'pic here of user1 covid shot', issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id:user3.id, vaccine_id: covid.id, issuer_name:'walmart', issuer_id: walmart.id)
+Vaccination.create(user_id:user3.id, vaccine_id: flu.id, issuer_name:'cvs', issuer_id: cvs.id)
+Vaccination.create(user_id:user3.id, vaccine_id: sars.id, issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id:user1.id, vaccine_id: sars.id, issuer_name:'ihc', issuer_id: ihc.id)
+Vaccination.create(user_id:user1.id, vaccine_id: covid.id, issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id: 4, vaccine_id: covid2.id, issuer_name:'walmart', issuer_id: walmart.id)
+Vaccination.create(user_id: 8, vaccine_id: yellowfever.id, issuer_name:'cvs', issuer_id: cvs.id)
+Vaccination.create(user_id: 5, vaccine_id: sars.id, issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id: 5, vaccine_id: hpv.id, issuer_name:'ihc', issuer_id: ihc.id)
+Vaccination.create(user_id: 11, vaccine_id: covid3.id, issuer_name:'walgreens', issuer_id: walgreens.id)
 
 # REquired VACCINATION
 # CREATED BY Verifer IN UI 
 RequiredVaccine.create(user_id:delta.id, vaccine_id:covid.id)
-RequiredVaccine.create(user_id:delta.id, vaccine_id:flu.id)
 RequiredVaccine.create(user_id:delta.id, vaccine_id:sars.id)
 RequiredVaccine.create(user_id:usa.id, vaccine_id:covid.id)
 RequiredVaccine.create(user_id:usa.id, vaccine_id:flu.id)
 RequiredVaccine.create(user_id:usa.id, vaccine_id:sars.id)
+RequiredVaccine.create(user_id:mexico.id, vaccine_id:tetanus.id)
+RequiredVaccine.create(user_id:mexico.id, vaccine_id:covid.id)
 
 puts 'completed'

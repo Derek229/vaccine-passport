@@ -4,6 +4,7 @@ import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import LogoOnly from '../Logos/Covidia_LogOnly_T.png'
 import '../pages/ComponentStyles/container.css'
+import useWindowDimensions from './useWindowDimensions';
 
 class Navbar1 extends React.Component {
 
@@ -17,7 +18,7 @@ class Navbar1 extends React.Component {
     if (user) {
       return (
         <>
-        {user?.first_name &&
+        {/* {user?.first_name &&
           <Nav.Link href="/users/self">
             {user.first_name} {user.last_name}
           </Nav.Link>
@@ -26,17 +27,23 @@ class Navbar1 extends React.Component {
           <Nav.Link href="/users/self">
             {user.name}
           </Nav.Link>
-        }
+        } */}
+        <Nav.Link>
+          <Nav.Item style={{margin:'0px 10px 0 0'}} onClick={() => handleLogout(this.props.history)}>
+            Logout
+          </Nav.Item>
+        </Nav.Link>
         {(!user?.name && !user?.first_name) &&
           <Nav.Link href="/users/self">
             My Profile
           </Nav.Link>
         }
-          <Nav.Link>
-          <Nav.Item onClick={() => handleLogout(this.props.history)}>
-            Logout
-          </Nav.Item>
-          </Nav.Link>
+				{user.image ? <a href="/users/self"><img src={user.image} style={{height: "40px", width: "40px", borderRadius:"50%", margin:"0", padding:"0"}} alt="My Profile"/></a> :
+				  <Nav.Link href="/users/self">
+						My Profile
+					</Nav.Link>
+				}
+          
         </>
       )
     } else {
@@ -74,9 +81,9 @@ class Navbar1 extends React.Component {
               <Nav.Link style = {{width: '110px'}} href="/all-vaccines">All Vaccines</Nav.Link>
               <Nav.Link style = {{width: '110px'}} href="/all-verifiers">All Verifiers</Nav.Link>
             </Nav>
-          <Nav activeKey={this.props.location.pathname} className="justify-content-end" style={{ width: "100%" }}>
-            {this.rightNavItems()}
-          </Nav>
+            <Nav activeKey={this.props.location.pathname} className="justify-content-end" style={{ width: "100%" }}>
+              {this.rightNavItems()}
+            </Nav>
           </Navbar.Collapse>
           </Navbar>
       </div>
