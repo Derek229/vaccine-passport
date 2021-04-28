@@ -18,16 +18,6 @@ class Navbar1 extends React.Component {
     if (user) {
       return (
         <>
-        {/* {user?.first_name &&
-          <Nav.Link href="/users/self">
-            {user.first_name} {user.last_name}
-          </Nav.Link>
-        }
-        {(user?.name && !user?.first_name) &&
-          <Nav.Link href="/users/self">
-            {user.name}
-          </Nav.Link>
-        } */}
         <Nav.Link>
           <Nav.Item style={{margin:'0px 10px 0 0'}} onClick={() => handleLogout(this.props.history)}>
             Logout

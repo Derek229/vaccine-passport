@@ -30,7 +30,7 @@ const IssuerHomePage = () => {
             <div style={{ margin:'10px'}}>
             <Card.Img className="card-img1" variant="top" src="images/syringe.png" />
             </div>
-            <div className="button-position">
+            <div className="button-position1">
             <Button className="card-button1" href="/users/issuer/vaccines">Issue Vaccination</Button>
             </div>
           </Card.Body>

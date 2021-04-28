@@ -105,6 +105,8 @@ const UserNav = (props) => {
                 <NavDropdown.Item href="/users/verifier/QRScanner">QR Scanner</NavDropdown.Item>
               <NavDropdown.Divider />
                 <NavDropdown.Item href="/users/self/qr_code">My QR Code</NavDropdown.Item>
+              <NavDropdown.Divider />
+                <NavDropdown.Item href="/admin/user/create">Create New User</NavDropdown.Item>
               </NavDropdown>
               
             }
