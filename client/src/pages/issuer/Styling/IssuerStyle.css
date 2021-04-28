@@ -18,7 +18,7 @@
 
 .left-side1 {
   display: flex;
-  margin-left: 1rem !important;
+  margin-left: 25rem !important;
 }
 
 .nav-wrapper1 > .left-side1 > div {
@@ -47,13 +47,13 @@
 
 .h4-tag1{
   font-size: 15px;
-  /* position: static; */
+  position: static;
 
 }
 
 .h4-tag2{
   font-size: 15px;
-  /* position:static; */
+  position:static;
  
 }
 
