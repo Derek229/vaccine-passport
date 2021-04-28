@@ -7,6 +7,7 @@ import github from '../Vaccine Passport Icons/github.png'
 import linkedin from '../Vaccine Passport Icons/linkedin.png'
 import trevor from '../Images/trevor.jpg'
 import santiago from '../Images/santiago.jpg'
+import derek from '../Images/derek.jpg'
 import useWindowDimensions from '../components/useWindowDimensions'
 
 const About =()=> {
@@ -70,7 +71,7 @@ const About =()=> {
                 }
                 {hide === false &&
                   <p style={{color: '#D2E0E8', margin: '30px 65px 25px 0'}}>
-                    Contributions: Landing, Login, Registration, About, Admin UI, NavBars, QR Scanner, Custom SQL, User UI Mobile Optimization, React Native App
+                    Contributions: Landing, Login, Registration, About, Admin UI, NavBars, QR Scanner, Custom SQL, All Verifiers, User UI Mobile Optimization, React Native App
                   </p>
                 }
               </Col>
@@ -96,7 +97,7 @@ const About =()=> {
                 <h1 style={{color: 'white'}}>Adam Mazur</h1>
                 <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Description </h4>
                 <p style={{color: 'white', margin: '30px 120px 0 0'}}>Proficiencies: </p>
-                {hide === "false" && <p style={{color: '#D2E0E8', margin: '30px 150px 0 0'}}>Contributions: </p>}
+                {hide === false && <p style={{color: 'white', margin: '30px 150px 0 0'}}>Contributions: </p>}
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
@@ -111,16 +112,16 @@ const About =()=> {
               {hide === false &&
                 <img
                   className="d-block w-50"
-                  src={BlueLogo}
+                  src={derek}
                   alt="First slide"
-                  style={{maxHeight: '250px', maxWidth: '220px', margin: '0 30px 0 60px'}}
+                  style={{maxHeight: '700px', maxWidth: '220px', margin: '0 30px 0 60px'}}
                 />
               }
               <Col style={{marginRight: '50px'}}>
                 <h1 style={{color: 'white'}}>Derek Cluff</h1>
                 <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Description </h4>
                 <p style={{color: 'white', margin: '30px 120px 0 0'}}>Proficiencies: </p>
-                {hide === "false" && <p style={{color: '#D2E0E8', margin: '30px 150px 0 0'}}>Contributions: </p>}
+                {hide === false && <p style={{color: 'white', margin: '30px 150px 0 0'}}>Contributions: </p>}
               </Col>
               </Row>
               {hide === false ? <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
@@ -144,7 +145,7 @@ const About =()=> {
                 <h1 style={{color: 'white'}}>Santiago Lozano-Ventura</h1>
                 <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Description </h4>
                 <p style={{color: 'white', margin: '30px 120px 0 0'}}>Proficiencies: </p>
-                {hide === "false" && <p style={{color: '#D2E0E8', margin: '30px 150px 0 0'}}>Contributions: </p>}
+                {hide === false && <p style={{color: 'white', margin: '30px 150px 0 0'}}>Contributions: </p>}
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
