@@ -97,12 +97,12 @@ const UserDashboard = (props) => {
 		return (
 			<>
 				<a onClick={handleShow}>
-				{user.image ? <img src={user.image} alt="Please update your profile picture" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : <Button onclick={handleShow}>Upload Profile Picture</Button>}
+				{user.image ? <img src={user.image} style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : <Button onclick={handleShow}>Upload Profile Picture</Button>}
 				</a>
 	
 				<Modal show={show} onHide={handleClose}>
 					<Modal.Header closeButton>
-						<Modal.Title>Upload Your Profile Picture Here</Modal.Title>
+						<Modal.Title>Upload Your Profile Picture</Modal.Title>
 					</Modal.Header>
 					<Modal.Body><UserImageUploader handleClose={handleClose} user_id={user_id}/></Modal.Body>
 				</Modal>
@@ -156,7 +156,6 @@ const UserDashboard = (props) => {
         <Container>
             {showProfile && 
               <div>
-                {/* <Row className="justify-content-md-center"> */}
 								<Card style ={{marginTop: '30px', justifyContent: "center", alignItems: "center"}}>
                     <h3 style={{marginTop: '30px'}}> {pictureUploadModal()}</h3>
                   </Card>
@@ -168,8 +167,6 @@ const UserDashboard = (props) => {
                     </div>
                   </div>
                     {renderUser()}
-                  {/* </Col> */}
-                {/* </Row> */}
               </div>
             }
 
