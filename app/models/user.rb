@@ -24,8 +24,14 @@ class User < ActiveRecord::Base
     .where('users.role LIKE ?', "%verifier%")
   end
 
+  def self.get_users_user
+    select('users.name, users.role, users.email, users.id')
+    .from('users')
+    .where('users.role LIKE ?', "%user%")
+  end
+
   def self.site_stats
-    total_users = User.all.length
+    total_users = User.get_users_user.length
     total_vaccines = Vaccine.all.length
     total_vaccinations = Vaccination.all.length
     {total_users:total_users, total_vaccines:total_vaccines, total_vaccinations:total_vaccinations}
