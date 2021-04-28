@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Card, Modal, Button} from 'react-bootstrap'
 import UploadVaccImage from './UploadVaccImage'
+import '../ComponentStyles/container.css'
 
 const UserVaccine = (props) => {
 
