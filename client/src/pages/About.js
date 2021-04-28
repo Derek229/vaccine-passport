@@ -96,9 +96,9 @@ const About =()=> {
               }
               <Col style={{marginRight: '50px'}}>
                 <h1 style={{color: 'white'}}>Adam Mazur</h1>
-                <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Description </h4>
-                <p style={{color: 'white', margin: '30px 120px 0 0'}}>Proficiencies: </p>
-                {hide === false && <p style={{color: 'white', margin: '30px 150px 0 0'}}>Contributions: </p>}
+                <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Nothing is more satisfying than putting in hard work and seeing the blood and sweat you put into that work, build into something useful and innovative. Building web applications completely fulfills that passion and learning something new from such a vast knowledge base everyday is adventerous and exciting. </h4>
+                <p style={{color: 'white', margin: '30px 120px 0 0'}}>Proficiencies: Javascript, React JS, Ruby on Rails, Postgresql, Semantic UI, Bootstrap, Postman API, and React Native </p>
+                {hide === false && <p style={{color: 'white', margin: '30px 150px 0 0'}}>Contributions: controllers, models, routes, modals, forms, user interface and user backend. </p>}
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
