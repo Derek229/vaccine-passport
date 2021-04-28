@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Container, CardGroup} from 'react-bootstrap'
+import { Container, CardColumns} from 'react-bootstrap'
 import VerifierCard from './VerifierCard'
 import axios from 'axios'
 import InPageNav from '../../components/InPageNav'
@@ -22,7 +22,7 @@ const AllVerifiers = () => {
 
   const getVerifiers = async () => {
     try{
-    let res = await axios.get(`http://localhost:3001/api/users/verifiers`)
+    let res = await axios.get(`/api/users/verifiers`)
     setVerifiers(res.data)
     }catch(err){
       alert('unable to retrieve verifier data')
@@ -52,9 +52,9 @@ const AllVerifiers = () => {
     <InPageNav auth={auth}/>
     <Container style={{marginTop: '10px'}}>
       <SiteStats pageName="All Verifiers"/>
-      <CardGroup style={{paddingBottom: '20px'}}>
+      <CardColumns style={{paddingBottom: '20px', margin: '0 auto 0 auto'}}>
         {verifiers && renderVerifiers()}
-      </CardGroup>
+      </CardColumns>
     </Container>
     </>
   )

@@ -8,12 +8,15 @@ import EditUserDetails from './EditUserDetails'
 import '../ComponentStyles/container.css'
 import UserNav from './UserNav'
 import UserImageUploader from './UserImageUploader'
+import useWindowDimensions from '../../components/useWindowDimensions'
 
 //TODO: render user info, link to wallet, CRUD action options for user
 
 const UserDashboard = (props) => {
   
 	const { user_id} = props
+
+	const {width} = useWindowDimensions()
 
 	const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -28,8 +31,6 @@ const UserDashboard = (props) => {
 
   const [showProfile, setShowProfile] = useState(true)
   const [showVaccines, setShowVaccines] = useState(false)
-
-  const [error, setError] = useState(false)
 
 
   useEffect(()=>{
@@ -71,7 +72,7 @@ const UserDashboard = (props) => {
     //generate user profile information (maybe use a card?)
     return(
       <>
-       <Card >
+       <Card style={{margin: '0 0 50px 0'}}>
          <Card.Body>
            <Card.Title>{user?.first_name ? <h4>{user.first_name} {user.last_name}</h4> : <h4>{user.name} </h4>}</Card.Title>
          </Card.Body>
@@ -96,7 +97,7 @@ const UserDashboard = (props) => {
 		return (
 			<>
 				<a onClick={handleShow}>
-				{user.image && error===false ? <img src={user.image} onError={setError(true)} alt="Please update your profile picture" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : <Button onclick={handleShow}>Upload Profile Picture</Button>}
+				{user.image ? <img src={user.image} alt="Profile Image" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : uploadButton()}
 				</a>
 	
 				<Modal show={show} onHide={handleClose}>
@@ -109,6 +110,10 @@ const UserDashboard = (props) => {
 		);  
 	}
 
+  const uploadButton = () => {return(<Button onclick={handleShow}>Upload Profile Picture</Button>)}
+
+	if (width >= 900){
+
     return (
     <>
       <div>  
@@ -117,19 +122,18 @@ const UserDashboard = (props) => {
             {showProfile && 
               <div>
                 <Row className="justify-content-md-center">
+								<Card style={{backgroundColor: 'rgb(0, 0, 0, 0.0)', border: '0px solid rgb(0, 0, 0, 0.0)', margin: '0px 0 0 0 ', justifyContent: "center", alignItems: "center"}}>
+                    <h3 style={{marginTop: '0px'}}> {pictureUploadModal()}</h3>
+                  </Card>
                   <Col>
                   <div className="header2" style={{marginBottom: '20px'}}>
-                    <h2 style={{marginBottom: '0px'}}>My Account</h2>
+                    <h2 style={{marginBottom: '0px'}}>My Profile Information</h2>
                     <div className="rightalign" style={{marginBottom: '0px'}}>
                       <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
                     </div>
-                    
                   </div>
                     {renderUser()}
                   </Col>
-                  <Card style ={{marginTop: '30px'}}>
-                    <h3 style={{marginTop: '30px'}}> {pictureUploadModal()}</h3>
-                  </Card>
                 </Row>
               </div>
             }
@@ -146,6 +150,44 @@ const UserDashboard = (props) => {
       </div>
     </>
     )
+	} else {
+		return(
+			<>
+      <div>  
+        <UserNav user={user} setShowProfile={setShowProfile} setShowVaccines={setShowVaccines}/>
+        <Container>
+            {showProfile && 
+              <div>
+                {/* <Row className="justify-content-md-center"> */}
+								<Card style={{backgroundColor: 'rgb(0, 0, 0, 0.0)', border: '0px solid rgb(0, 0, 0, 0.0)', margin: '20px 0 0 0 ', justifyContent: "center", alignItems: "center"}}>
+                    <h3 style={{marginTop: '0px'}}> {pictureUploadModal()}</h3>
+                  </Card>
+                  {/* <Col> */}
+                  <div className="header2" style={{marginBottom: '20px'}}>
+                    <h2 style={{marginBottom: '0px'}}>My Profile Information</h2>
+                    <div className="rightalign" style={{marginBottom: '0px'}}>
+                      <EditUserDetails getUserData={getUserData} user={user} setUser={setUser}/>
+                    </div>
+                  </div>
+                    {renderUser()}
+                  {/* </Col> */}
+                {/* </Row> */}
+              </div>
+            }
+
+              {showVaccines &&
+                <div>
+                  <h2 className="header2" style={{marginBottom: '20px'}}>My Vaccines</h2>
+                  <CardGroup >
+                    {renderVaccines()}
+                  </CardGroup>
+                </div>
+              }
+        </Container>
+      </div>
+    </>
+		)
+	}
 }
 
 export default UserDashboard
