@@ -24,7 +24,7 @@ const AdminVaccination = (props) => {
         <td>{vaccination.id}</td>
         <td>{vaccination.vaccine_name}</td>
         <td>{vaccination.manufacturer}</td>
-        <td>{vaccination.first_name} {vaccination.last_name}</td>
+        <td>{vaccination.email}</td>
         <td>{vaccination.issuer_name}</td>
         <td>
           <Button className="ml-1 btn btn-danger" onClick={()=>deleteVaccination()}>Delete</Button>

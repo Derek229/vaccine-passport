@@ -47,7 +47,7 @@ const AdminVaccinations = () => {
           <th>Manufacturer</th>
           <th>Issued To</th>
           <th>Issued By</th>
-          <th>Actions</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
