@@ -19,7 +19,7 @@ const About =()=> {
   return (
     <div className="about">
       <Container className="aboutcontainer" style={{display: 'flex', flexDirection: "column", alignItems: 'center', justifyContent: 'center', width: '90%', padding: '0 0 0px 0', margin: '0 0 100px 0'}}>
-        <Carousel interval={12000} style={{margin: '40px 0 40px 0', width: '90%', height: '100%', padding: '0', backgroundColor: '#262626'}}>
+        <Carousel interval={12000} style={{margin: '20px 0 40px 0', width: '90%', height: '100%', padding: '0', backgroundColor: '#262626'}}>
           <Carousel.Item style={{padding: '0', margin: '0'}}>
             <div className="carousel-item-custom">
               <Row style={{display: 'flex', flexWrap: 'wrap', alignContent: 'center'}}>
@@ -55,7 +55,7 @@ const About =()=> {
               }
               <Col style={{margin: '0px 0px 0px 15px'}}>
                 <h1 style={{color: 'white'}}>Trevor von Hake</h1>
-                <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Passionate about making beautiful, interactive, and efficient web applications. </h4>
+                <h4 style={{color: '#D2E0E8', margin: '30px 20px 0 0'}}>Passionate about making beautiful, interactive, and efficient web applications from start to finish. </h4>
                 {hide === false ? 
                 <>
                   <p style={{color: 'white', margin: '30px 80px 0 0'}}>
