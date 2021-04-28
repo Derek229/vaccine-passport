@@ -33,30 +33,9 @@ const InPageNavNoCenter = (props) => {
 		if(auth?.user)
 		return(
 			<>
-				{auth.user?.role === "verifier" &&
-					<>
-						<Nav.Link style = {{width: 'auto'}} href="/">
-								<Button style={{margin: '0px'}}>Home</Button>
-						</Nav.Link>
-					</>
-				}
-        {auth.user?.role === "user" &&
-					<>
-						<Nav.Link style = {{width: 'auto'}} href="/">
-								<Button style={{margin: '0px'}}>Home</Button>
-						</Nav.Link>
-					</>
-				}
-        {auth.user?.role === "issuer" &&
-					<>
-						<Nav.Link style = {{width: 'auto'}} href="/users/issuer/vaccines">
-								<Button style={{margin: '0px'}}>Issue Vaccination</Button>
-						</Nav.Link>
-						<Nav.Link style = {{width: 'auto'}} href="/users/issuer/manage">
-							<Button style={{marginLeft: '-20px'}}>Manage Vaccinations</Button>
-						</Nav.Link>
-					</>
-				}
+				<Nav.Link style = {{width: 'auto'}} href="/">
+						<Button>Home</Button>
+				</Nav.Link>
 			</>
 		)
 	}

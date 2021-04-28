@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {Button, Nav, NavDropdown, Navbar, Row, Col} from 'react-bootstrap'
+import {Nav, NavDropdown, Navbar, Row, Col} from 'react-bootstrap'
 import {AuthContext} from '../providers/AuthProvider'
 import '../pages/ComponentStyles/container.css'
 import { useLocation } from 'react-router'
