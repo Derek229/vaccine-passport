@@ -115,7 +115,7 @@ const About =()=> {
                   className="d-block w-50"
                   src={derek}
                   alt="Derek Profile"
-                  style={{maxHeight: '700px', maxWidth: '220px', margin: '0 30px 0 60px'}}
+                  style={{alignSelf:'center', width: 'auto', height: 'auto', maxWidth: '230px', margin: '0 30px 0 60px'}}
                 />
               }
               <Col style={{marginRight: '50px'}}>
@@ -139,7 +139,7 @@ const About =()=> {
                   className="d-block w-50"
                   src={santiago}
                   alt="Santiago Profile"
-                  style={{maxHeight: '700px', maxWidth: '220px', margin: '0 30px 0 60px'}}
+                  style={{alignSelf:'center', width: 'auto', height: 'auto', maxWidth: '230px', margin: '0 30px 0 60px'}}
                 />
               }
               <Col style={{marginRight: '50px'}}>
