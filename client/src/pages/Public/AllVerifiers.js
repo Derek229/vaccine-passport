@@ -52,7 +52,7 @@ const AllVerifiers = () => {
     <InPageNav auth={auth}/>
     <Container style={{marginTop: '10px'}}>
       <SiteStats pageName="All Verifiers"/>
-      <CardColumns style={{paddingBottom: '20px', margin: '0 auto 0 auto'}}>
+      <CardColumns style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' ,paddingBottom: '20px', margin: '0 auto 0 auto'}}>
         {verifiers && renderVerifiers()}
       </CardColumns>
     </Container>
