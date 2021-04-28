@@ -78,7 +78,7 @@ const About =()=> {
               </Col>
               </Row>
               {hide === false ? <div className="carousel-links" style={{margin:'20px 0 0px 0'}}>
-                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/tvonhake" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/tvonhake" style={{padding: '2px 2px 0 1px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
                 <a className="aboutlink" style={{padding: '1px'}} target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/trevorvonhake/"><img src={linkedin} alt="linkedin icon" /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
@@ -102,7 +102,7 @@ const About =()=> {
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
-                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/ahmazur19" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/ahmazur19" style={{padding: '2px 2px 0 1px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
                 <a className="aboutlink" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/adam-harrington-mazur"><img src={linkedin} alt="linkedin icon" /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
@@ -126,7 +126,7 @@ const About =()=> {
               </Col>
               </Row>
               {hide === false ? <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
-                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/Derek229" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/Derek229" style={{padding: '2px 2px 0 1px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
                 <a className="aboutlink" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/derek-cluff/"><img src={linkedin} alt="linkedin icon" /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
@@ -150,7 +150,7 @@ const About =()=> {
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
-                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/santiago2224" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/santiago2224" style={{padding: '2px 2px 0 1px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
                 <a className="aboutlink" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/santiagolozanoventura/"><img src={linkedin} alt="linkedin icon" /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
