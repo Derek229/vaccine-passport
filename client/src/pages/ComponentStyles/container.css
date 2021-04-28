@@ -195,7 +195,7 @@ a:hover{
   align-items: center;
   flex-wrap: wrap;
   margin: 0 ;
-  padding: 0;
+  padding: 0 0 100px 0;
   width:100vw;
   height: 100vh;
   background: white;
