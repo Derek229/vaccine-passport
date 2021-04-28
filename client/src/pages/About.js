@@ -8,7 +8,7 @@ import linkedin from '../Vaccine Passport Icons/linkedin.png'
 import trevor from '../Images/trevor.jpg'
 import santiago from '../Images/santiago.jpg'
 import derek from '../Images/derek.jpg'
-import FakeAdam from '../Images/RealAdam.jpeg'
+import adam from '../Images/adam.jpeg'
 import useWindowDimensions from '../components/useWindowDimensions'
 
 const About =()=> {
@@ -79,7 +79,7 @@ const About =()=> {
               </Row>
               {hide === false ? <div className="carousel-links" style={{margin:'20px 0 0px 0'}}>
                 <a className="aboutlink" target="_blank" href="https://github.com/tvonhake" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} /></a>
-                <a className="aboutlink" style={{padding: '1px'}}target="_blank" href="https://www.linkedin.com/in/trevorvonhake/"><img src={linkedin} /></a>
+                <a className="aboutlink" style={{padding: '1px'}} target="_blank" href="https://www.linkedin.com/in/trevorvonhake/"><img src={linkedin} /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
@@ -89,7 +89,7 @@ const About =()=> {
               {hide === false &&
                 <img
                   className="d-block w-50"
-                  src={FakeAdam}
+                  src={adam}
                   alt="First slide"
                   style={{maxHeight: '250px', maxWidth: '220px', margin: '0 30px 0 60px'}}
                 />
@@ -103,7 +103,7 @@ const About =()=> {
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
                 <a className="aboutlink" target="_blank" href="https://github.com/ahmazur19" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} /></a>
-                <a className="aboutlink" target="_blank" ><img src={linkedin} /></a>
+                <a className="aboutlink" target="_blank" href="https://www.linkedin.com/in/adam-harrington-mazur"><img src={linkedin} /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
