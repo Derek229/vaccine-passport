@@ -21,7 +21,7 @@ const UserHomePage = () => {
             <Row style={{flexWrap: 'wrap', width: '100%', height: 'auto', paddingTop: '30px', paddingBottom: '30px', padding: '15px'}}>
               <Col>
               <a href="/users/self" style={{textDecoration: "none"}}>
-                <Card id="card-hover" style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
+                <Card className="card2" style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
                   <Card.Img style={{ maxWidth: "100%", margin: '50px 30px 35px 30px'}} variant="middle" src={Person}/>
                   <Button style={{margin: '15px 20px 25px 20px', padding: '20px 0 20px 0', fontSize: '20px'}}  href="/users/self">My Dashboard</Button>
                 </Card>
@@ -29,7 +29,7 @@ const UserHomePage = () => {
               </Col>
               <Col>
               <a href="/users/self/qr_code" style={{textDecoration: "none"}}>
-                <Card style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
+                <Card className="card2" style={{borderRadius: "10px", paddingTop: "25px", paddingBottom: "25px",padding: "15px"}}>
                   <QRCode value={auth.user.id} includeMargin={false} imageSettings="center" style={{height: 'auto', width: 'auto', margin: '75px 50px 50px 50px'}}/>
                   <Button style={{margin: '15px 20px 25px 20px', padding: '20px 0 20px 0', fontSize: '20px'}} href="/users/self/qr_code">My QR Code</Button>
                 </Card>

@@ -72,7 +72,7 @@ const UserDashboard = (props) => {
     //generate user profile information (maybe use a card?)
     return(
       <>
-       <Card >
+       <Card style={{margin: '0 0 50px 0'}}>
          <Card.Body>
            <Card.Title>{user?.first_name ? <h4>{user.first_name} {user.last_name}</h4> : <h4>{user.name} </h4>}</Card.Title>
          </Card.Body>
@@ -97,7 +97,7 @@ const UserDashboard = (props) => {
 		return (
 			<>
 				<a onClick={handleShow}>
-				{user.image ? <img src={user.image} alt="Please update your profile picture" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : <Button onclick={handleShow}>Upload Profile Picture</Button>}
+				{user.image ? <img src={user.image} alt="Profile Image" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : uploadButton()}
 				</a>
 	
 				<Modal show={show} onHide={handleClose}>
@@ -110,6 +110,8 @@ const UserDashboard = (props) => {
 		);  
 	}
 
+  const uploadButton = () => {return(<Button onclick={handleShow}>Upload Profile Picture</Button>)}
+
 	if (width >= 900){
 
     return (
@@ -120,8 +122,8 @@ const UserDashboard = (props) => {
             {showProfile && 
               <div>
                 <Row className="justify-content-md-center">
-								<Card style ={{marginTop: '30px', justifyContent: "center", alignItems: "center"}}>
-                    <h3 style={{marginTop: '30px'}}> {pictureUploadModal()}</h3>
+								<Card style={{backgroundColor: 'rgb(0, 0, 0, 0.0)', border: '0px solid rgb(0, 0, 0, 0.0)', margin: '0px 0 0 0 ', justifyContent: "center", alignItems: "center"}}>
+                    <h3 style={{marginTop: '0px'}}> {pictureUploadModal()}</h3>
                   </Card>
                   <Col>
                   <div className="header2" style={{marginBottom: '20px'}}>
@@ -157,8 +159,8 @@ const UserDashboard = (props) => {
             {showProfile && 
               <div>
                 {/* <Row className="justify-content-md-center"> */}
-								<Card style ={{marginTop: '30px', justifyContent: "center", alignItems: "center"}}>
-                    <h3 style={{marginTop: '30px'}}> {pictureUploadModal()}</h3>
+								<Card style={{backgroundColor: 'rgb(0, 0, 0, 0.0)', border: '0px solid rgb(0, 0, 0, 0.0)', margin: '20px 0 0 0 ', justifyContent: "center", alignItems: "center"}}>
+                    <h3 style={{marginTop: '0px'}}> {pictureUploadModal()}</h3>
                   </Card>
                   {/* <Col> */}
                   <div className="header2" style={{marginBottom: '20px'}}>
