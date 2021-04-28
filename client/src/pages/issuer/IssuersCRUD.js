@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {Button} from 'react-bootstrap'
+import {Button, Container} from 'react-bootstrap'
 import {AuthContext} from '../../providers/AuthProvider'
 import axios from 'axios'
 import IssuerVaccinationCard from './IssuerVaccinationCard'
 import {useHistory} from 'react-router-dom'
-
+import UserPageNavNoCenter from '../../components/UserPageNavNoCenter'
 const IssuersCRUD = () => {
 
   const auth = useContext(AuthContext)
@@ -38,11 +38,15 @@ const IssuersCRUD = () => {
 
   return (
     <div>
+      <UserPageNavNoCenter auth={auth}/>
+      
+      <Container>
       <h1>Manage Previously Issued Vaccines</h1>
       <Button style={{marginBottom: 20}} onClick={()=>history.push('/users/issuer/vaccines')}>Issue New Vaccination</Button>
       {renderVaccinations()}
-      
+      </Container>
     </div>
+    
   )
 }
 

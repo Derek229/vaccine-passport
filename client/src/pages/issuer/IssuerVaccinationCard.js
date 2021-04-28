@@ -18,7 +18,7 @@ const IssuerVaccinationCard = (props) => {
   }
 
   return (
-    <Card style={{marginBottom: 10}}>
+    <Card border='primary' style={{paddingBottom:'25', paddingTop:'25', marginTop:'10px', marginBottom:'10px', borderRadius:'20px'}}>
       <Card.Body>
         <Card.Img/>
         <Card.Title><h3>Vaccination: {vaccination.vaccine_name}</h3></Card.Title>
