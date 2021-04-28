@@ -3,7 +3,7 @@ import {AuthContext} from '../../providers/AuthProvider'
 import axios from 'axios'
 import { Typeahead } from 'react-bootstrap-typeahead';
 import {Container, Button, Form} from 'react-bootstrap'
-
+import UserPageNavNoCenter from '../../components/UserPageNavNoCenter'
 //this page will show issuers option to assign existing vaccine to user through user's wallet
 
 
@@ -12,6 +12,7 @@ const IssuerVaccines = () => {
   const [vaccines, setVaccines] = useState([])
   const [userSelection, setUserSelection] = useState([]);
   const [vaccSelection, setVaccSelection] = useState([]);
+  const [submitted, setSubmitted] = useState(false)
 
   const auth = useContext(AuthContext)
 
@@ -39,11 +40,18 @@ const IssuerVaccines = () => {
     try{
       let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name, issuer_id: auth.user.id})
       console.log(res)
-      alert(`vaccine: ${vaccSelection[0].vaccine} sent to user: ${userSelection[0].name}`)
+      setSubmitted(true)
+      
     }catch(err){
       alert("invalid submission. Ensure all fields are filled out")
     }
     // console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
+  }
+
+  const VaccinationIssued=()=>{
+    return(
+      <h1> Vaccination submitted </h1>
+    )
   }
 
   const normalizeUserData = (arrayIn) => {
@@ -119,12 +127,15 @@ const IssuerVaccines = () => {
   
     return (
       <>
+      <UserPageNavNoCenter auth={auth}/>
+      <Container className='divcontainer'>
       <h1>Issue Vaccine to User</h1>
       <Container>
         {issuerVaccForm()}
+        {submitted === true && VaccinationIssued()}
       </Container>
         
-
+      </Container>
     </>
     )
 }
