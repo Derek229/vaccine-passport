@@ -1,10 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react'
-import {Button, Container} from 'react-bootstrap'
+import {Button, Container, Table} from 'react-bootstrap'
 import {AuthContext} from '../../providers/AuthProvider'
 import axios from 'axios'
-import IssuerVaccinationCard from './IssuerVaccinationCard'
+import IssuerVaccination from './IssuerVaccination'
 import {useHistory} from 'react-router-dom'
 import UserPageNavNoCenter from '../../components/UserPageNavNoCenter'
+import '../ComponentStyles/container.css'
+
+
 const IssuersCRUD = () => {
 
   const auth = useContext(AuthContext)
@@ -22,7 +25,6 @@ const IssuersCRUD = () => {
       setVaccinations(res.data)
       console.log(res.data)
     }catch(err){
-      alert(err)
       console.log(err)
     }
   }
@@ -31,9 +33,28 @@ const IssuersCRUD = () => {
     return vaccinations.map(vaccination => {
 
       return(
-        <IssuerVaccinationCard key={vaccination.id} vaccination={vaccination} vaccinations={vaccinations} setVaccinations={setVaccinations} auth={auth}/>
+        <IssuerVaccination key={vaccination.id} vaccination={vaccination} vaccinations={vaccinations} setVaccinations={setVaccinations} auth={auth}/>
       )
     })
+  }
+
+  const vaccinationsTable = () => {
+    return(
+    <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} responsive striped hover>
+      <thead>
+        <tr>
+          <th width="13%">Vaccination ID</th>
+          <th>Vaccine Name</th>
+          <th>Manufacturer</th>
+          <th>Issued To</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {renderVaccinations()}
+      </tbody>
+    </Table>
+    )
   }
 
   return (
@@ -41,11 +62,15 @@ const IssuersCRUD = () => {
       <UserPageNavNoCenter auth={auth}/>
       
       <Container>
-      <div className="tablecontainer" style={{backgroundColor: 'white', marginBottom: '15px', marginTop: '15px', padding: '10px'}}>
-      <h1>Manage Previously Issued Vaccines</h1>
-      <Button style={{marginBottom: 20}} onClick={()=>history.push('/users/issuer/vaccines')}>Issue New Vaccination</Button>
+      <div className="header">
+        <div className="leftalign">
+          <h3 style={{margin: '10px'}}>Previously Issued Vaccinations </h3>
+          <h3 style={{color: 'lightgrey', marginTop: '10px', marginBottom: '0px'}}>|</h3>
+          <p style={{marginTop: '16px', paddingLeft: '7px'}}>  {vaccinations.length} Vaccinations</p>
+        </div>
+        <Button onClick={()=>history.push('/users/issuer/vaccines')}>Add New Vaccination</Button>
       </div>
-      {renderVaccinations()}
+      {vaccinationsTable()}
       </Container>
     </div>
     
