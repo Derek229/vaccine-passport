@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState} from 'react'
 import {Form, Button, Row, Col, Container} from 'react-bootstrap'
 import { AuthContext } from '../providers/AuthProvider'
 import '../pages/ComponentStyles/container.css'
-import { Link } from 'react-router-dom';
 import Airplane from '../Images/airplaneWindow.jpg'
 import useWindowDimensions from './useWindowDimensions';
 
@@ -63,8 +62,8 @@ const Register = ( {history} ) => {
       <Row style={{width: '100%'}}>
       <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '50%', backgroundColor: 'white'}}> 
           <div className="div">
-          <h1>Registration</h1>
-          <p style={{marginTop: '15px', marginBottom: '35px'}}>Never forget your vaccine card again.</p>
+          <h1>Create New User</h1>
+          <p style={{marginTop: '15px', marginBottom: '35px'}}>Add a new user to the system manually.</p>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
             <Form.Label>Account Details</Form.Label>
@@ -119,6 +118,7 @@ const Register = ( {history} ) => {
               >
               <option>user</option>
               <option>verifier</option>
+              <option>issuer</option>
             </Form.Control>
             </Form.Group>}
             {role === 'user' &&
@@ -146,7 +146,7 @@ const Register = ( {history} ) => {
               />
             </Form.Group>
             </>}
-            {role === 'verifier' &&
+            {role !== "user" &&
             <Form.Group>
               <Form.Control
               label="Name"
@@ -158,14 +158,16 @@ const Register = ( {history} ) => {
               onChange={(e) => setName(e.target.value)}
               />
               </Form.Group>}
+              <Form.Text className="text-muted">
+                On submission you will be logged into the new user account. 
+              </Form.Text>
             <Button style={{width: '100%', marginTop: '25px'}} variant="primary" type='submit'>Submit</Button>
           </Form>
-          <p style={{marginTop: '20px'}}>Already have an account? <Link to="/login">Sign in</Link></p>
           </div>
         </Col>
         {hideCol === false && 
           <Col style={{width: '50%', height: '100%', backgroundColor: 'white'}}>
-            <img className="fade-in-image" alt="airplane window" src={Airplane} style={{maxWidth: "90%"}}/>
+            <img className="fade-in-image" src={Airplane} alt="airplane window" style={{maxWidth: "90%"}}/>
           </Col>
         }
       </Row>

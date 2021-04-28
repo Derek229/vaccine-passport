@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Button, Card, Row, Col, Modal} from 'react-bootstrap'
+import {Button, Card, Modal} from 'react-bootstrap'
 import axios from 'axios'
 import greencheck from '../../Vaccine Passport Icons/greencheck.png'
 import redx from '../../Vaccine Passport Icons/redx.png'
@@ -24,7 +24,6 @@ const VerifierCard = (props) => {
     try{
       let res = await axios.get(`/api/required_vaccines/${verifier.id}`)
       setVaccinations(res.data)
-      console.log('required vaccines: ', res.data)
     }catch(err){
       alert(`error retrieving required vaccines for ${verifier.name}`)
       console.log(err)
@@ -35,17 +34,14 @@ const VerifierCard = (props) => {
     let result = 'true'
     verifArr.forEach(verifVacc => {
       let found = userArr.find(userVacc => userVacc.vaccine_name === verifVacc.vaccine_name)
-      console.log('found', found)
       if (!found){
         result = "false"
-        console.log('did not find: ', verifVacc.vaccine_name)
       }
     })
-    console.log('loop finished, result: ', result)
     if(result === "true"){
-      return <img src={greencheck} style={{height: '20px', width: '20px'}} />
+      return <img src={greencheck} alt="green check" style={{height: '20px', width: '20px'}} />
     }else{
-      return <img src={redx} style={{height: '20px', width: '20px'}} />
+      return <img src={redx} alt="red x" style={{height: '20px', width: '20px'}} />
     }
       
   }
@@ -86,8 +82,8 @@ const VerifierCard = (props) => {
     })
   }
 
-  return (
-    <Card style={{margin: '0 20px 20px 0'}}>
+  if(vaccinations && vaccinations.length >= 1){return (
+    <Card style={{margin: '10px', width: '300px', height: 'auto'}}>
 
       <Card.Body>
         {vaccinations?.length > 0 ? 
@@ -104,7 +100,7 @@ const VerifierCard = (props) => {
       }    
     </Card>
 
-  )
+  )}else{return null}
 }
 
 export default VerifierCard

@@ -52,12 +52,10 @@ class QReader extends Component {
     let result = 'true'
     verifArr.forEach(verifVacc => {
       let found = userArr.find(userVacc => userVacc.vaccine_name === verifVacc.vaccine_name)
-      console.log('found', found)
       if (!found){
         result = "false"
       }
     })
-    console.log('loop finished, result: ', result)
     return result
   }
 

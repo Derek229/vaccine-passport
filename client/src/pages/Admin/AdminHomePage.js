@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Col, Row, Card } from 'react-bootstrap'
+import { Button, Col, Row, Card } from 'react-bootstrap'
 import Syringe from '../../Vaccine Passport Icons/syringe.png'
 import Person from '../../Vaccine Passport Icons/employee.png'
 import "../ComponentStyles/container.css";
