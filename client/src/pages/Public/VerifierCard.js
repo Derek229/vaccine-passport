@@ -87,7 +87,7 @@ const VerifierCard = (props) => {
   }
 
   return (
-    <Card style={{margin: '10px'}}>
+    <Card style={{margin: '0 20px 20px 0'}}>
 
       <Card.Body>
         {vaccinations?.length > 0 ? 
