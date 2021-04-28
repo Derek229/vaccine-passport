@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { Button, Row, Col, Container} from 'react-bootstrap';
-import { AuthContext } from '../providers/AuthProvider'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import '../pages/ComponentStyles/container.css'
 import Terminal from '../Images/terminal.jpg'
 import BlueLogo from '../Logos/Covidia Blue 2F73DA Logo Only.png'
@@ -20,13 +19,13 @@ const  LandingPage =() =>{
       <Row style={{width: '90%', flexWrap: 'auto', alignItems: 'center', justifyContent: 'center'}}>
         {(hideCol === false) && 
           <Col style={{width: '50%'}}>
-            <img id="hide-mobile" className="fade-in-image" src={Terminal} style={{maxWidth: "90%"}}/>
+            <img id="hide-mobile" className="fade-in-image" src={Terminal} alt="airport terminal" style={{maxWidth: "90%"}}/>
           </Col>
         }
         <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '50%', backgroundColor: 'white'}}>
           <Row style={{display: 'flex', flexWrap: 'auto', flexDirection: 'row', justifyContent: 'center', width: '100%', backgroundColor: 'white'}}>
             {hideCol === false && <Col sm={4} style={{margin: '0px'}}>
-            <img src={BlueLogo} style={{maxWidth: "100%", alignSelf: 'center'}}/>
+            <img src={BlueLogo} alt="covidia logo" style={{maxWidth: "100%", alignSelf: 'center'}}/>
             </Col>}
             <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '65%', backgroundColor: 'white', margin: '0px'}}>
               <h1 id="expand-mobile" style={{color: '#2F73DA'}}>Vaccine Passport</h1>

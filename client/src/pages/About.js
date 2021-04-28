@@ -27,7 +27,7 @@ const About =()=> {
                 <img
                   className="d-block w-50"
                   src={BlueLogo}
-                  alt="First slide"
+                  alt="COVIDIA Logo"
                   style={{maxHeight: '250px', maxWidth: '220px', margin: '0 30px 0 60px'}}
                 />
               }
@@ -38,7 +38,7 @@ const About =()=> {
               </Row>
                 {hide === false && <h4 style={{color: 'white', alignSelf: 'center', margin: '80px 0 20px 0'}}>Checkout the other slides to meet the developers!</h4>}
                 {hide === false ? <div className="carousel-links" style={{margin:'20px 0 10px 0'}}>
-                <a className="aboutlink" target="_blank" style={{padding: '1px 2px 1px 1px'}} href="https://github.com/Derek229/vaccine-passport"><img src={github} /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" style={{padding: '1px 2px 1px 1px'}} href="https://github.com/Derek229/vaccine-passport"><img src={github} alt="github icon" /></a>
               </div>: <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
@@ -49,7 +49,7 @@ const About =()=> {
                 <img
                   className="d-block w-50"
                   src={trevor}
-                  alt="First slide"
+                  alt="Trevor Profile"
                   style={{alignSelf:'center', width: 'auto', height: 'auto', maxWidth: '230px', margin: '0 60px 0 60px'}}
                 />
               }
@@ -78,8 +78,8 @@ const About =()=> {
               </Col>
               </Row>
               {hide === false ? <div className="carousel-links" style={{margin:'20px 0 0px 0'}}>
-                <a className="aboutlink" target="_blank" href="https://github.com/tvonhake" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} /></a>
-                <a className="aboutlink" style={{padding: '1px'}} target="_blank" href="https://www.linkedin.com/in/trevorvonhake/"><img src={linkedin} /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/tvonhake" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
+                <a className="aboutlink" style={{padding: '1px'}} target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/trevorvonhake/"><img src={linkedin} alt="linkedin icon" /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
@@ -90,7 +90,7 @@ const About =()=> {
                 <img
                   className="d-block w-50"
                   src={adam}
-                  alt="First slide"
+                  alt="Adam Profile"
                   style={{maxHeight: '250px', maxWidth: '220px', margin: '0 30px 0 60px'}}
                 />
               }
@@ -102,8 +102,8 @@ const About =()=> {
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
-                <a className="aboutlink" target="_blank" href="https://github.com/ahmazur19" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} /></a>
-                <a className="aboutlink" target="_blank" href="https://www.linkedin.com/in/adam-harrington-mazur"><img src={linkedin} /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/ahmazur19" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/adam-harrington-mazur"><img src={linkedin} alt="linkedin icon" /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
@@ -114,8 +114,8 @@ const About =()=> {
                 <img
                   className="d-block w-50"
                   src={derek}
-                  alt="First slide"
-                  style={{maxHeight: '700px', maxWidth: '220px', margin: '0 30px 0 60px'}}
+                  alt="Derek Profile"
+                  style={{alignSelf:'center', width: 'auto', height: 'auto', maxWidth: '230px', margin: '0 30px 0 60px'}}
                 />
               }
               <Col style={{marginRight: '50px'}}>
@@ -126,8 +126,8 @@ const About =()=> {
               </Col>
               </Row>
               {hide === false ? <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
-                <a className="aboutlink" target="_blank" href="https://github.com/Derek229" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} /></a>
-                <a className="aboutlink" target="_blank" href="https://www.linkedin.com/in/derek-cluff/"><img src={linkedin} /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/Derek229" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/derek-cluff/"><img src={linkedin} alt="linkedin icon" /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>
@@ -138,8 +138,8 @@ const About =()=> {
                 <img
                   className="d-block w-50"
                   src={santiago}
-                  alt="First slide"
-                  style={{maxHeight: '700px', maxWidth: '220px', margin: '0 30px 0 60px'}}
+                  alt="Santiago Profile"
+                  style={{alignSelf:'center', width: 'auto', height: 'auto', maxWidth: '230px', margin: '0 30px 0 60px'}}
                 />
               }
               <Col style={{marginRight: '50px'}}>
@@ -150,8 +150,8 @@ const About =()=> {
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
-                <a className="aboutlink" target="_blank" href="https://github.com/santiago2224" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} /></a>
-                <a className="aboutlink" target="_blank" href="https://www.linkedin.com/in/santiagolozanoventura/"><img src={linkedin} /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://github.com/santiago2224" style={{padding: '2px 2px 0 2px', marginRight: '20px'}}><img src={github} alt="github icon" /></a>
+                <a className="aboutlink" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/santiagolozanoventura/"><img src={linkedin} alt="linkedin icon" /></a>
               </div> : <div className="carousel-links" style={{margin:'20px 0 20px 0'}}></div>}
             </div>
           </Carousel.Item>

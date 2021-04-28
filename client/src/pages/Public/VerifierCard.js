@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Button, Card, Row, Col, Modal} from 'react-bootstrap'
+import {Button, Card, Modal} from 'react-bootstrap'
 import axios from 'axios'
 import greencheck from '../../Vaccine Passport Icons/greencheck.png'
 import redx from '../../Vaccine Passport Icons/redx.png'
@@ -43,9 +43,9 @@ const VerifierCard = (props) => {
     })
     console.log('loop finished, result: ', result)
     if(result === "true"){
-      return <img src={greencheck} style={{height: '20px', width: '20px'}} />
+      return <img src={greencheck} alt="green check" style={{height: '20px', width: '20px'}} />
     }else{
-      return <img src={redx} style={{height: '20px', width: '20px'}} />
+      return <img src={redx} alt="red x" style={{height: '20px', width: '20px'}} />
     }
       
   }

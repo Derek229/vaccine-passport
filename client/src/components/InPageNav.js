@@ -1,5 +1,5 @@
 import React from 'react'
-import {Nav, Button, Navbar, Row, Col, Container} from 'react-bootstrap'
+import {Nav, Button, Navbar, Row, Col} from 'react-bootstrap'
 import { useLocation } from 'react-router'
 import '../pages/ComponentStyles/container.css'
 import useWindowDimensions from './useWindowDimensions'
@@ -29,44 +29,6 @@ const InPageNav = (props) => {
 			}
 
 		}
-	}
-
-	const userButtonsRight = () => {
-		if(auth?.user)
-		return(
-			<>
-				{auth.user?.role === "verifier" &&
-					<div className="rightalign">
-						<Nav.Link style = {{width: 'auto', marginTop: '3px'}} href="/users/verifier/QRScanner">
-								<Button style={{margin: '0px'}}>Scan QR</Button>
-						</Nav.Link>
-						<Nav.Link style = {{width: 'auto', marginTop: '3px'}} href="/users/verifier/requiredVaccines">
-							<Button style={{marginLeft: '-20px'}}>Add Required</Button>
-						</Nav.Link>
-					</div>
-				}
-        {auth.user?.role === "user" &&
-					<div className="rightalign">
-						<Nav.Link style = {{width: 'auto', marginTop: '3px'}} href="/users/self">
-								<Button style={{margin: '0px'}}>Dashboard</Button>
-						</Nav.Link>
-						<Nav.Link style = {{width: 'auto', marginTop: '3px'}} href="/users/self/qr_code">
-							<Button style={{margin: '0px'}}>QR Code</Button>
-						</Nav.Link>
-					</div>
-				}
-        {auth.user?.role === "issuer" &&
-					<div className="rightalign">
-						<Nav.Link style = {{width: 'auto', marginTop: '3px'}} href="/users/issuer/vaccines">
-								<Button style={{margin: '0px'}}>Issue Vaccination</Button>
-						</Nav.Link>
-						<Nav.Link style = {{width: 'auto', marginTop: '3px'}} href="/users/issuer/manage">
-							<Button style={{marginLeft: '-20px'}}>Manage Vaccinations</Button>
-						</Nav.Link>
-					</div>
-				}
-			</>
-		)
 	}
 
 	return(

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {CardGroup, Card, ListGroup, ListGroupItem, Container, Button, Row, Col, Modal, Nav, NavDropdown} from 'react-bootstrap'
+import {CardGroup, Card, ListGroup, ListGroupItem, Container, Button, Row, Col, Modal} from 'react-bootstrap'
 import axios from 'axios'
 import {AuthContext} from '../../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
@@ -97,7 +97,7 @@ const UserDashboard = (props) => {
 		return (
 			<>
 				<a onClick={handleShow}>
-				{user.image ? <img src={user.image} alt="Profile Image" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : uploadButton()}
+				{user.image ? <img src={user.image} alt="Profile" style={{width:'250px', height:"250px", borderRadius:"50%"}}/> : uploadButton()}
 				</a>
 	
 				<Modal show={show} onHide={handleClose}>
@@ -110,7 +110,7 @@ const UserDashboard = (props) => {
 		);  
 	}
 
-  const uploadButton = () => {return(<Button onclick={handleShow}>Upload Profile Picture</Button>)}
+  const uploadButton = () => {return(<Button onClick={handleShow}>Upload Profile Picture</Button>)}
 
 	if (width >= 900){
 
