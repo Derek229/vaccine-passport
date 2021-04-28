@@ -13,10 +13,10 @@ const IssuerHomePage = () => {
         <div className="nav-wrapper1">
           <div className="left-side1">
               <div className="nav-link-wrapper1">
-                <h4>Issue Vaccination</h4>
+                <h4 className="h4-tag1">Issue Vaccination</h4>
               </div>
               <div className="nav-link-wrapper1">
-                <h4>Manage Vaccinations</h4> 
+                <h4 className="h4-tag2">Manage Vaccinations</h4> 
               </div>
           </div>  
         </div>

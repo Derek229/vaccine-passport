@@ -144,9 +144,9 @@ const About =()=> {
               }
               <Col style={{marginRight: '50px'}}>
                 <h1 style={{color: 'white'}}>Santiago Lozano-Ventura</h1>
-                <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Description </h4>
-                <p style={{color: 'white', margin: '30px 120px 0 0'}}>Proficiencies: </p>
-                {hide === false && <p style={{color: 'white', margin: '30px 150px 0 0'}}>Contributions: </p>}
+                <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Description: A Go-Getter, a problem solver, a hard worker, and perfectionist. A warrior, a team player, a leader, walk into a restaurant. The hostess asks, "Table for one?" How is this possible?? </h4>
+                <p style={{color: 'white', margin: '30px 120px 0 0'}}>Proficiencies: Javascript, React JS, Ruby on Rails, Postgresql, Semantic UI, Bootstrap, and React Native</p>
+                {hide === false && <p style={{color: 'white', margin: '30px 150px 0 0'}}>Contributions: Worked on the Issuer Pages, worked on the Front and Back-End of the project, created CRUD on the backend, and was a team player to my group. </p>}
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
