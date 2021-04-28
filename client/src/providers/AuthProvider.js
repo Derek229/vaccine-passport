@@ -29,7 +29,7 @@ const handleRegister = async (user, history) => {
     resetProvider()
     let res = await axios.post('/api/auth', user)
     setUser(res.data.data)
-    history.push("/users/self")
+    history.push("/")
   } catch(err){
     console.log(err)
     setAuthErrors(err.response.data.errors)
