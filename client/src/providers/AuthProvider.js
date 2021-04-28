@@ -30,7 +30,6 @@ const handleRegister = async (user, history) => {
     let res = await axios.post('/api/auth', user)
     setUser(res.data.data)
     history.push("/users/self")
-    alert('Please update name in profile')
   } catch(err){
     console.log(err)
     setAuthErrors(err.response.data.errors)
