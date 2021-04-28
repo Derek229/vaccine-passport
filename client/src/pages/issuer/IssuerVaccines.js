@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from 'react'
 import {AuthContext} from '../../providers/AuthProvider'
 import axios from 'axios'
 import { Typeahead } from 'react-bootstrap-typeahead';
-import {Container, Button, Form} from 'react-bootstrap'
+import {Container, Button, Form, Card, CardGroup} from 'react-bootstrap'
+import '../issuer/Styling/IssuerStyle.css'
 
 //this page will show issuers option to assign existing vaccine to user through user's wallet
 
@@ -82,36 +83,36 @@ const IssuerVaccines = () => {
     let vaccOptions = normalizeVaccData(vaccines)
 		return (
 			<>
-      <Form onSubmit={handleSubmit}>
-					<h3>Issuing as: {auth.user.name}</h3>
-				<Form.Group>
-					<Form.Label>Select a User</Form.Label>
-					<Typeahead
-						id="users"
-						labelKey="name"
-            required
-						onChange={setUserSelection}
-						placeholder="Select a User"
-            selected={userSelection}
-            options={userOptions}
-					/>
-				</Form.Group>
-        <Form.Group>
-					<Form.Label>Select a Vaccine</Form.Label>
-					<Typeahead
-						id="vaccines"
-						labelKey="vaccine"
-            required
-						onChange={setVaccSelection}
-						options={vaccOptions}
-						placeholder="Select a Vaccine"
-						defaultSelected={vaccSelection}
-					/>
-				</Form.Group>
-        <Form.Group>
-          <Button type="submit">Submit Request</Button>
-        </Form.Group>
-      </Form>
+          <Form onSubmit={handleSubmit} className="div1">
+              <h3 style={{textAlign: 'center'}}>{auth.user.name}</h3>
+            <Form.Group>
+              <Form.Label>Select a User</Form.Label>
+              <Typeahead
+                id="users"
+                labelKey="name"
+                required
+                onChange={setUserSelection}
+                placeholder="Select a User"
+                selected={userSelection}
+                options={userOptions}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Select a Vaccine</Form.Label>
+              <Typeahead
+                id="vaccines"
+                labelKey="vaccine"
+                required
+                onChange={setVaccSelection}
+                options={vaccOptions}
+                placeholder="Select a Vaccine"
+                defaultSelected={vaccSelection}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Button type="submit">Submit Request</Button>
+            </Form.Group>
+          </Form>
 			</>
 		)
 	}
@@ -119,9 +120,11 @@ const IssuerVaccines = () => {
   
     return (
       <>
-      <h1>Issue Vaccine to User</h1>
+      <h1>Issue Vaccine</h1>
       <Container>
-        {issuerVaccForm()}
+        <Card className="card-group1">
+         {issuerVaccForm()}
+        </Card>
       </Container>
         
 
