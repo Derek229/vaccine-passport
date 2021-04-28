@@ -22,7 +22,6 @@ const AdminVaccinations = () => {
     try{
       let res = await axios.get(`/api/users/${auth.user.id}/vaccinations`)
       setVaccinations(res.data)
-      console.log(res.data)
     }catch(err){
       alert(err)
       console.log(err)
@@ -48,7 +47,7 @@ const AdminVaccinations = () => {
           <th>Manufacturer</th>
           <th>Issued To</th>
           <th>Issued By</th>
-          <th>Actions</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

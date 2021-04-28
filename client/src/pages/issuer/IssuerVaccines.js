@@ -27,14 +27,11 @@ const IssuerVaccines = () => {
 	const getUsers = async() => {
 		let res1 = await axios.get(`/api/users/`)
 		setUsers(res1.data)
-    console.log('users: ', res1.data)
-    console.log('auth: ', auth.user.name)
 	}
 
   const getVaccines = async () => {
     let res2 = await axios.get(`/api/users/${auth.user.id}/vaccines`) 
     setVaccines(res2.data)
-    console.log('vaccines: ', res2.data)
   }
 
   const handleSubmit = async (e) => {
@@ -42,7 +39,6 @@ const IssuerVaccines = () => {
     //handle submission of vaccine sent to user wallet
     try{
       let res = await axios.post(`/api/users/${auth.user.id}/vaccinations`, {user_id: userSelection[0].user_id, vaccine_id: vaccSelection[0].vaccine_id, issuer_name: auth.user.name, issuer_id: auth.user.id})
-      console.log(res)
       setShow(true)
       setUserSelection([])
       setVaccSelection([])
@@ -51,7 +47,6 @@ const IssuerVaccines = () => {
     }catch(err){
       setSubmissionError(true)/*("invalid submission. Ensure all fields are filled out")*/
     }
-    // console.log((`/api/vaccination_wallets, ${userSelection[0].user_id}, ${vaccSelection[0].vaccine_id}`))
   }
 
   const VaccinationIssued=()=>{

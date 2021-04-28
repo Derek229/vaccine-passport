@@ -21,9 +21,12 @@ const VerifierReq = () => {
   },[])
 
   const getUsers = async () => {
+    try{
     let res1 = await axios.get(`/api/users/`)
     setUsers(res1.data)
-    console.log('users: ', res1.data)
+    }catch(err){
+      console.log(err)
+    }
   }
 
   //call this in onSubmit able to get array in console //TODO need to render on page
@@ -31,8 +34,6 @@ const VerifierReq = () => {
     e.preventDefault()
      try { let res = await axios.get(`/api/verify_vaccine/${userSelection[0].user_id}/${auth.user.id}`)
       setRequiredVaccines(res.data)
-
-      console.log('required_vaccines', res.data)
    } catch (err){  
       console.log(err)
    }
@@ -82,7 +83,6 @@ const VerifierReq = () => {
   }
 
  const renderRequiredVaccines = (objIn) => {
-    console.log('renderRequiredVaccines called')
      return(
      <>
      <div>

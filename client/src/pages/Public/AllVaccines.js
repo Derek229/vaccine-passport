@@ -47,7 +47,7 @@ const AllVaccines = () => {
 				
 				<Container>
 					<SiteStats pageName="All Vaccines"/>
-					<CardColumns style={{paddingBottom: '20px'}}>
+					<CardColumns style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' ,paddingBottom: '20px', margin: '0 auto 0 auto'}}>
 						{renderAllVaccines()}
 					</CardColumns>
 				</Container>

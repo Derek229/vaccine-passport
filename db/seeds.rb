@@ -12,53 +12,63 @@ require 'faker'
 # 1 admin
 admin = User.create(
   email: 'admin@test.com',
-  password:123456,
+  password: 'devpointlabs',
   name:'admin',
   role:'admin'
 )
 
 #many issuers
-walmart =User.create(name:'walmart', email: 'walmart@test.com', role:'issuer', password:'123456')
-cvs=User.create(name:'cvs', email:'cvs@test.com', role:'issuer', password:'123456')
-walgreens=User.create(name:'walgreens', email: 'walgreens@test.com', role:'issuer', password:'123456')
-ihc=User.create(name:'ihc', email: 'ihc@test.com', role:'issuer', password:'123456')
+walmart =User.create(name:'Walmart', email: 'walmart@test.com', role:'issuer', password:'123456')
+cvs=User.create(name:'CVS', email:'cvs@test.com', role:'issuer', password:'123456')
+walgreens=User.create(name:'Walgreens', email: 'walgreens@test.com', role:'issuer', password:'123456')
+ihc=User.create(name:'Intermountain Health Care', email: 'ihc@test.com', role:'issuer', password:'123456')
+slcohd=User.create(name: 'Salt Lake County Health Department', email: 'slcohd@test.com', role: 'issuer', password:'123456')
 
 #many verifiers
 delta = User.create(name:'Delta', email: 'delta@test.com', role:'verifier', password:'123456')
 usa = User.create(name:'USA', email: 'usa@test.com', role:'verifier', password:'123456')
 mexico = User.create(name:'Mexico', email: 'mexico@test.com', role:'verifier', password:'123456')
-izzler = User.create(name:'Sizzler', email: 'sizzler@test.com', role:'verifier', password:'123456')
+utah = User.create(name:'Utah', email: 'utah@test.com', role:'verifier', password:'123456')
+devpointlabs = User.create(name:'DevPoint Labs', email: 'devpointlabs@test.com', role:'verifier', password:'123456')
+southwest = User.create(name:'Southwest Airline', email: 'southwest@test.com', role:'verifier', password:'123456')
+sizzler = User.create(name:'Sizzler', email: 'sizzler@test.com', role:'verifier', password:'123456')
 
 #many users
 user1 = User.create(
-name: "user1",
-first_name: "user1",
-last_name: "name",
-email: "user1@test.com",
+first_name: "Trevor",
+last_name: "von Hake",
+email: "tvonhake@covidia.com",
 role: 'user',
-country_origin: Faker::Address.country,
+country_origin: 'United States',
 password:'123456',
-age: rand(18..80)
-)
+age: 24,)
 
 user2 = User.create(
-  name: "user2",
-  first_name: "user2",
-  last_name: "name",
-  email: "user2@test.com",
+  first_name: "Derek",
+  last_name: "Cluff",
+  email: "dcluff@covidia.com",
   role: 'user',
-  country_origin: Faker::Address.country,
+  country_origin: 'United States',
   password:'123456',
   age: rand(18..80)
 )
 
 user3 = User.create(
-  name: "user3",
-  first_name: "user3",
-  last_name: "name",
-  email: "user3@test.com",
+  first_name: "Adam",
+  last_name: "Mazur",
+  email: "amazur@covidia.com",
   role: 'user',
-  country_origin: Faker::Address.country,
+  country_origin: 'United States',
+  password:'123456',
+  age: rand(18..80)
+)
+
+user4 = User.create(
+  first_name: "Santiago",
+  last_name: "Ventura",
+  email: "sventura@covidia.com",
+  role: 'user',
+  country_origin: 'United States',
   password:'123456',
   age: rand(18..80)
 )
@@ -67,7 +77,7 @@ user3 = User.create(
   User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  email: "user#{i+4}@test.com",
+  email: "user#{i}@test.com",
   role: 'user',
   country_origin: Faker::Address.country,
   password:'123456',
@@ -101,25 +111,35 @@ smallpox=Vaccine.create(name:'Smallpox', manufacturer:'Sanofi Pastuer Biologics 
 # VACCINATION (VaccineWallet)
 # CREATED BY ISSUER IN UI but add holder id in DB
 
-Vaccination.create(user_id:user3.id, vaccine_id: covid.id, issuer_name:'walmart', issuer_id: walmart.id)
-Vaccination.create(user_id:user3.id, vaccine_id: flu.id, issuer_name:'cvs', issuer_id: cvs.id)
-Vaccination.create(user_id:user3.id, vaccine_id: sars.id, issuer_name:'walgreens', issuer_id: walgreens.id)
-Vaccination.create(user_id:user1.id, vaccine_id: sars.id, issuer_name:'ihc', issuer_id: ihc.id)
-Vaccination.create(user_id:user1.id, vaccine_id: covid.id, issuer_name:'walgreens', issuer_id: walgreens.id)
-Vaccination.create(user_id: 4, vaccine_id: covid2.id, issuer_name:'walmart', issuer_id: walmart.id)
-Vaccination.create(user_id: 8, vaccine_id: yellowfever.id, issuer_name:'cvs', issuer_id: cvs.id)
-Vaccination.create(user_id: 5, vaccine_id: sars.id, issuer_name:'walgreens', issuer_id: walgreens.id)
-Vaccination.create(user_id: 5, vaccine_id: hpv.id, issuer_name:'ihc', issuer_id: ihc.id)
-Vaccination.create(user_id: 11, vaccine_id: covid3.id, issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id: 16, vaccine_id: covid.id, issuer_name:'walmart', issuer_id: walmart.id)
+Vaccination.create(user_id: 18, vaccine_id: flu.id, issuer_name:'cvs', issuer_id: cvs.id)
+Vaccination.create(user_id: 22, vaccine_id: sars.id, issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id:user1.id, vaccine_id: flu.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id:user1.id, vaccine_id: covid3.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id:user2.id, vaccine_id: flu.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id:user2.id, vaccine_id: covid3.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id:user3.id, vaccine_id: flu.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id:user3.id, vaccine_id: covid2.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id:user4.id, vaccine_id: flu.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id:user4.id, vaccine_id: covid1.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id: 16, vaccine_id: covid2.id, issuer_name:'walmart', issuer_id: walmart.id)
+Vaccination.create(user_id: 17, vaccine_id: yellowfever.id, issuer_name:'cvs', issuer_id: cvs.id)
+Vaccination.create(user_id: 18, vaccine_id: sars.id, issuer_name:'walgreens', issuer_id: walgreens.id)
+Vaccination.create(user_id: 19, vaccine_id: hpv.id, issuer_name:'ihc', issuer_id: ihc.id)
+Vaccination.create(user_id: 20, vaccine_id: covid3.id, issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
 
 # REquired VACCINATION
 # CREATED BY Verifer IN UI 
 RequiredVaccine.create(user_id:delta.id, vaccine_id:covid.id)
-RequiredVaccine.create(user_id:delta.id, vaccine_id:sars.id)
+RequiredVaccine.create(user_id:delta.id, vaccine_id:flu.id)
 RequiredVaccine.create(user_id:usa.id, vaccine_id:covid.id)
 RequiredVaccine.create(user_id:usa.id, vaccine_id:flu.id)
 RequiredVaccine.create(user_id:usa.id, vaccine_id:sars.id)
 RequiredVaccine.create(user_id:mexico.id, vaccine_id:tetanus.id)
 RequiredVaccine.create(user_id:mexico.id, vaccine_id:covid.id)
+RequiredVaccine.create(user_id:southwest.id, vaccine_id:flu.id)
+RequiredVaccine.create(user_id:southwest.id, vaccine_id:covid.id)
+RequiredVaccine.create(user_id:devpointlabs.id, vaccine_id:smallpox.id)
+RequiredVaccine.create(user_id:devpointlabs.id, vaccine_id:covid.id)
 
 puts 'completed'
