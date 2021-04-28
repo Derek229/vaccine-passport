@@ -72,7 +72,7 @@ const About =()=> {
                 }
                 {hide === false &&
                   <p style={{color: '#D2E0E8', margin: '30px 65px 25px 0'}}>
-                    Contributions: Landing, Login, Registration, About, Admin UI, NavBars, QR Scanner, Custom SQL, All Verifiers, User UI Mobile Optimization, React Native App
+                    Contributions: Landing, Login, Registration, About, Admin UI, NavBars, QR, Custom SQL, All Verifiers/Vaccines, Protected Routes, User UI Mobile Optimization, React Native App
                   </p>
                 }
               </Col>
