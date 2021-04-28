@@ -53,7 +53,6 @@ const RequiredVaccine=()=> {
 
     const handleSubmit = (e)=>{
       e.preventDefault()  
-      console.log(vaccineSelection)
       createReqVaccine()
     }
 
@@ -84,11 +83,14 @@ const RequiredVaccine=()=> {
   return (
     <div>
       <InPageNavNoCenter auth={auth}/>
-      <Container>
+      <Container >
+      <div className="tablecontainer" style={{backgroundColor: 'white', marginBottom: '15px', marginTop: '15px', padding: '10px'}}>
         <h1>Required Vaccines List</h1>
         <Button onClick={() => setShowForm(!showForm)}>{showForm ? 'Hide Form' : 'Add New Required Vaccine'}</Button>
+        </div>
         {showForm && requiredVaccineForm()}
         {renderReqVaccine()}
+        
       </Container>
     </div>
 

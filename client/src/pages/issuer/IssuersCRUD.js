@@ -23,7 +23,6 @@ const IssuersCRUD = () => {
     try{
       let res = await axios.get(`/api/issuers/manage/${auth.user.id}`)
       setVaccinations(res.data)
-      console.log(res.data)
     }catch(err){
       console.log(err)
     }
@@ -43,7 +42,6 @@ const IssuersCRUD = () => {
     <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} responsive striped hover>
       <thead>
         <tr>
-          <th width="13%">Vaccination ID</th>
           <th>Vaccine Name</th>
           <th>Manufacturer</th>
           <th>Issued To</th>

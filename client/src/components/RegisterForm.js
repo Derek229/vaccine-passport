@@ -10,7 +10,6 @@ function RegisterForm() {
   const { register, handleSubmit, errors, watch } = useForm();
 
   const onSubmit = (data) => {
-    console.log('data: ', data);
   }; // your form submit function which will invoke after successful validation
 
   const getPassWordError = () => {
@@ -22,8 +21,6 @@ function RegisterForm() {
       return "Failed";
     }
   };
-  console.log(watch("example")); // you can watch individual input by pass the name of the input
-  console.log(errors);
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <h1>Register</h1>

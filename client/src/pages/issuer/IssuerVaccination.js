@@ -12,7 +12,6 @@ const IssuerVaccination = (props) => {
       let res = await axios.delete(`/api/users/${auth.user.id}/vaccinations/${vaccination.id}`)
       const filteredVaccinations = vaccinations.filter(x=>x.id !== vaccination.id)
       setVaccinations(filteredVaccinations)
-      console.log(res.data)
     }catch(err){
       alert(err)
       console.log(err)
@@ -22,7 +21,6 @@ const IssuerVaccination = (props) => {
   return(
     <>
       <tr>
-        <td>{vaccination.id}</td>
         <td>{vaccination.vaccine_name}</td>
         <td>{vaccination.manufacturer}</td>
         <td>{vaccination.email}</td>

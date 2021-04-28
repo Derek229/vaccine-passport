@@ -10,7 +10,6 @@ import UserNav from './UserNav'
 import UserImageUploader from './UserImageUploader'
 import useWindowDimensions from '../../components/useWindowDimensions'
 
-//TODO: render user info, link to wallet, CRUD action options for user
 
 const UserDashboard = (props) => {
   
@@ -52,16 +51,12 @@ const UserDashboard = (props) => {
     }catch(err){
       alert('error retrieiving profile information')
     }
-
-    //setUser(res.data) --check to make sure this is right w/ console.log() once backend is setup
   }
 
   const getVaccinations = async () => {
-    //TODO: change 1 in URL below to string interpolate userID once users controller is setup
     try{
     let res = await axios.get(`/api/vaccinations/${auth.user.id}`)
     setVaccinations(res.data)
-    console.log('vaccinations: ', res.data)
     }catch(err){
       alert('error retrieving vaccines')
     }
@@ -69,7 +64,7 @@ const UserDashboard = (props) => {
   }
 
   const renderUser = () => {
-    //generate user profile information (maybe use a card?)
+    //generate user profile information
     return(
       <>
        <Card style={{margin: '0 0 50px 0'}}>
@@ -77,6 +72,8 @@ const UserDashboard = (props) => {
            <Card.Title>{user?.first_name ? <h4>{user.first_name} {user.last_name}</h4> : <h4>{user.name} </h4>}</Card.Title>
          </Card.Body>
          <ListGroup className="list-group-flush">
+				 	<ListGroupItem>Age: {user.age}</ListGroupItem>
+				 	<ListGroupItem>Gender: {user.gender}</ListGroupItem>
            <ListGroupItem>Email: {user.email}</ListGroupItem>
          </ListGroup>
        </Card>
@@ -102,7 +99,7 @@ const UserDashboard = (props) => {
 	
 				<Modal show={show} onHide={handleClose}>
 					<Modal.Header closeButton>
-						<Modal.Title>Upload Your Profile Picture Here</Modal.Title>
+						<Modal.Title>Upload Your Profile Picture</Modal.Title>
 					</Modal.Header>
 					<Modal.Body><UserImageUploader handleClose={handleClose} user_id={user_id}/></Modal.Body>
 				</Modal>
@@ -139,12 +136,16 @@ const UserDashboard = (props) => {
             }
 
               {showVaccines &&
-                <div>
-                  <h2 className="header2" style={{marginBottom: '20px'}}>My Vaccines</h2>
-                  <CardGroup >
+							<>
+								<div className="vaccineContainers">
+								<h2  style={{marginBottom: '30px'}}>My Vaccines</h2>
+								</div>
+                <div className="vaccineContainers">
+                  <CardGroup>
                     {renderVaccines()}
                   </CardGroup>
-                </div>
+								</div>
+							</>
               }
         </Container>
       </div>
@@ -176,8 +177,8 @@ const UserDashboard = (props) => {
             }
 
               {showVaccines &&
-                <div>
-                  <h2 className="header2" style={{marginBottom: '20px'}}>My Vaccines</h2>
+                <div className="vaccineContainers">
+                  <h2 style={{marginBottom: '20px'}}>My Vaccines</h2>
                   <CardGroup >
                     {renderVaccines()}
                   </CardGroup>
