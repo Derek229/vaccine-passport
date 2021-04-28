@@ -121,7 +121,7 @@ Vaccination.create(user_id:user2.id, vaccine_id: covid3.id,  issuer_name:'Salt L
 Vaccination.create(user_id:user3.id, vaccine_id: flu.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
 Vaccination.create(user_id:user3.id, vaccine_id: covid2.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
 Vaccination.create(user_id:user4.id, vaccine_id: flu.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
-Vaccination.create(user_id:user4.id, vaccine_id: covid1.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
+Vaccination.create(user_id:user4.id, vaccine_id: covid.id,  issuer_name:'Salt Lake County Health Department', issuer_id: slcohd.id)
 Vaccination.create(user_id: 16, vaccine_id: covid2.id, issuer_name:'walmart', issuer_id: walmart.id)
 Vaccination.create(user_id: 17, vaccine_id: yellowfever.id, issuer_name:'cvs', issuer_id: cvs.id)
 Vaccination.create(user_id: 18, vaccine_id: sars.id, issuer_name:'walgreens', issuer_id: walgreens.id)
