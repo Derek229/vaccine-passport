@@ -41,8 +41,10 @@ const IssuersCRUD = () => {
       <UserPageNavNoCenter auth={auth}/>
       
       <Container>
+      <div className="tablecontainer" style={{backgroundColor: 'white', marginBottom: '15px', marginTop: '15px', padding: '10px'}}>
       <h1>Manage Previously Issued Vaccines</h1>
       <Button style={{marginBottom: 20}} onClick={()=>history.push('/users/issuer/vaccines')}>Issue New Vaccination</Button>
+      </div>
       {renderVaccinations()}
       </Container>
     </div>
