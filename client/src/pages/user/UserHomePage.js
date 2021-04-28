@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Card, Col, Row, Button } from 'react-bootstrap'
 import { AuthContext } from '../../providers/AuthProvider';
-import QRIcon from '../../Vaccine Passport Icons/black-24dp/2x/baseline_qr_code_scanner_black_24dp.png'
 import Person from '../../Vaccine Passport Icons/employee.png'
 import "../ComponentStyles/container.css";
 import QRCode from 'qrcode.react'
@@ -43,7 +42,7 @@ const UserHomePage = () => {
           <div className="centernav">
             <h1 style={{textAlign: 'center'}}>Welcome {auth.user.first_name}</h1>
             <a href="/users/self" style={{textDecoration: "none"}}>
-            <img src={Person} style={{maxWidth: '100px'}}/>
+            <img src={Person} alt="person" style={{maxWidth: '100px'}}/>
             <Button style={{marginTop: '10px'}}  href="/users/self">My Dashboard</Button>
             </a>
             <a href="/users/self/qr_code" style={{textDecoration: "none"}}>

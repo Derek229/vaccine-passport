@@ -1,10 +1,9 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap'
+import { Navbar, Nav, Button } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import LogoOnly from '../Logos/Covidia_LogOnly_T.png'
 import '../pages/ComponentStyles/container.css'
-import useWindowDimensions from './useWindowDimensions';
 
 class Navbar1 extends React.Component {
 
@@ -28,7 +27,7 @@ class Navbar1 extends React.Component {
             My Profile
           </Nav.Link>
         }
-				{user.image ? <a href="/users/self"><img src={user.image} style={{height: "40px", width: "40px", borderRadius:"50%", margin:"0", padding:"0"}} alt="My Profile"/></a> :
+				{user.image ? <a href="/users/self"><img src={user.image} alt="profile" style={{height: "40px", width: "40px", borderRadius:"50%", margin:"0", padding:"0"}}/></a> :
 				  <Nav.Link href="/users/self">
 						My Profile
 					</Nav.Link>
@@ -62,7 +61,7 @@ class Navbar1 extends React.Component {
     return (
       <div>
         <Navbar bg="secondary" expand="lg" variant="dark">
-          <Navbar.Brand href="/"><img src={LogoOnly} style={{height: '45px'}}/></Navbar.Brand>
+          <Navbar.Brand href="/"><img src={LogoOnly} alt="covidia logo" style={{height: '45px'}}/></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav activeKey={this.props.location.pathname} className="mr-auto">

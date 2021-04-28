@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import {AuthContext} from '../../providers/AuthProvider'
 import QReader from '../../components/QrReader'
-import {Button, Card, Container} from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap'
 import InPageNavNoCenter from '../../components/UserPageNavNoCenter'
 
 const QRScanner = () => {

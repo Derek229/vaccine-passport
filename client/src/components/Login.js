@@ -73,7 +73,7 @@ const  Login=() =>{
         </Col>
         {hideCol === false &&
           <Col style={{width: '50%', backgroundColor: 'white'}}>
-            <img className="fade-in-image" src={Terminal2} style={{maxWidth: "90%"}}/>
+            <img className="fade-in-image" src={Terminal2} alt="transport terminal" tyle={{maxWidth: "90%"}}/>
           </Col>
         }
       </Row>

@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState} from 'react'
 import {Form, Button, Row, Col, Container} from 'react-bootstrap'
 import { AuthContext } from '../providers/AuthProvider'
 import '../pages/ComponentStyles/container.css'
-import { Link } from 'react-router-dom';
 import Airplane from '../Images/airplaneWindow.jpg'
 import useWindowDimensions from './useWindowDimensions';
 
@@ -168,7 +167,7 @@ const Register = ( {history} ) => {
         </Col>
         {hideCol === false && 
           <Col style={{width: '50%', height: '100%', backgroundColor: 'white'}}>
-            <img className="fade-in-image" src={Airplane} style={{maxWidth: "90%"}}/>
+            <img className="fade-in-image" src={Airplane} alt="airplane window" style={{maxWidth: "90%"}}/>
           </Col>
         }
       </Row>

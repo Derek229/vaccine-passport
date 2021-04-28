@@ -1,13 +1,11 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import {Row, Col, Button, Nav, Navbar, NavDropdown} from 'react-bootstrap'
 import { useLocation } from 'react-router'
 import '../ComponentStyles/container.css'
-import AuthContext from '../../providers/AuthProvider'
 import useWindowDimensions from '../../components/useWindowDimensions'
 
 const UserNav = (props) => {
 
-  const auth = useContext(AuthContext)
   const location = useLocation()
   const{width} = useWindowDimensions()
   const hide = (width <= 760)
