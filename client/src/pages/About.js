@@ -8,7 +8,7 @@ import linkedin from '../Vaccine Passport Icons/linkedin.png'
 import trevor from '../Images/trevor.jpg'
 import santiago from '../Images/santiago.jpg'
 import derek from '../Images/derek.jpg'
-import RealAdam from '../Images/RealAdam.jpeg'
+import FakeAdam from '../Images/RealAdam.jpeg'
 import useWindowDimensions from '../components/useWindowDimensions'
 
 const About =()=> {
@@ -89,7 +89,7 @@ const About =()=> {
               {hide === false &&
                 <img
                   className="d-block w-50"
-                  src={RealAdam}
+                  src={FakeAdam}
                   alt="First slide"
                   style={{maxHeight: '250px', maxWidth: '220px', margin: '0 30px 0 60px'}}
                 />
