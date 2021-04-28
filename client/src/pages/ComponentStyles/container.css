@@ -22,11 +22,11 @@ a:hover{
   padding: 0;
 }
 
-.card{
+.card2{
   transition: border .5s;
 }
 
-.card:hover{
+.card2:hover{
   border: 1px solid #3073DA !important;
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
-import {Card, Container, Navbar, Nav, Button, CardGroup} from 'react-bootstrap'
+import {Card, Container, CardColumns} from 'react-bootstrap'
 import '../../pages/ComponentStyles/container.css'
 import { AuthContext } from '../../providers/AuthProvider'
 import InPageNav from '../../components/InPageNav'
@@ -29,11 +29,11 @@ const AllVaccines = () => {
     return allVaccines.map( vaccine => {
 			
 			return(
-			<Card key={vaccine.id} style={{margin: '10px'}}>
+			<Card key={vaccine.id} style={{margin: '10px', width: '295px', height: '200px'}}>
 			  <Card.Body>
-          <Card.Title><h4>Vaccine Name: {vaccine.name}</h4></Card.Title>
+          <Card.Title><h4 style={{color: 'rgb(70,70,70)'}}>Vaccine Name:</h4><h4>{vaccine.name}</h4></Card.Title>
           <Card.Text>
-          	Manufacturer {vaccine.manufacturer}
+          	<p style={{color: 'rgb(70,70,70)'}}>Manufacturer: </p><p style={{margin: '-10px 0 0 0'}}>{vaccine.manufacturer}</p>
           </Card.Text>
         </Card.Body>
 			</Card>
@@ -47,9 +47,9 @@ const AllVaccines = () => {
 				
 				<Container>
 					<SiteStats pageName="All Vaccines"/>
-					<CardGroup style={{paddingBottom: '20px'}}>
+					<CardColumns style={{paddingBottom: '20px'}}>
 						{renderAllVaccines()}
-					</CardGroup>
+					</CardColumns>
 				</Container>
 			</div>
 		</>

@@ -22,7 +22,7 @@ const VerifierCard = (props) => {
 
   const getVerifierVaccinations = async (verifier) => {
     try{
-      let res = await axios.get(`http://localhost:3001/api/required_vaccines/${verifier.id}`)
+      let res = await axios.get(`/api/required_vaccines/${verifier.id}`)
       setVaccinations(res.data)
       console.log('required vaccines: ', res.data)
     }catch(err){
@@ -87,7 +87,7 @@ const VerifierCard = (props) => {
   }
 
   return (
-    <Card style={{margin: '10px'}}>
+    <Card style={{margin: '0 20px 20px 0'}}>
 
       <Card.Body>
         {vaccinations?.length > 0 ? 
