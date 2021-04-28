@@ -18,8 +18,8 @@ const About =()=> {
   
   return (
     <div className="about">
-      <Container className="aboutcontainer" style={{display: 'flex', flexDirection: "column", alignItems: 'center', justifyContent: 'center', width: '90%'}}>
-        <Carousel interval={12000} style={{margin: '40px 0 0px 0', width: '90%', height: '100%', padding: '0', backgroundColor: '#262626'}}>
+      <Container className="aboutcontainer" style={{display: 'flex', flexDirection: "column", alignItems: 'center', justifyContent: 'center', width: '90%', padding: '0 0 0px 0', margin: '0 0 100px 0'}}>
+        <Carousel interval={12000} style={{margin: '40px 0 40px 0', width: '90%', height: '100%', padding: '0', backgroundColor: '#262626'}}>
           <Carousel.Item style={{padding: '0', margin: '0'}}>
             <div className="carousel-item-custom">
               <Row style={{display: 'flex', flexWrap: 'wrap', alignContent: 'center'}}>
@@ -145,8 +145,8 @@ const About =()=> {
               <Col style={{marginRight: '50px'}}>
                 <h1 style={{color: 'white'}}>Santiago Lozano-Ventura</h1>
                 <h4 style={{color: '#D2E0E8', margin: '30px 0 0 0'}}>Description: A Go-Getter, a problem solver, a hard worker, and perfectionist. A warrior, a team player, a leader, walk into a restaurant. The hostess asks, "Table for one?" How is this possible?? </h4>
-                <p style={{color: 'white', margin: '30px 120px 0 0'}}>Proficiencies: Javascript, React JS, Ruby on Rails, Postgresql, Semantic UI, Bootstrap, and React Native</p>
-                {hide === false && <p style={{color: 'white', margin: '30px 150px 0 0'}}>Contributions: Worked on the Issuer Pages, worked on the Front and Back-End of the project, created CRUD on the backend, and was a team player to my group. </p>}
+                <p style={{color: 'white', margin: '20px 120px 0 0'}}>Proficiencies: Javascript, React JS, Ruby on Rails, Postgresql, Semantic UI, Bootstrap, and React Native</p>
+                {hide === false && <p style={{color: '#D2E0E8', margin: '10px 150px 0 0'}}>Contributions: Worked on the Issuer Pages, worked on the Front and Back-End of the project, created CRUD on the backend, and was a team player to my group. </p>}
               </Col>
               </Row>
               {hide === false ?  <div className="carousel-links" style={{margin:'20px 0 20px 0'}}>
