@@ -12,7 +12,6 @@ const AdminVaccination = (props) => {
       let res = await axios.delete(`/api/users/${auth.user.id}/vaccinations/${vaccination.id}`)
       const filteredVaccinations = vaccinations.filter(x=>x.id !== vaccination.id)
       setVaccinations(filteredVaccinations)
-      console.log(res.data)
     }catch(err){
       alert(err)
       console.log(err)

@@ -24,7 +24,6 @@ const VerifierCard = (props) => {
     try{
       let res = await axios.get(`/api/required_vaccines/${verifier.id}`)
       setVaccinations(res.data)
-      console.log('required vaccines: ', res.data)
     }catch(err){
       alert(`error retrieving required vaccines for ${verifier.name}`)
       console.log(err)
@@ -35,13 +34,10 @@ const VerifierCard = (props) => {
     let result = 'true'
     verifArr.forEach(verifVacc => {
       let found = userArr.find(userVacc => userVacc.vaccine_name === verifVacc.vaccine_name)
-      console.log('found', found)
       if (!found){
         result = "false"
-        console.log('did not find: ', verifVacc.vaccine_name)
       }
     })
-    console.log('loop finished, result: ', result)
     if(result === "true"){
       return <img src={greencheck} alt="green check" style={{height: '20px', width: '20px'}} />
     }else{

@@ -23,7 +23,6 @@ const IssuersCRUD = () => {
     try{
       let res = await axios.get(`/api/issuers/manage/${auth.user.id}`)
       setVaccinations(res.data)
-      console.log(res.data)
     }catch(err){
       console.log(err)
     }

@@ -22,7 +22,6 @@ const AdminVaccinations = () => {
     try{
       let res = await axios.get(`/api/users/${auth.user.id}/vaccinations`)
       setVaccinations(res.data)
-      console.log(res.data)
     }catch(err){
       alert(err)
       console.log(err)
