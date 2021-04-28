@@ -4,8 +4,8 @@ import { Header,  } from 'semantic-ui-react'
 
 const NoMatch = () => (
   <Header as='h3' textAlign='center'>
-    page not found return 
-    <Link to='/'> Home</Link>
+    <p style={{paddingRight: '10px', margin: '10px 0 0 0 '}}>page not found </p>
+    <Link style={{padding: '0px', margin: '10px 0 0 0'}} to='/'> return home</Link>
   </Header>
 )
 

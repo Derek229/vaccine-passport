@@ -13,10 +13,10 @@ const IssuerHomePage = () => {
         <div className="nav-wrapper1">
           <div className="left-side1">
               <div className="nav-link-wrapper1">
-                <h4>Issue Vaccination</h4>
+                <h4 className="h4-tag1">Issue Vaccination</h4>
               </div>
               <div className="nav-link-wrapper1">
-                <h4>Manage Vaccinations</h4> 
+                <h4 className="h4-tag2">Manage Vaccinations</h4> 
               </div>
           </div>  
         </div>
@@ -30,7 +30,7 @@ const IssuerHomePage = () => {
             <div style={{ margin:'10px'}}>
             <Card.Img className="card-img1" variant="top" src="images/syringe.png" />
             </div>
-            <div className="button-position">
+            <div className="button-position1">
             <Button className="card-button1" href="/users/issuer/vaccines">Issue Vaccination</Button>
             </div>
           </Card.Body>
