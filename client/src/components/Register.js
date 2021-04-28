@@ -9,6 +9,9 @@ import useWindowDimensions from './useWindowDimensions';
 const Register = ( {history} ) => {
   const { handleRegister, authErrors, setAuthErrors, authLoading } = useContext(AuthContext);
   const [email, setEmail] = useState(null)
+  const [name, setName] = useState(null)
+  const [first_name, setFirstName] = useState(null)
+  const [last_name, setLastName] = useState(null)
 	const [role, setRole] = useState('user')
   const [password, setPassword] = useState(null)
   const [passwordConfirmation, setPasswordConfirmation] = useState(null)
@@ -31,6 +34,9 @@ const Register = ( {history} ) => {
         email,
         password,
         passwordConfirmation,
+        name,
+        first_name,
+        last_name,
       },
       history
       );
@@ -98,7 +104,9 @@ const Register = ( {history} ) => {
             </Form.Group>
             {hideCol === false && <Form.Label>Select Role</Form.Label>}
             {hideCol === false &&
-            <Form.Control 
+            
+            <Form.Group>
+              <Form.Control 
               as="select"
               label="Role"
               required
@@ -111,7 +119,45 @@ const Register = ( {history} ) => {
               >
               <option>user</option>
               <option>verifier</option>
-            </Form.Control>}
+            </Form.Control>
+            </Form.Group>}
+            {role === 'user' &&
+            <>
+            <Form.Group>
+              <Form.Control
+              label="First name"
+              autoFocus
+              required         
+              name='first_name'
+              value={first_name}
+              placeholder='First Name'
+              onChange={(e) => setFirstName(e.target.value)}
+              />
+              </Form.Group>
+              <Form.Group>
+              <Form.Control
+              label="Last name"
+              autoFocus
+              required         
+              name='last_name'
+              value={last_name}
+              placeholder='Last Name'
+              onChange={(e) => setLastName(e.target.value)}
+              />
+            </Form.Group>
+            </>}
+            {role === 'verifier' &&
+            <Form.Group>
+              <Form.Control
+              label="Name"
+              autoFocus
+              required         
+              name='name'
+              value={name}
+              placeholder='Name'
+              onChange={(e) => setName(e.target.value)}
+              />
+              </Form.Group>}
             <Button style={{width: '100%', marginTop: '25px'}} variant="primary" type='submit'>Submit</Button>
           </Form>
           <p style={{marginTop: '20px'}}>Already have an account? <Link to="/login">Sign in</Link></p>
