@@ -73,6 +73,36 @@ const EditUserDetails = (props) => {
                 </Form.Group>
               </div>
             }
+						{(user.role === "user") &&
+              <div>
+                <Form.Group>
+                  <Form.Control
+                    label="Age"
+                    autoFocus
+                    required         
+                    name='age'
+                    value={user.age}
+                    placeholder={user?.age ? user.age : "Age"}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+              </div>
+            }
+						{(user.role === "user") &&
+              <div>
+                <Form.Group>
+                  <Form.Control
+                    label="Gender"
+                    autoFocus
+                    required         
+                    name='gender'
+                    value={user.gender}
+                    placeholder={user?.gender ? user.gender : "Gender"}
+                    onChange={handleChange}
+                  />
+                </Form.Group>
+              </div>
+            }
           <Form.Group>
             <Form.Control
               label="Email"
