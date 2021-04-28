@@ -25,9 +25,9 @@ const  LandingPage =() =>{
         }
         <Col style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '50%', backgroundColor: 'white'}}>
           <Row style={{display: 'flex', flexWrap: 'auto', flexDirection: 'row', justifyContent: 'center', width: '100%', backgroundColor: 'white'}}>
-            <Col sm={4} style={{margin: '0px'}}>
-            {hideCol === false && <img src={BlueLogo} style={{maxWidth: "100%", alignSelf: 'center'}}/>}
-            </Col>
+            {hideCol === false && <Col sm={4} style={{margin: '0px'}}>
+            <img src={BlueLogo} style={{maxWidth: "100%", alignSelf: 'center'}}/>
+            </Col>}
             <Col style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '65%', backgroundColor: 'white', margin: '0px'}}>
               <h1 id="expand-mobile" style={{color: '#2F73DA'}}>Vaccine Passport</h1>
               <p style={{margin: '-10px 0px 0 10px'}}>by COVIDIA</p>
