@@ -10,7 +10,6 @@ const IssuerVaccinationCard = (props) => {
       let res = await axios.delete(`/api/users/${auth.user.id}/vaccinations/${vaccination.id}`)
       const filteredVaccinations = vaccinations.filter(x=>x.id !== vaccination.id)
       setVaccinations(filteredVaccinations)
-      console.log(res.data)
     }catch(err){
       alert(err)
       console.log(err)
@@ -18,7 +17,7 @@ const IssuerVaccinationCard = (props) => {
   }
 
   return (
-    <Card style={{marginBottom: 10}}>
+    <Card border='primary' style={{paddingBottom:'25', paddingTop:'25', marginTop:'10px', marginBottom:'10px', borderRadius:'20px'}}>
       <Card.Body>
         <Card.Img/>
         <Card.Title><h3>Vaccination: {vaccination.vaccine_name}</h3></Card.Title>

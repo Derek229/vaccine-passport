@@ -21,15 +21,8 @@ function UploadVaccImage(props) {
 
 
   const handleUpdate = (fileItems) => {
-    console.log('handleUpdate for image called')
     setFiles(fileItems);
-    logFiles(fileItems)
   };
-
-  const logFiles = (fileItems) => {
-    console.log('files: ', files)
-    console.log('fileItems: ', fileItems)
-  }
 
   const submitImage = async () => {
     try {
@@ -38,10 +31,8 @@ function UploadVaccImage(props) {
         // files[0].file  this will come in as params file
        data.append('file', files[0].file)
       let res = await axios.put(`/api/users/${auth.user.id}/vaccinations/${vaccination_id}`, data);
-      console.log(res.data);
     } catch (err) {
       console.log(err.response);
-      alert("Error submitting Image. Please try again.");
     }
 
   }

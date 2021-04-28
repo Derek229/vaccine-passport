@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Card, Modal, Button} from 'react-bootstrap'
 import UploadVaccImage from './UploadVaccImage'
+import '../ComponentStyles/container.css'
 
 const UserVaccine = (props) => {
 
@@ -31,7 +32,7 @@ const UserVaccine = (props) => {
 
   return(
     <div key={vaccine_id}>
-      <Card style={{ width: '15rem' }} style={{margin: '10px'}}>
+      <Card style={{ width: '15rem', margin: '10px'}}>
         <Card.Body>
         <Card.Img variant="top" src={vaccination.image} />
           <Card.Title><h3>Vaccination: {vaccine_name}</h3></Card.Title>

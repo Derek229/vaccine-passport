@@ -82,6 +82,18 @@ a:hover{
   position: relative;
 }
 
+.vaccineContainers {
+	/* display: flex; */
+  flex-direction: row;
+	text-align: center;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 30px 30px 30px 30px;
+  padding: 20px 20px 20px 20px;
+  background-color: white;
+  position: relative;
+}
+
 .leftalign{
   display: flex;
   flex-direction: row;
@@ -195,7 +207,7 @@ a:hover{
   align-items: center;
   flex-wrap: wrap;
   margin: 0 ;
-  padding: 0;
+  padding: 0 0 100px 0;
   width:100vw;
   height: 100vh;
   background: white;

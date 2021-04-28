@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy]
 
   def index
-    render json: User.all
+    render json: User.get_users_user
   end
 
   def show
@@ -52,6 +52,6 @@ class Api::UsersController < ApplicationController
   end
   
     def user_params 
-      params.permit(:name, :email, :image, :first_name, :last_name)
+      params.permit(:name, :age, :gender, :email, :image, :first_name, :last_name)
     end 
   end

@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Button} from 'react-bootstrap'
 
 
-const AdminVaccination = (props) => {
+const IssuerVaccination = (props) => {
 
   const {vaccination, setVaccinations, vaccinations, auth} = props
 
@@ -21,11 +21,9 @@ const AdminVaccination = (props) => {
   return(
     <>
       <tr>
-        <td>{vaccination.id}</td>
         <td>{vaccination.vaccine_name}</td>
         <td>{vaccination.manufacturer}</td>
         <td>{vaccination.email}</td>
-        <td>{vaccination.issuer_name}</td>
         <td>
           <Button className="ml-1 btn btn-danger" onClick={()=>deleteVaccination()}>Delete</Button>
         </td>
@@ -34,4 +32,4 @@ const AdminVaccination = (props) => {
       )
 }
 
-export default AdminVaccination
+export default IssuerVaccination
