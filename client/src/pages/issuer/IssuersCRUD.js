@@ -43,7 +43,6 @@ const IssuersCRUD = () => {
     <Table style={{padding: '0px', margin: '0', backgroundColor: 'white'}} responsive striped hover>
       <thead>
         <tr>
-          <th width="13%">Vaccination ID</th>
           <th>Vaccine Name</th>
           <th>Manufacturer</th>
           <th>Issued To</th>
