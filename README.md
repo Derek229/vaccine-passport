@@ -16,4 +16,4 @@
 
 Checkout the live production version of the site at https://vaccine-passport.herokuapp.com/
 
-Checkout the React Native companion app at https://github.com/react-native-webview/react-native-webview
+Checkout the React Native companion app at https://github.com/tvonhake/VaccinePassport-ReactNativeWebView
