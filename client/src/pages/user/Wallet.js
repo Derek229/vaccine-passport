@@ -24,7 +24,7 @@ const Wallet = () => {
        	 <h1>Your Personal QR Code</h1>
 				</Card>}
 				<Card className="header">
-       	 <QRCode value={auth.user.id} size={350} includeMargin={true} imageSettings="center"/>
+       	 <QRCode value={auth.user.id.toString()} size={350} includeMargin={true} imageSettings="center"/>
 				</Card>
       </div>
     </Container>

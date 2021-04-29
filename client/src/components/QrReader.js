@@ -37,15 +37,16 @@ class QReader extends Component {
   }
 
   renderListOfVaccines = list => {
-    return list.map(item => {
+    if(list.length >=1){return list.map(item => {
       return(
       <ListGroup key={item.vaccine_name}>
         <ListGroupItem>{item.vaccine_name}</ListGroupItem>
       </ListGroup>
       )
     }
-
-    )
+    )}else{return(<ListGroup>
+      <ListGroupItem>No vaccines.</ListGroupItem>
+    </ListGroup>)}
   }
 
   compareVaccines = (userArr, verifArr) => {
@@ -56,7 +57,7 @@ class QReader extends Component {
         result = "false"
       }
     })
-    return result
+    return(<><h3>User has all required vaccines: {result === "true" ? <a style={{color: 'green'}}>True</a> : <a style={{color: 'red'}}>False</a>}</h3></>)
   }
 
 
@@ -65,7 +66,7 @@ class QReader extends Component {
       <Container>
         <Row>
         <Col style={{display:'flex', flexDirection:'column', alignItem:'center', justifyContent:'center' }}>
-        {this.state.hasAllVaccines !== null ? <h3>User has all required vaccines: {this.compareVaccines(this.state.userVaccines, this.state.verifierVaccines)}</h3> : <h3>waiting for scan results</h3>}
+        {this.state.hasAllVaccines !== null ? this.compareVaccines(this.state.userVaccines, this.state.verifierVaccines) : <h3>waiting for scan results</h3>}
         <QrReader
           delay={300}
           onError={this.handleError}
@@ -78,7 +79,7 @@ class QReader extends Component {
         <Col style={{display:'flex', flexDirection:'column', alignItem:'center', justifyContent:'center' }}>
           {this.state.hasAllVaccines !== null && <h3>User's Vaccines: </h3>}
           {this.state.hasAllVaccines !== null && this.renderListOfVaccines(this.state.userVaccines)}
-          {this.state.hasAllVaccines !== null && <h3>Verifier's Vaccines: </h3>}
+          {this.state.hasAllVaccines !== null && <h3 style={{margin:'30px 0 0 0'}}>Required Vaccines: </h3>}
           {this.state.hasAllVaccines !== null && this.renderListOfVaccines(this.state.verifierVaccines)}
         </Col>
         </Row>
