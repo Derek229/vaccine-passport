@@ -72,9 +72,9 @@ const UserDashboard = (props) => {
            <Card.Title>{user?.first_name ? <h4>{user.first_name} {user.last_name}</h4> : <h4>{user.name} </h4>}</Card.Title>
          </Card.Body>
          <ListGroup className="list-group-flush">
-				 	<ListGroupItem>Age: {user.age}</ListGroupItem>
-				 	<ListGroupItem>Gender: {user.gender}</ListGroupItem>
-           <ListGroupItem>Email: {user.email}</ListGroupItem>
+				 	{user.role === "user" && <ListGroupItem>Age: {user.age}</ListGroupItem>}
+          {user.role === "user" && <ListGroupItem>Gender: {user.gender}</ListGroupItem>}
+          <ListGroupItem>Email: {user.email}</ListGroupItem>
          </ListGroup>
        </Card>
       </>
