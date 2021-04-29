@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect, useContext } from 'react'
-import {Button, Form } from 'react-bootstrap'
+import {Button, Container, Form } from 'react-bootstrap'
 import { Typeahead } from 'react-bootstrap-typeahead';
 import {AuthContext} from '../../providers/AuthProvider'
 
@@ -61,7 +61,7 @@ const VerifierReq = () => {
     let userOptions = normalizeUserData(users)
     return(
       <>
-    <Form onSubmit={getRequiredVaccines}>
+    <Form onSubmit={getRequiredVaccines} style={{marginBottom:'30px', backgroundColor:'white'}}>
     <Form.Group>
       <Form.Label>Select a User</Form.Label>
       <Typeahead
@@ -76,7 +76,7 @@ const VerifierReq = () => {
         options={userOptions}
       />
     </Form.Group>
-    <Button type='submit'> verify </Button>
+    <Button type='submit'> add </Button>
     </Form>
     </>
     )
@@ -99,10 +99,11 @@ const VerifierReq = () => {
 
   return (
     <div>
+      <Container>
     {chooseUserForm()}
     {requiredVaccines && renderRequiredVaccines(requiredVaccines)}
     {!requiredVaccines && <p>choose a user</p>}
-    
+    </Container>
     </div>
   )
 }
