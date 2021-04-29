@@ -12,7 +12,8 @@ const IssuerHomePage = () => {
 
     <div className="div">
       <div className="divcontainer">
-        <h1>Welcome {auth.user.name}</h1>
+        <h1>Welcome</h1>
+        <h4>{auth.user.name}</h4>
             <div>
               <div className="nav-wrapper1">
                 <div className="left-side1">
